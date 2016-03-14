@@ -275,6 +275,5 @@
 		<script src="js/lightbox.js"></script>
 		<script src="js/about.js"></script>
 		<script src="js/hide_submit.js"></script>
-		<script src="js/css_by_viewport.js"></script>
 	</body>
 </html>
