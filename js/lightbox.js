@@ -1,19 +1,19 @@
 $(document).ready(function() {
-	$(document).on('click', '.lightbox-img', function() {
+	$(document).on('click', '.lightbox-img', function(event) {
 		event.preventDefault();
-		var $img = $(this).attr("href");
+		var img = $(this).attr("href");
 		if ($('#lightbox').length > 0) {
-			$('#big-image').html('<img src="' + $img + '"/>');
+			$('#big-image').html('<img src="' + img + '"/>');
 		}
 		else {
-			var $lightbox = 
+			var lightbox = 
 				'<div id="lightbox" class="underlay-dim">' +
 					'<p>Click to close</p>' +
 					'<div id="big-image">' +
-						'<img src="' + $img + '"/>' +
+						'<img src="' + img + '"/>' +
 					'</div>' +
 				'</div>';
-			$('body').append($lightbox);
+			$('body').append(lightbox);
 		}
 		$('#lightbox').stop().show();
 	});

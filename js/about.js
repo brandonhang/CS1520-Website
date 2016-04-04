@@ -1,12 +1,12 @@
 $(document).ready(function() {
-	$(document).on('click', '#footer a', function() {
+	$(document).on('click', '#footer a', function(event) {
 		event.preventDefault();
 		
 		if ($('#site-info').length > 0) {
 			$('#site-info').show();
 		}
 		else {
-			var $info =
+			var info =
 				'<div id="site-info" class="underlay-dim">' +
 					'<p>Click to close</p>' +
 					'<div id="info-text">' +
@@ -45,7 +45,7 @@ $(document).ready(function() {
 						'<p>Special thanks to Matt Bowytz for teaching the course.</p>' +
 					'</div>' +
 				'</div>';
-			$('body').append($info);
+			$('body').append(info);
 			$('#site-info').stop().show();
 		}
 	});
