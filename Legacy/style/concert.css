@@ -1,0 +1,133 @@
+body {
+	font-family: 'Linden Hill', serif;
+	background-color: #FFFFCC;
+	color: #000000;
+}
+
+h1, h2, h3, h4, h5 {
+	text-align: center;
+}
+
+h1 {
+	font-size: 29px;
+}
+
+h2 {
+	font-size: 19px;
+	line-height: 0em;
+}
+
+h3 {
+	font-size: 24px;
+	font-weight: none;
+	font-style: italic;
+}
+
+h4 {
+	font-size: 13px;
+	font-weight: none;
+}
+
+h5 {
+	font-size: 15px;
+	font-weight: none;
+}
+
+div {
+	max-width: 50em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+ul {
+	max-width: 40em;
+	padding: 0;
+	margin: 0 auto;
+	overflow-x: hidden;
+	list-style: none;
+	line-height: 1.5em;
+	font-size: 17px;
+}
+
+.dots {
+	padding-top: 1em;
+}
+
+.dots::before {
+	float: left;
+	width: 0;
+	white-space: nowrap;
+	content:
+		"· · · · · · · · · · · · · · · · "
+		"· · · · · · · · · · · · · · · · "
+		"· · · · · · · · · · · · · · · · "
+		"· · · · · · · · · · · · · · · · "
+		"· · · · · · · · · · · · · · · · "
+		"· · · · · · · · · · · · · · · · ";
+}
+
+.tab {
+	padding-left: 2em;
+}
+
+.arr {
+	text-align: right;
+}
+
+ul span:first-child {
+	padding-right: 0.33em;
+	background-color: #FFFFCC;
+}
+
+ul span + span {
+	float: right;
+	padding-left: 0.33em;
+	background-color: #FFFFCC;
+}
+
+li a {
+	text-decoration: none;
+	color: #C70025;
+}
+
+li a:hover {
+	color: #E61927;
+}
+
+body > a {
+	position: fixed;
+	top: 4em;
+	left: -3.5em;
+	height: 4em;
+	width: 1.5em;
+	background-image: url('../img/icons/back-72px.png');
+	background-color: rgba(0, 0, 0, 0.5);
+	background-position: left center;
+	background-repeat: no-repeat;
+	background-size: 3.5em;
+	padding: 0 0 0 3.5em;
+	text-align: center;
+	text-decoration: none;
+	line-height: 5.2em;
+	font-size: 16px;
+	margin: 0;
+	
+	-webkit-transition: left 0.25s;
+	-o-transition: left 0.25s;
+	-moz-transition: left 0.25s;
+	transition: left 0.25s;
+}
+
+body > a span {
+	display: block;
+	color: #FFFFFF;
+	-webkit-transform: rotate(270deg);
+	-o-transform: rotate(270deg);
+	-moz-transform: rotate(270deg);
+	-ms-transform: rotate(270deg);
+	transform: rotate(270deg);
+}
+
+body > a:hover {
+	left: -0.2em;
+}
