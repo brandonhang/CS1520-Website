@@ -1,5 +1,6 @@
 // Media Queries
 $narrow-screen: "only screen and (max-width: 720px)";
+$bigger-screen: "only screen and (min-width: 721px)";
 $medium-screen: "only screen and (min-width: 721px) and (max-width: 999px)";
 $wide-screen: "only screen and (min-width: 1000px)";
 
@@ -130,44 +131,94 @@ p {
 	margin: 1em 1em;
 }
 
-#top-menu-container {
+.nav-container {
 	position: fixed;
-	top: 0;
+	display: block;
 	width: 100%;
 	height: 50px;
-	background-color: $pitt-blue;
+	top: 0;
 	opacity: 0.9;
 	z-index: 9001;
 	
-	div {
-		width: 80%;
+	@media #{$narrow-screen} {
+		background-color: $pitt-blue;
+	}
+	
+	> div {
+		width: 81%;
 		@include center-margin;
 		
 		@media #{$narrow-screen} {
 			width: 100%;
 		}
 		
+		> a {
+			line-height: 50px;
+			font-family: $sorts-goudy;
+			font-size: 23px;
+			color: #FFFFFF;
+			text-decoration: none;
+			padding-left: 45px;
+			background-image: url('../img/icons/logo-sm2.png');
+			background-position: left center;
+			background-repeat: no-repeat;
+			background-size: 40px;
+			@include grayscale(100%);
+			filter: gray;
+			@include transition-all(0.25s);
+			
+			@media #{$bigger-screen} {
+				float: left;
+			}
+			
+			@media #{$medium-screen} {
+				font-size: 18px;
+				padding-left: 35px;
+				background-size: 30px;
+			}
+			
+			@media #{$narrow-screen} {
+				display: block;
+				padding-left: 0;
+				background-size: 0;
+				text-align: center;
+			}
+			
+			&:hover {
+				color: $old-gold;
+				@include grayscale(0%);
+				filter: none;
+			}
+			
+			&:active {
+				@media #{$narrow-screen} {
+					@include grayscale(0%);
+					filter: none;
+				}
+			}
+		}
+		
 		li {
+			height: 50px;
+			line-height: 50px;
 			list-style-type: none;
 			background-position: left center;
 			background-repeat: no-repeat;
 			@include transition-bkgrd-color(0.25s);
 			
-			@media only screen and (min-width: 721px) {
+			@media #{$bigger-screen} {
 				float: left;
 			}
 			
-			@media only screen and (min-width: 721px) and (max-width: 999px) {
+			@media #{$medium-screen} {
 				background-size: 0;
 			}
 			
 			@media #{$narrow-screen} {
-				display: block;
-				background-color: $pitt-blue;
-				background-size: 0;
+				display: none;
 				
 				&:active {
-					color: $world-rally-blue;
+					background-color: $world-rally-blue;
 				}
 			}
 			
@@ -185,73 +236,88 @@ p {
 				padding-left: 32px;
 				padding-right: 5px;
 				
-				@media only screen and (min-width: 721px) and (max-width: 999px) {
+				@media #{$medium-screen} {
 					font-size: 13px;
 					padding-left: 7px;
 					padding-right: 7px;
 				}
-				
-				@media #{$narrow-screen} {
-					padding-left: 5px;
-					padding-right: 5px;
-					
-					&:active {
-						@include grayscale(0%);
-					}
+			}
+		}
+		
+		li.show-menu {				
+			@media #{$narrow-screen} {
+				display: block;
+				background-color: $pitt-blue;
+				background-size: 0;
+				height: 50px;
+				line-height: 50px;
+			}
+			
+			a {
+				@include transition-bkgrd-color(0.25s);
+				&:hover, &:active {
+					background-color: $world-rally-blue;
 				}
 			}
 		}
 	}
 }
 
-#page-top {
+#links {
+	position: relative;
+	width: auto;
 	
-}
-
-#menu-links {
-	@include zero-space;
-	height: 50px;
-	line-height: 50px;
+	@media #{$bigger-screen} {
+		float: right;
+	}
 	
-	> a {
-		font-family: $sorts-goudy;
-		font-size: 23px;
-		color: #FFFFFF;
-		text-decoration: none;
-		padding-left: 45px;
-		padding-right: calc((100vw * 0.8) - 808px);
-		background-image: url('../img/icons/logo-sm2.png');
-		background-position: left center;
-		background-repeat: no-repeat;
-		background-size: 40px;
-		@include grayscale(100%);
-		filter: gray;
-		@include transition-all(0.25s);
-		
-		@media only screen and (min-width: 721px) {
-			float: left;
-		}
-		
-		@media only screen and (min-width: 721px) and (max-width: 999px) {
-			font-size: 18px;
-			padding-left: 35px;
-			padding-right: calc((100vw * 0.8) - 585px);
-			background-size: 30px;
-		}
+	ul {
+		padding-left: 0;
+		display: inline;
 		
 		@media #{$narrow-screen} {
-			display: block;
-			padding-left: 0;
-			background-size: 0;
-			text-align: center;
-		}
-		
-		&:hover {
-			color: $old-gold;
-			@include grayscale(0%);
-			filter: none;
+			margin: 0;
 		}
 	}
+}
+
+.blue-menu {
+	position: absolute;
+	height: 50px;
+	width: 100%;
+	background-color: $pitt-blue;
+	@include zero-space;
+	border: none;
+	display: none;
+}
+
+#menu-button {
+	position: fixed;
+	top: 0;
+	right: 0;
+	@include zero-space;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	@include transition-bkgrd-color(0.25s);
+	
+	&:hover {
+		background-color: $world-rally-blue;
+	}
+	
+	&:active {
+		@media #{$narrow-screen} {
+			background-color: $world-rally-blue;
+		}
+	}
+	
+	@media #{$bigger-screen} {
+		display: none;
+	}
+}
+
+.menu-open {
+	content: url('../img/icons/menu-close-50px.png');	
 }
 
 
@@ -301,7 +367,7 @@ p {
 				max-width: 400px;
 			}
 			
-			@media only screen and (min-width: 721px) and (max-width: 999px) {
+			@media #{$medium-screen} {
 				width: 30vw;
 				margin: 0 2em 1em 0;
 			}
@@ -338,7 +404,7 @@ p {
 		width: 100%;
 		@include zero-space;
 		
-		@media only screen and (max-width: 999px) {
+		@media #{$narrow-screen} {
 			display: block;
 		}
 	}
@@ -352,7 +418,7 @@ p {
 			float: left;
 		}
 		
-		@media only screen and (max-width: 999px) {
+		@media #{$narrow-screen} {
 			display: block;
 			width: 100%;
 		}
@@ -363,7 +429,7 @@ p {
 			opacity: 0.8;
 			margin: 0 auto;
 			
-			@media only screen and (max-width: 999px) {
+			@media #{$narrow-screen} {
 				display: none;
 			}
 		}
@@ -376,7 +442,7 @@ p {
 			@include zero-space;
 			@include transition-opacity(0.25s);
 			
-			@media only screen and (min-width: 721px) and (max-width: 999px) {
+			@media #{$medium-screen} {
 				display: block;
 				margin: 0 auto;
 				padding-top: 0;
@@ -411,7 +477,7 @@ p {
 		}
 		
 		a[href*="github"] {
-			@media only screen and (min-width: 721px) and (max-width: 999px) {
+			@media #{$medium-screen} {
 				width: 3em;
 				padding-left: 100px;
 				background-image: url('../img/icons/github-220px.png');
@@ -421,7 +487,7 @@ p {
 		}
 		
 		a[href$=".pdf"] {
-			@media only screen and (min-width: 721px) and (max-width: 999px) {
+			@media #{$medium-screen} {
 				width: 3.5em;
 				padding-left: 88px;
 				background-image: url('../img/icons/resume-220px.png');
@@ -434,7 +500,7 @@ p {
 			margin-top: 0;
 			font-size: 16px;
 			
-			@media only screen and (max-width: 999px) {
+			@media #{$narrow-screen} {
 				margin-bottom: 1.5em;
 			}
 		}
@@ -810,7 +876,7 @@ h2 {
 	width: 70%;
 	@include center-margin;
 	
-	@media only screen and (min-width: 721px) and (max-width: 999px) {
+	@media #{$medium-screen} {
 		width: 80%;
 	}
 	
