@@ -102,13 +102,15 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
+		<meta charset="UTF-8"/>
 		<meta name="author" content="Brandon S. Hang"/>
 
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Sorts+Mill+Goudy' rel='stylesheet' type='text/css'/>
 		<link type="image/x-icon" rel="shortcut icon" href="img/icons/icon.ico"/>
-		<link id="css" type="text/css" rel="stylesheet" href="style/bhang-wide.css"/>
+	<!--<link id="css" type="text/css" rel="stylesheet" href="style/bhang-style.css"/>-->
+		<link id="css" type="text/css" rel="stylesheet" href="style/sassy-hang.css"/>
 		
 		<title>Brandon S. Hang</title>
 
@@ -117,9 +119,9 @@
 	
 		<!-- Navigation Bar -->
 		<div id="top-menu-container">
-			<div id="top-menu">
+			<div>
 				<ul id="menu-links">
-					<a id="page-top" href="#top">Brandon S. Hang</a>
+					<a href="#top">Brandon S. Hang</a>
 					<?php
 						$icon_pics = array(
 							"img/icons/icon-book-29px.png",
@@ -149,7 +151,7 @@
 		
 		<!-- Introduction Section -->
 		<div id="top" class="container">
-			<div id="intro" class="content">
+			<div class="content">
 				<img src="img/bkgrds/myface-circle.png" alt="It's my face..."/>
 				<h1>Car enthusiast, NBA junkie, musician, and all-around swell guy</h1>
 			</div>
@@ -157,7 +159,7 @@
 		
 		<!-- About Me Section -->
 		<div id="about" class="container">
-			<div id="bio" class="content">
+			<div class="content">
 				<h2>About Me</h2>
 				<img src="img/bkgrds/about-pic.jpg" alt="Flying kick!"/>
 				<?php
@@ -168,7 +170,7 @@
 		
 		<!-- Programming Section -->
 		<div id="programming" class="container">
-			<div id="coding" class="content">
+			<div class="content">
 				<h2>Programming</h2>
 				
 				<ul>
@@ -197,7 +199,7 @@
 		
 		<!-- Interests Section -->
 		<div id="interests" class="container">
-			<div id="likes" class="content">
+			<div class="content">
 				<h2>Interests</h2>
 				<ul>
 					<?php
@@ -231,7 +233,7 @@
 		
 		<!-- Contact Form -->
 		<div id="contact" class="container">
-			<div id="msg-me" class="content">
+			<div class="content">
 				<h2>Contact</h2>
 				<form action="index.php#contact" method="POST">
 					<h5>Name</h5>
@@ -277,3 +279,36 @@
 		<script src="js/hide_submit.js"></script>
 	</body>
 </html>
+<!--
+            `Nd      `sdo`    
+      ```.-+dMm:`      .Nh    
+     `oyysyMMNyys`      hN    
+          /Mm.          dd    
+         /Mm.      `-::/Md.   
+        /Mh`      -oso+yMmymy-
+       +Ms             `NN-dMd
+      sd:-/ossso:      `NmMh: 
+h.   /hddyo+//:yMd    `hMN:   
+M. +md+`      /NN+  :yNMMMMy  
+M../`` :smMNmdN+  -NMMMMMMM:  
+N:  sNNMmo+MMh.   /dmsdMMM/   
+do  yMmsshMMh mMm.    hMNmmy. 
+sd   -+sMymMMyMd:   `sMM:..mh 
+.o   :dm:.MMMh:    -NMMMy. mN 
+   /dMN+smMN+      -mMM+  :Mm 
+  oMMMMd+hMM+        hN  /NN- 
+  `oo:   `-`         hMdNMd-  
+                     Nm//-    
+                    .Ms       
+                    +M-       
+                    dm        
+                   .M+        
+                   oN`        
+                   ms         
+                  .M.         
+                  om          
+                  hh          
+                  dy          
+                  ms          
+                  yo
+-->
