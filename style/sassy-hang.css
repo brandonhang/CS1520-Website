@@ -7,22 +7,75 @@ p {
   font-size: 18px;
   margin: 1em 1em; }
 
-#top-menu-container {
+.nav-container {
   position: fixed;
-  top: 0;
+  display: block;
   width: 100%;
   height: 50px;
-  background-color: #0C1155;
+  top: 0;
   opacity: 0.9;
   z-index: 9001; }
-  #top-menu-container div {
-    width: 80%;
+  @media only screen and (max-width: 720px) {
+    .nav-container {
+      background-color: #0C1155; } }
+  .nav-container > div {
+    width: 81%;
     margin-left: auto;
     margin-right: auto; }
     @media only screen and (max-width: 720px) {
-      #top-menu-container div {
+      .nav-container > div {
         width: 100%; } }
-    #top-menu-container div li {
+    .nav-container > div > a {
+      line-height: 50px;
+      font-family: "Sorts Mill Goudy", serif;
+      font-size: 23px;
+      color: #FFFFFF;
+      text-decoration: none;
+      padding-left: 45px;
+      background-image: url("../img/icons/logo-sm2.png");
+      background-position: left center;
+      background-repeat: no-repeat;
+      background-size: 40px;
+      -webkit-filter: grayscale(100%);
+      -o-filter: grayscale(100%);
+      -moz-filter: grayscale(100%);
+      filter: grayscale(100%);
+      filter: gray;
+      -webkit-transition: all 0.25s;
+      -o-transition: all 0.25s;
+      -moz-transition: all 0.25s;
+      transition: all 0.25s; }
+      @media only screen and (min-width: 721px) {
+        .nav-container > div > a {
+          float: left; } }
+      @media only screen and (min-width: 721px) and (max-width: 999px) {
+        .nav-container > div > a {
+          font-size: 18px;
+          padding-left: 35px;
+          background-size: 30px; } }
+      @media only screen and (max-width: 720px) {
+        .nav-container > div > a {
+          display: block;
+          padding-left: 0;
+          background-size: 0;
+          text-align: center; } }
+      .nav-container > div > a:hover {
+        color: #D4B92B;
+        -webkit-filter: grayscale(0%);
+        -o-filter: grayscale(0%);
+        -moz-filter: grayscale(0%);
+        filter: grayscale(0%);
+        filter: none; }
+      @media only screen and (max-width: 720px) {
+        .nav-container > div > a:active {
+          -webkit-filter: grayscale(0%);
+          -o-filter: grayscale(0%);
+          -moz-filter: grayscale(0%);
+          filter: grayscale(0%);
+          filter: none; } }
+    .nav-container > div li {
+      height: 50px;
+      line-height: 50px;
       list-style-type: none;
       background-position: left center;
       background-repeat: no-repeat;
@@ -31,21 +84,19 @@ p {
       -moz-transition: background-color 0.25s;
       transition: background-color 0.25s; }
       @media only screen and (min-width: 721px) {
-        #top-menu-container div li {
+        .nav-container > div li {
           float: left; } }
       @media only screen and (min-width: 721px) and (max-width: 999px) {
-        #top-menu-container div li {
+        .nav-container > div li {
           background-size: 0; } }
       @media only screen and (max-width: 720px) {
-        #top-menu-container div li {
-          display: block;
-          background-color: #0C1155;
-          background-size: 0; }
-          #top-menu-container div li:active {
-            color: #0736F8; } }
-      #top-menu-container div li:hover {
+        .nav-container > div li {
+          display: none; }
+          .nav-container > div li:active {
+            background-color: #0736F8; } }
+      .nav-container > div li:hover {
         background-color: #0736F8; }
-      #top-menu-container div li a {
+      .nav-container > div li a {
         display: block;
         color: #FFFFFF;
         text-align: center;
@@ -55,67 +106,72 @@ p {
         padding-left: 32px;
         padding-right: 5px; }
         @media only screen and (min-width: 721px) and (max-width: 999px) {
-          #top-menu-container div li a {
+          .nav-container > div li a {
             font-size: 13px;
             padding-left: 7px;
             padding-right: 7px; } }
-        @media only screen and (max-width: 720px) {
-          #top-menu-container div li a {
-            padding-left: 5px;
-            padding-right: 5px; }
-            #top-menu-container div li a:active {
-              -webkit-filter: grayscale(0%);
-              -o-filter: grayscale(0%);
-              -moz-filter: grayscale(0%);
-              filter: grayscale(0%); } }
+    @media only screen and (max-width: 720px) {
+      .nav-container > div li.show-menu {
+        display: block;
+        background-color: #0C1155;
+        background-size: 0;
+        height: 50px;
+        line-height: 50px; } }
+    .nav-container > div li.show-menu a {
+      -webkit-transition: background-color 0.25s;
+      -o-transition: background-color 0.25s;
+      -moz-transition: background-color 0.25s;
+      transition: background-color 0.25s; }
+      .nav-container > div li.show-menu a:hover, .nav-container > div li.show-menu a:active {
+        background-color: #0736F8; }
 
-#menu-links {
+#links {
+  position: relative;
+  width: auto; }
+  @media only screen and (min-width: 721px) {
+    #links {
+      float: right; } }
+  #links ul {
+    padding-left: 0;
+    display: inline; }
+    @media only screen and (max-width: 720px) {
+      #links ul {
+        margin: 0; } }
+
+.blue-menu {
+  position: absolute;
+  height: 50px;
+  width: 100%;
+  background-color: #0C1155;
   margin: 0;
   padding: 0;
+  border: none;
+  display: none; }
+
+#menu-button {
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  width: 50px;
   height: 50px;
-  line-height: 50px; }
-  #menu-links > a {
-    font-family: "Sorts Mill Goudy", serif;
-    font-size: 23px;
-    color: #FFFFFF;
-    text-decoration: none;
-    padding-left: 45px;
-    padding-right: calc((100vw * 0.8) - 808px);
-    background-image: url("../img/icons/logo-sm2.png");
-    background-position: left center;
-    background-repeat: no-repeat;
-    background-size: 40px;
-    -webkit-filter: grayscale(100%);
-    -o-filter: grayscale(100%);
-    -moz-filter: grayscale(100%);
-    filter: grayscale(100%);
-    filter: gray;
-    -webkit-transition: all 0.25s;
-    -o-transition: all 0.25s;
-    -moz-transition: all 0.25s;
-    transition: all 0.25s; }
-    @media only screen and (min-width: 721px) {
-      #menu-links > a {
-        float: left; } }
-    @media only screen and (min-width: 721px) and (max-width: 999px) {
-      #menu-links > a {
-        font-size: 18px;
-        padding-left: 35px;
-        padding-right: calc((100vw * 0.8) - 585px);
-        background-size: 30px; } }
-    @media only screen and (max-width: 720px) {
-      #menu-links > a {
-        display: block;
-        padding-left: 0;
-        background-size: 0;
-        text-align: center; } }
-    #menu-links > a:hover {
-      color: #D4B92B;
-      -webkit-filter: grayscale(0%);
-      -o-filter: grayscale(0%);
-      -moz-filter: grayscale(0%);
-      filter: grayscale(0%);
-      filter: none; }
+  cursor: pointer;
+  -webkit-transition: background-color 0.25s;
+  -o-transition: background-color 0.25s;
+  -moz-transition: background-color 0.25s;
+  transition: background-color 0.25s; }
+  #menu-button:hover {
+    background-color: #0736F8; }
+  @media only screen and (max-width: 720px) {
+    #menu-button:active {
+      background-color: #0736F8; } }
+  @media only screen and (min-width: 721px) {
+    #menu-button {
+      display: none; } }
+
+.menu-open {
+  content: url("../img/icons/menu-close-50px.png"); }
 
 /* ~~~~~~~~ Intro panel ~~~~~~~~ */
 #top {
@@ -192,7 +248,7 @@ p {
     width: 100%;
     margin: 0;
     padding: 0; }
-    @media only screen and (max-width: 999px) {
+    @media only screen and (max-width: 720px) {
       #programming ul {
         display: block; } }
   #programming li {
@@ -202,7 +258,7 @@ p {
     @media only screen and (min-width: 1000px) {
       #programming li {
         float: left; } }
-    @media only screen and (max-width: 999px) {
+    @media only screen and (max-width: 720px) {
       #programming li {
         display: block;
         width: 100%; } }
@@ -211,7 +267,7 @@ p {
       height: 180px;
       opacity: 0.8;
       margin: 0 auto; }
-      @media only screen and (max-width: 999px) {
+      @media only screen and (max-width: 720px) {
         #programming li > img {
           display: none; } }
     #programming li a {
@@ -266,7 +322,7 @@ p {
     #programming li p {
       margin-top: 0;
       font-size: 16px; }
-      @media only screen and (max-width: 999px) {
+      @media only screen and (max-width: 720px) {
         #programming li p {
           margin-bottom: 1.5em; } }
 
