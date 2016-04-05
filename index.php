@@ -109,7 +109,6 @@
 
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Sorts+Mill+Goudy' rel='stylesheet' type='text/css'/>
 		<link type="image/x-icon" rel="shortcut icon" href="img/icons/icon.ico"/>
-	<!--<link id="css" type="text/css" rel="stylesheet" href="style/bhang-style.css"/>-->
 		<link id="css" type="text/css" rel="stylesheet" href="style/sassy-hang.css"/>
 		
 		<title>Brandon S. Hang</title>
@@ -118,37 +117,40 @@
 	<body>
 	
 		<!-- Navigation Bar -->
-		<div id="top-menu-container">
+		<div class="nav-container">
+			<hr class="blue-menu"></hr>
 			<div>
-				<ul id="menu-links">
-					<a href="#top">Brandon S. Hang</a>
-					<?php
-						$icon_pics = array(
-							"img/icons/icon-book-29px.png",
-							"img/icons/icon-pc-29px.png",
-							"img/icons/icon-music-29px.png",
-							"img/icons/icon-email-29px.png");
-						$icon_links = array(
-							"#about",
-							"#programming",
-							"#interests",
-							"#contact",);
-						$icon_text = array(
-							"About Me",
-							"Programming",
-							"Interests",
-							"Contact Me",);
-						
-						foreach ($icon_pics as $index => $icon) {		// Builds the top nav menu
-							echo
-								"<li style=\"background-image: url('$icon');\">
-								<a href='$icon_links[$index]'>$icon_text[$index]</a></li>";
-						}
-					?>
-				</ul>
+				<a href="#top">Brandon S. Hang</a>
+				<img id="menu-button" src="img/icons/menu-open-50px.png"/>
+				<div id="links">
+					<ul>
+						<?php
+							$icon_pics = array(
+								"img/icons/icon-book-29px.png",
+								"img/icons/icon-pc-29px.png",
+								"img/icons/icon-music-29px.png",
+								"img/icons/icon-email-29px.png");
+							$icon_links = array(
+								"#about",
+								"#programming",
+								"#interests",
+								"#contact",);
+							$icon_text = array(
+								"About Me",
+								"Programming",
+								"Interests",
+								"Contact Me",);
+							
+							foreach ($icon_pics as $index => $icon) {		// Builds the top nav menu
+								echo
+									"<li style=\"background-image: url('$icon');\">
+									<a href='$icon_links[$index]'>$icon_text[$index]</a></li>";
+							}
+						?>
+					</ul>
+				</div>
 			</div>
 		</div>
-		
 		<!-- Introduction Section -->
 		<div id="top" class="container">
 			<div class="content">
@@ -271,6 +273,7 @@
 		<!-- Scripts -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 		<script src="js/jquery.easing.1.3.js"></script>
+		<script src="js/mobile-menu.js"></script>
 		<script src="js/easing_nav_jump.js"></script>
 		<script src="js/hide_terms.js"></script>
 		<script src="js/toggle_interests.js"></script>
