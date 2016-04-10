@@ -170,6 +170,47 @@
 			</div>
 		</div>
 		
+		<div id="prog" class="container">
+			<div class="content">
+				<h2>Programming</h2>
+				<section>
+					<div id="git-card">
+						<div>
+							<div class="tooltip">
+								<img class="git-status"/>
+								<img class="git-logo" src="img/icons/github-40px.png"/>
+								<span></span>
+							</div>
+						</div>
+						<a href="https://github.com/brandonhang" target="blank"></a>
+						<span></span>
+						<table>
+							<tr>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>
+									<a href="https://github.com/brandonhang?tab=repositories" target="blank">REPOS</a>
+								</td>
+								<td>
+									<a href="https://github.com/brandonhang/followers" target="blank">FOLLOWERS</a>
+								</td>
+							</tr>
+						</table>
+						<img id="git-pic"/>
+					</div>
+					<p>
+						You can find my GitHub page here containing my some of my projects both
+						past and present.  Also shown is a tree of some finished projects done
+						at the University of Pittsburgh.
+					</p>
+				</section>
+				<div id="cs-tree"></div>
+			</div>
+		</div>
+		
+		
 		<!-- Programming Section -->
 		<div id="programming" class="container">
 			<div class="content">
@@ -220,19 +261,6 @@
 			</div>
 		</div>
 		
-		<!-- Cookies TOC -->
-		<?php if ($display_alert === TRUE) { ?>
-			<div id="cookie-terms">
-				<p>
-					This site uses cookies (not the sugary, cavity-inducing type) to make your
-					browsing experience awesome.  No personal or sensitive information is ever
-					stored.  By continuing to use this site, you agree to this use of cookies
-					and understand that they are not edible, baked goods.
-				</p>
-				<button id="accept-button" class="button">I Understand</button>
-			</div>
-		<?php }; ?>
-		
 		<!-- Contact Form -->
 		<div id="contact" class="container">
 			<div class="content">
@@ -270,8 +298,23 @@
 			<a href="#">About this site</a>
 		</div>
 		
+		<!-- Cookies TOC -->
+		<?php if ($display_alert === TRUE) { ?>
+			<div id="cookie-terms">
+				<p>
+					This site uses cookies (not the sugary, cavity-inducing type) to make your
+					browsing experience awesome.  No personal or sensitive information is ever
+					stored.  By continuing to use this site, you agree to this use of cookies
+					and understand that they are not edible, baked goods.
+				</p>
+				<button id="accept-button" class="button">I Understand</button>
+			</div>
+		<?php }; ?>
+		
 		<!-- Scripts -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+		<script src="js/cs_tree.js"></script>
 		<script src="js/jquery.easing.1.3.js"></script>
 		<script src="js/mobile-menu.js"></script>
 		<script src="js/easing_nav_jump.js"></script>
@@ -280,6 +323,8 @@
 		<script src="js/lightbox.js"></script>
 		<script src="js/about.js"></script>
 		<script src="js/hide_submit.js"></script>
+		<script src="js/github_api.js"></script>
+		
 	</body>
 </html>
 <!--
