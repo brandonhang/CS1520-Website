@@ -29,7 +29,7 @@ p {
       line-height: 50px;
       font-family: "Sorts Mill Goudy", serif;
       font-size: 23px;
-      color: #FFFFFF;
+      color: white;
       text-decoration: none;
       padding-left: 45px;
       background-image: url("../img/icons/logo-sm2.png");
@@ -98,7 +98,7 @@ p {
         background-color: #0736F8; }
       .nav-container > div li a {
         display: block;
-        color: #FFFFFF;
+        color: white;
         text-align: center;
         text-decoration: none;
         text-transform: uppercase;
@@ -199,7 +199,7 @@ p {
     #top div h1 {
       font-size: 24px;
       font-weight: bold;
-      color: #FFFFFF;
+      color: white;
       text-align: center;
       margin-top: 50px; }
 
@@ -211,7 +211,7 @@ p {
   background-image: url("../img/bkgrds/bkgrd-tile.png");
   background-repeat: repeat; }
   #about div img {
-    border: 5px solid #FFFFFF;
+    border: 5px solid white;
     outline: 1px solid #A3A3A3;
     box-shadow: 8px 8px 3px 0px #838383;
     float: left;
@@ -232,6 +232,191 @@ p {
     display: table;
     clear: both; }
 
+/* ~~~~~~~~ Programming section pt. 2 ~~~~~~~~ */
+#prog {
+  background-color: #D2D8E1;
+  background-image: url("../img/bkgrds/bkgrd-tile.png");
+  background-repeat: repeat; }
+  @media only screen and (min-width: 1030px) {
+    #prog .content {
+      width: 80%; } }
+  @media only screen and (min-width: 1030px) {
+    #prog section {
+      width: 325px;
+      position: absolute; } }
+  #prog section p {
+    font-size: 16px; }
+    @media only screen and (min-width: 1030px) {
+      #prog section p {
+        margin: 3.2em 0 0 0; } }
+    @media only screen and (max-width: 1029px) {
+      #prog section p {
+        margin: 2em auto 0 auto;
+        width: 80%; } }
+
+#git-card {
+  position: relative;
+  width: 350px;
+  height: 150px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  box-shadow: 8px 8px 3px 0px #838383;
+  border: 1px solid #A3A3A3;
+  background-color: white; }
+  @media only screen and (min-width: 1030px) {
+    #git-card {
+      margin-top: 2.5em; } }
+  @media only screen and (max-width: 1029px) {
+    #git-card {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 4em; } }
+  #git-card > div {
+    position: relative;
+    height: 50px;
+    background: -o-linear-gradient(left, #0C1155, #0736F8);
+    background: -moz-linear-gradient(left, #0C1155, #0736F8);
+    background: linear-gradient(left, #0C1155, #0736F8);
+    background: -webkit-linear-gradient(right, #0C1155, #0736F8); }
+    #git-card > div div.tooltip {
+      height: 50px;
+      margin: 0;
+      text-align: right; }
+      #git-card > div div.tooltip img.git-status {
+        opacity: 0.15;
+        -webkit-transition: opacity 0.25s;
+        -o-transition: opacity 0.25s;
+        -moz-transition: opacity 0.25s;
+        transition: opacity 0.25s; }
+      #git-card > div div.tooltip img.git-logo {
+        margin: 5px 5px 5px 0; }
+      #git-card > div div.tooltip span {
+        position: relative;
+        display: block;
+        top: -68px;
+        right: -310px;
+        width: 195px;
+        height: auto;
+        opacity: 0;
+        visibility: hidden;
+        padding: 0.2em;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        border-radius: 4px;
+        background-color: #D2D8E1;
+        color: black;
+        text-align: center;
+        font-size: 12px;
+        -webkit-transition: visibility 0s 0.25s, opacity 0.25s;
+        -o-transition: visibility 0s 0.25s, opacity 0.25s;
+        -moz-transition: visibility 0s 0.25s, opacity 0.25s;
+        transition: visibility 0s 0.25s, opacity 0.25s; }
+        #git-card > div div.tooltip span::after {
+          content: " ";
+          position: absolute;
+          top: 50%;
+          right: 100%;
+          margin-top: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: transparent #D2D8E1 transparent transparent; }
+      #git-card > div div.tooltip:hover img.git-status {
+        opacity: 1.0; }
+      #git-card > div div.tooltip:hover span {
+        visibility: visible;
+        opacity: 1.0;
+        transition-delay: 0s; }
+  #git-card > a {
+    text-decoration: none;
+    display: block;
+    -webkit-transition: color 0.25s;
+    -o-transition: color 0.25s;
+    -moz-transition: color 0.25s;
+    transition: color 0.25s;
+    margin-top: 8px;
+    margin-left: 117px;
+    font-size: 18px;
+    color: black; }
+    #git-card > a:hover {
+      color: #D4B92B; }
+  #git-card > span {
+    margin-top: 3px;
+    margin-left: 98px;
+    font-size: 13px;
+    color: #838383;
+    padding-left: 20px;
+    background-image: url("../img/icons/github-co-16px.png");
+    background-position: left center;
+    background-repeat: no-repeat; }
+  #git-card table {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    border-top: 1px solid #A3A3A3;
+    border-collapse: collapse;
+    table-layout: fixed; }
+    #git-card table tr {
+      width: 50%;
+      text-align: center; }
+      #git-card table tr:first-of-type td {
+        padding-top: 0.3em;
+        font-weight: bold;
+        font-size: 16px; }
+      #git-card table tr:last-of-type td a {
+        text-decoration: none;
+        padding-bottom: 0.3em;
+        font-size: 13px;
+        color: #A8A8A8;
+        -webkit-transition: color 0.25s;
+        -o-transition: color 0.25s;
+        -moz-transition: color 0.25s;
+        transition: color 0.25s; }
+        #git-card table tr:last-of-type td a:hover {
+          color: #0736F8; }
+      #git-card table tr td:first-of-type {
+        border-right: 1px solid #A3A3A3; }
+  #git-card > img {
+    position: absolute;
+    display: block;
+    width: 123px;
+    height: 123px;
+    top: -34px;
+    left: -23px;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    border-radius: 100%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 1pt #838383; }
+
+@media only screen and (min-width: 1030px) {
+  #cs-tree {
+    text-align: right;
+    margin-top: 3em; } }
+@media only screen and (max-width: 1029px) {
+  #cs-tree {
+    text-align: center; } }
+#cs-tree .node {
+  cursor: pointer; }
+  #cs-tree .node circle {
+    fill: white;
+    stroke: #838383;
+    stroke-width: 2px; }
+  #cs-tree .node text {
+    font-size: 13px;
+    color: black; }
+#cs-tree .link {
+  fill: none;
+  stroke: #EDEDED;
+  stroke-width: 2px; }
+
 /* ~~~~~~~~ Programming section ~~~~~~~~ */
 #programming {
   background-image: url("../img/bkgrds/bkgrd-02.jpg");
@@ -240,9 +425,9 @@ p {
   background-size: cover;
   background-color: #2E2635;
   min-height: calc(100vh - 60px);
-  color: #FFFFFF; }
+  color: white; }
   #programming h2 {
-    color: #FFFFFF; }
+    color: white; }
   #programming ul {
     display: inline-block;
     width: 100%;
@@ -343,7 +528,7 @@ p {
         height: 88px;
         font-size: 25px;
         text-decoration: none;
-        color: #FFFFFF;
+        color: white;
         background-color: #8C5DCA;
         border-bottom: 5px solid #7c5ea3;
         box-shadow: 8px 8px 3px 0px #838383; }
@@ -374,7 +559,7 @@ p {
     float: left;
     width: 200px;
     margin: 0 1em 1em 0;
-    border: 5px solid #FFFFFF;
+    border: 5px solid white;
     outline: 1px solid #A3A3A3;
     box-shadow: 8px 8px 3px 0px #838383; }
   .hobby-desc p {
@@ -399,7 +584,7 @@ p {
 
 /* ~~~~~~~~ Contact form ~~~~~~~~ */
 #contact {
-  background-color: #000000;
+  background-color: black;
   background-image: url("../img/bkgrds/pitt-skyline.png");
   background-position: center bottom;
   background-repeat: no-repeat;
@@ -417,7 +602,7 @@ p {
         background-position: 95% center; } }
   #contact div {
     padding-top: 30px;
-    color: #FFFFFF; }
+    color: white; }
     #contact div form {
       display: inline-block;
       width: 65%; }
@@ -455,7 +640,7 @@ p {
       #contact div form input[type=submit] {
         width: 5em;
         background-color: #E34234;
-        color: #FFFFFF;
+        color: white;
         border: none; }
       #contact div form input[type=submit]:hover {
         background-color: #CC0000; }
@@ -476,7 +661,7 @@ p {
   max-height: 50vw;
   margin: 0 auto;
   padding: 0.5em;
-  background-color: #FFFFFF;
+  background-color: white;
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -487,12 +672,12 @@ p {
 #message-sent h3 {
   font-size: 18px;
   font-weight: none;
-  color: #000000; }
+  color: black; }
 #message-sent button {
   display: block;
   margin: 0 auto 1em auto;
   background-color: #E85F11;
-  color: #FFFFFF; }
+  color: white; }
   #message-sent button:hover {
     background-color: #E89C11; }
   @media only screen and (max-width: 720px) {
@@ -506,7 +691,7 @@ p {
   line-height: 50px;
   background-color: #67613C;
   font-size: 15px;
-  color: #FFFFFF;
+  color: white;
   font-weight: normal;
   margin: 0;
   padding-left: 1em;
@@ -516,7 +701,7 @@ p {
     background-position: left center;
     background-repeat: no-repeat;
     background-size: 1.2em;
-    color: #FFFFFF;
+    color: white;
     float: right;
     padding-right: 1.5em;
     padding-left: 1.5em;
@@ -533,7 +718,7 @@ p {
 /* ~~~~~~~~ Site info popup ~~~~~~~~ */
 #site-info > p {
   text-align: right;
-  color: #FFFFFF;
+  color: white;
   margin-right: 20px;
   font-size: 12px; }
 #site-info div {
@@ -551,7 +736,7 @@ p {
   transform: translateY(-50%); }
   #site-info div h1 {
     font-size: 25px;
-    color: #FFFFFF; }
+    color: white; }
   #site-info div p {
     font-size: 15px;
     color: #CCCCCC; }
@@ -561,7 +746,7 @@ p {
   position: fixed;
   bottom: 0;
   padding-bottom: 1em;
-  background-color: #FFFFFF;
+  background-color: white;
   border-top: 5px solid #B42929;
   z-index: 9001; }
   #cookie-terms p {
@@ -573,7 +758,7 @@ p {
   margin-left: auto;
   margin-right: auto;
   background-color: #00A86B;
-  color: #FFFFFF; }
+  color: white; }
   #accept-button:hover {
     background-color: #014225; }
   @media only screen and (max-width: 720px) {
@@ -583,7 +768,7 @@ p {
 /* ~~~~~~~~ Common elements ~~~~~~~~ */
 #lightbox p {
   text-align: right;
-  color: #FFFFFF;
+  color: white;
   margin-right: 20px;
   font-size: 12px; }
 #lightbox div {

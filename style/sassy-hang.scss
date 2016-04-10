@@ -3,6 +3,8 @@ $narrow-screen: "only screen and (max-width: 720px)";
 $bigger-screen: "only screen and (min-width: 721px)";
 $medium-screen: "only screen and (min-width: 721px) and (max-width: 999px)";
 $wide-screen: "only screen and (min-width: 1000px)";
+$big-tree: "only screen and (min-width: 1030px)";
+$small-tree: "only screen and (max-width: 1029px)";
 
 // Fonts
 $sorts-goudy: 'Sorts Mill Goudy', serif;
@@ -16,10 +18,11 @@ $ice-silver: #D2D8E1;
 $dark-purple: #2E2635;
 $brick-red: #B42929;
 $british-racing-green: #014225;
+$asteroid-grey: #838383;
 
 // Misc
 $outline: 1px solid #A3A3A3;
-$box-shadow: 8px 8px 3px 0px #838383;
+$box-shadow: 8px 8px 3px 0px $asteroid-grey;
 
 // Mixins
 @mixin zero-space {
@@ -33,7 +36,7 @@ $box-shadow: 8px 8px 3px 0px #838383;
 }
 
 @mixin picture-border {
-	border: 5px solid #FFFFFF;
+	border: 5px solid white;
 	outline: $outline;
 	box-shadow: $box-shadow;
 }
@@ -62,6 +65,37 @@ $box-shadow: 8px 8px 3px 0px #838383;
 	-o-filter: grayscale($percent);
 	-moz-filter: grayscale($percent);
 	filter: grayscale($percent);
+}
+
+@mixin linear-gradient($direction, $gradient...) {
+	background: -o-linear-gradient($direction, $gradient...);
+	background: -moz-linear-gradient($direction, $gradient...);
+	background: linear-gradient($direction, $gradient...);
+	
+	@if $direction == left {
+		background: -webkit-linear-gradient(right, $gradient...);
+	}
+	@else if $direction == right {
+		background: -webkit-linear-gradient(left, $gradient...);
+	}
+	@else if $direction == top {
+		background: -webkit-linear-gradient(bottom, $gradient...);
+	}
+	@else if $direction == bottom {
+		background: -webkit-linear-gradient(top, $gradient...);
+	}
+	@else if $direction == top left or $direction == left top {
+		background: -webkit-linear-gradient(bottom right, $gradient...);
+	}
+	@else if $direction == top right or $direction == right top {
+		background: -webkit-linear-gradient(bottom left, $gradient...);
+	}
+	@else if $direction == bottom left or $direction == left bottom {
+		background: -webkit-linear-gradient(top right, $gradient...);
+	}
+	@else {
+		background: -webkit-linear-gradient(top left, $gradient...);
+	}
 }
 
 @mixin transition-all($seconds) {
@@ -106,6 +140,14 @@ $box-shadow: 8px 8px 3px 0px #838383;
 	-moz-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
+}
+
+@mixin transform-transY($num) {	
+	-webkit-transform: translateY($num);
+	-o-transform: translateY($num);
+	-moz-transform: translateY($num);
+	-ms-transform: translateY($num);
+	transform: translateY($num);
 }
 
 @mixin rotate-180 {
@@ -156,7 +198,7 @@ p {
 			line-height: 50px;
 			font-family: $sorts-goudy;
 			font-size: 23px;
-			color: #FFFFFF;
+			color: white;
 			text-decoration: none;
 			padding-left: 45px;
 			background-image: url('../img/icons/logo-sm2.png');
@@ -228,7 +270,7 @@ p {
 			
 			a {
 				display: block;
-				color: #FFFFFF;
+				color: white;
 				text-align: center;
 				text-decoration: none;
 				text-transform: uppercase;
@@ -343,7 +385,7 @@ p {
 		h1 {
 			font-size: 24px;
 			font-weight: bold;
-			color: #FFFFFF;
+			color: white;
 			text-align: center;
 			margin-top: 50px;
 		}
@@ -387,16 +429,246 @@ p {
 }
 
 
+/* ~~~~~~~~ Programming section pt. 2 ~~~~~~~~ */
+#prog {
+	@include tile;
+	
+	.content {
+		@media #{$big-tree} {
+			width: 80%;
+		}
+	}
+	
+	section {
+		@media #{$big-tree} {
+			width: 325px;
+			position: absolute;
+		}
+		
+		p {
+			font-size: 16px;
+			
+			@media #{$big-tree} {
+				margin: 3.2em 0 0 0;
+			}
+			
+			@media #{$small-tree} {
+				margin: 2em auto 0 auto;
+				width: 80%;
+			}
+		}
+	}
+}
+
+#git-card {
+	position: relative;
+	width: 350px;
+	height: 150px;
+	@include border-radius(4px);
+	box-shadow: $box-shadow;
+	border: $outline;
+	background-color: white;
+	
+	@media #{$big-tree} {
+		margin-top: 2.5em;
+	}
+	
+	@media #{$small-tree} {
+		@include center-margin;
+		margin-top: 4em;
+	}
+	
+	> div {
+		position: relative;
+		height: 50px;
+		@include linear-gradient(left, $pitt-blue, $world-rally-blue);
+		
+		div.tooltip {
+			height: 50px;
+			margin: 0;
+			text-align: right;
+			
+			img.git-status {
+				opacity: 0.15;
+				@include transition-opacity(0.25s);
+			}
+			
+			img.git-logo {
+				margin: 5px 5px 5px 0;
+			}
+			
+			span {
+				position: relative;
+				display: block;
+				top: -68px;
+				right: -310px;
+				width: 195px;
+				height: auto;
+				opacity: 0;
+				visibility: hidden;
+				padding: 0.2em;
+				@include border-radius(4px);
+				background-color: $ice-silver;
+				color: black;
+				text-align: center;
+				font-size: 12px;
+				-webkit-transition: visibility 0s 0.25s, opacity 0.25s;
+				-o-transition: visibility 0s 0.25s, opacity 0.25s;
+				-moz-transition: visibility 0s 0.25s, opacity 0.25s;
+				transition: visibility 0s 0.25s, opacity 0.25s;
+				
+				&::after {
+					content: " ";
+					position: absolute;
+					top: 50%;
+					right: 100%;
+					margin-top: -5px;
+					border-width: 5px;
+					border-style: solid;
+					border-color: transparent $ice-silver transparent transparent;
+				}
+			}
+			
+			&:hover {
+				img.git-status {
+					opacity: 1.0;
+				}
+				span {
+					visibility: visible;
+					opacity: 1.0;
+					transition-delay: 0s;
+				}
+			}
+		}
+	}
+	
+	> a {
+		text-decoration: none;
+		display: block;
+		@include transition-color(0.25s);
+		margin-top: 8px;
+		margin-left: 117px;
+		font-size: 18px;
+		color: black;
+		
+		&:hover {
+			color: $old-gold;
+		}
+	}
+	
+	> span {
+		margin-top: 3px;
+		margin-left: 98px;
+		font-size: 13px;
+		color: $asteroid-grey;
+		padding-left: 20px;
+		background-image: url('../img/icons/github-co-16px.png');
+		background-position: left center;
+		background-repeat: no-repeat;
+	}
+	
+	table {
+		position: absolute;
+		width: 100%;
+		bottom: 0;
+		@include center-margin;
+		border-top: $outline;
+		border-collapse: collapse;
+		table-layout: fixed;
+		
+		tr {
+			width: 50%;
+			text-align: center;
+			
+			&:first-of-type {
+				td {
+					padding-top: 0.3em;
+					font-weight: bold;
+					font-size: 16px;
+				}
+			}
+			
+			&:last-of-type {
+				td {
+					a {
+						text-decoration: none;
+						padding-bottom: 0.3em;
+						font-size: 13px;
+						color: #A8A8A8;
+						@include transition-color(0.25s);
+						
+						&:hover {
+							color: $world-rally-blue;
+						}
+					}
+				}
+			}
+			
+			td {
+				&:first-of-type {
+					border-right: $outline;
+				}
+			}
+		}
+	}
+	
+	> img {
+		position: absolute;
+		display: block;
+		width: 123px;
+		height: 123px;
+		top: -34px;
+		left: -23px;
+		@include center-margin;
+		@include border-radius(100%);
+		border: 3px solid white;
+		box-shadow: 0 0 0 1pt $asteroid-grey;
+	}
+}
+
+#cs-tree {
+	@media #{$big-tree} {
+		text-align: right;
+		margin-top: 3em;
+	}
+	
+	@media #{$small-tree} {
+		text-align: center;
+	}
+	
+	.node {
+		cursor: pointer;
+		
+		circle {
+			fill: white;
+			stroke: $asteroid-grey;
+			stroke-width: 2px;
+		}
+		
+		text {
+			font-size: 13px;
+			color: black;
+		}
+	}
+
+	.link {
+		fill: none;
+		stroke: #EDEDED;//#CCCCCC;
+		stroke-width: 2px;
+	}
+}
+
+
 /* ~~~~~~~~ Programming section ~~~~~~~~ */
 #programming {
 	background-image: url('../img/bkgrds/bkgrd-02.jpg');
 	@include center-bkgrd-image;
 	background-color: $dark-purple;
 	min-height: calc(100vh - 60px);
-	color: #FFFFFF;
+	color: white;
 	
 	h2 {
-		color: #FFFFFF;
+		color: white;
 	}
 	
 	ul {
@@ -526,7 +798,7 @@ p {
 				height: 88px;
 				font-size: 25px;
 				text-decoration: none;
-				color: #FFFFFF;
+				color: white;
 				background-color: #8C5DCA;
 				border-bottom: 5px solid #7c5ea3;
 				box-shadow: $box-shadow;
@@ -596,7 +868,7 @@ p {
 
 /* ~~~~~~~~ Contact form ~~~~~~~~ */
 #contact {
-	background-color: #000000;
+	background-color: black;
 	background-image: url('../img/bkgrds/pitt-skyline.png');
 	background-position: center bottom;
 	background-repeat: no-repeat;
@@ -618,7 +890,7 @@ p {
 	
 	div {
 		padding-top: 30px;
-		color: #FFFFFF;
+		color: white;
 		
 		form {
 			display: inline-block;
@@ -665,7 +937,7 @@ p {
 			input[type=submit] {
 				width: 5em;
 				background-color: #E34234;
-				color: #FFFFFF;
+				color: white;
 				border: none;
 			}
 			
@@ -700,7 +972,7 @@ p {
 		max-height: 50vw;
 		margin: 0 auto;
 		padding: 0.5em;
-		background-color: #FFFFFF;
+		background-color: white;
 		position: relative;
 		@include transform-transY-middle;
 	}
@@ -708,14 +980,14 @@ p {
 	h3 {
 		font-size: 18px;
 		font-weight: none;
-		color: #000000;
+		color: black;
 	}
 	
 	button {
 		display: block;
 		margin: 0 auto 1em auto;
 		background-color: #E85F11;
-		color: #FFFFFF;
+		color: white;
 		
 		&:hover {
 			background-color: #E89C11;
@@ -737,7 +1009,7 @@ p {
 	line-height: 50px;
 	background-color: #67613C;
 	font-size: 15px;
-	color: #FFFFFF;
+	color: white;
 	font-weight: normal;
 	margin: 0;
 	padding-left: 1em;
@@ -748,7 +1020,7 @@ p {
 		background-position: left center;
 		background-repeat: no-repeat;
 		background-size: 1.2em;
-		color: #FFFFFF;
+		color: white;
 		float: right;
 		padding-right: 1.5em;
 		padding-left: 1.5em;
@@ -771,7 +1043,7 @@ p {
 #site-info {
 	> p {
 		text-align: right;
-		color: #FFFFFF;
+		color: white;
 		margin-right: 20px;
 		font-size: 12px;
 	}
@@ -787,7 +1059,7 @@ p {
 		
 		h1 {
 			font-size: 25px;
-			color: #FFFFFF;
+			color: white;
 		}
 		
 		p {
@@ -803,7 +1075,7 @@ p {
 	position: fixed;
 	bottom: 0;
 	padding-bottom: 1em;
-	background-color: #FFFFFF;
+	background-color: white;
 	border-top: 5px solid $brick-red;
 	z-index: 9001;
 	
@@ -817,7 +1089,7 @@ p {
 	display: block;
 	@include center-margin;
 	background-color: #00A86B;
-	color: #FFFFFF;
+	color: white;
 	
 	&:hover {
 		background-color: $british-racing-green;
@@ -835,7 +1107,7 @@ p {
 #lightbox {
 	p {
 		text-align: right;
-		color: #FFFFFF;
+		color: white;
 		margin-right: 20px;
 		font-size: 12px;
 	}
@@ -911,12 +1183,3 @@ h2 {
 	text-align: center;
 	z-index: 9002;
 }
-
-
-
-
-
-
-
-
-
