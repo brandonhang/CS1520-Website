@@ -7,17 +7,17 @@
    "description": "Selected projects from CS 0445 - Data Structures",
    "children": [
     {
-	 "name": "War",
+	 "name": "War Card Game",
 	 "description": "A Java program that simulates the card game War",
 	 "url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0445/War-Card-Game"
 	},
 	{
-	 "name": "Market Sim",
+	 "name": "Fruit Market Simulator",
 	 "description": "A fruit market stand simulator written in Java",
 	 "url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0445/Fruit-Market-Simulator"
 	},
 	{
-	 "name": "Word Search",
+	 "name": "Auto-Word Search",
 	 "description": "An auto-completing word search written in Java",
 	 "url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0445/Word-Search"
 	}
@@ -28,12 +28,12 @@
    "description": "Selected projects from CS 0447 - Computer Organization and Assembly Language",
    "children": [
     {
-	 "name": "Auto Coder",
+	 "name": "Assembly Auto Coder",
 	 "description": "A program that automatically generates MIPS assembly code written in MIPS assembly",
 	 "url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0447/MIPS-Code-Generator"
 	},
 	{
-	 "name": "Simple CPU",
+	 "name": "Single-Datapath CPU",
 	 "description": "A Logisim circuit file that emulates a single-datapath CPU",
 	 "url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0447/Single-Datapath-CPU"
 	}
@@ -49,12 +49,12 @@
      "url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0449/Blackjack%20Simulator"
 	},
 	{
-	 "name": "ID3 Tag Editor",
+	 "name": "ID3 v1.1 Tag Editor",
      "description": "A C program that reads and writes ID3 v1.1 music tags",
      "url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0449/ID3%20v1.1%20Tag%20Editor"
 	},
 	{
-	 "name": "Program Parser",
+	 "name": "Program String Parser",
      "description": "A C program that parses files for displayable strings",
      "url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0449/Program%20Strings%20Parser"
 	},
@@ -81,7 +81,7 @@
    "description": "Selected projects from CS 1632 - Software Quality Assurance",
    "children": [
     {
-	 "name": "JUnit Intro",
+	 "name": "JUnit Test Suite",
      "description": "Contains a Java text game built in according to guidelines and backed with JUnit tests",
      "url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs1632/Deliverable%202"
 	},
