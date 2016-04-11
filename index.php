@@ -300,6 +300,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 		<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 		<script src="js/recaptcha.js"></script>
+		<script src="js/mobile-menu.js"></script>
 		<script src="js/cs_tree.js"></script>
 		<script src="js/hide_terms.js"></script>
 		<script src="js/toggle_interests.js"></script>
