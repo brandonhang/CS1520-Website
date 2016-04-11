@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	$.ajax({
-		//url: 'https://api.github.com/users/brandonhang',
+		url: 'https://api.github.com/users/brandonhang',
 		type: 'GET',
 		dataType: 'json',
 		success: function(data) {
@@ -13,7 +13,7 @@ $(document).ready(function() {
 			$('.git-status').attr("src", "img/icons/api-connected.png");
 			$('.tooltip span').text("The GitHub API is connected!");
 			$.ajax({
-				url: 'js/github_cache.php',
+				url: 'php/github_cache.php',
 				type: 'POST',
 				dataType: 'text',
 				data: {
