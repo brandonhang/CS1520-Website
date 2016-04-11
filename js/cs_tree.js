@@ -1,7 +1,4 @@
 $(document).ready(function() {
-	var w = $(window).width();
-	var h = $(window).height();
-	var m = (w - 600) / 2 + 88;
 	var i = 0;
 	var root;
 	var tree = d3.layout.tree().size([500, 600]);
@@ -15,7 +12,7 @@ $(document).ready(function() {
 
 	d3.json("js/cs.json", function(projects) {
 		root = projects;
-		root.x0 = h / 2;
+		root.x0 = 300;
 		root.y0 = 0;
 		
 		function toggleAll(d) {
@@ -47,7 +44,7 @@ $(document).ready(function() {
 				toggle(d); update(d);
 			});
 		nodeEnter.append("svg:circle").attr("r", 1e-8).style("fill", function(d) {
-			return d._children ? "#7FC393" : "#FFFFFF";
+			return d._children ? "#70FA75" : "#FFFFFF";
 		});
 		nodeEnter.append('a')
 			.attr('xlink:href', function(d) {
@@ -67,7 +64,7 @@ $(document).ready(function() {
 			return "translate(" + d.y + "," + d.x + ")";
 		});
 		nodeUpdate.select("circle").attr("r", 8).style("fill", function(d) {
-			return d._children ? "#7FC393" : "#FFFFFF";
+			return d._children ? "#70FA75" : "#FFFFFF";
 		});
 		nodeUpdate.select("text").style("fill-opacity", 1);
 		
@@ -122,14 +119,4 @@ $(document).ready(function() {
 			d._children = null;
 		}
 	}
-	/*
-	$(window).resize(function() {
-		var w2 = $(window).width();
-		var h2 = $(window).height();
-		var m2 = (w2 - 600) / 2 + 88;
-		$('svg').attr("width", w2);
-		$('svg').attr("height", h2);
-		$('svg g').attr("transform", "translate(" + m2 + ", 20)");
-		update(root);
-	});*/
 });
