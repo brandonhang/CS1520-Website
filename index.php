@@ -5,7 +5,7 @@
 	
 	if ($cookie_set === TRUE) {			// If the cookie is set, the site will not display the use of cookies TOC
 		$display_alert = FALSE;
-		setcookie("snickerdoodle", "Returning visitor", time() + 10);		// Adds another 10 seconds to the cookie expiration
+		setcookie("snickerdoodle", "Returning visitor", time() + 60);		// Adds another 10 seconds to the cookie expiration
 	}
 	
 	/*
@@ -13,7 +13,7 @@
 	 * successfully sent, it will display a success message.  Otherwise, it will display an
 	 * error message.
 	 */
-	
+	/*
 	if (isset($_POST["send"]) === TRUE) {				// Conditional if the send button was pressed
 		if (empty($_POST["name"]) === TRUE || empty($_POST["email"]) === TRUE || empty($_POST["message"]) === TRUE) {
 			$message = "Your message was not sent!  One or more fields were missing from your request.";
@@ -51,7 +51,7 @@
 			}
 			$db->close();			// Close database connection
 		}
-	}
+	}*/
 	
 	
 	/*
@@ -151,11 +151,12 @@
 				</div>
 			</div>
 		</div>
+		
 		<!-- Introduction Section -->
 		<div id="top" class="container">
 			<div class="content">
 				<img src="img/bkgrds/myface-circle.png" alt="It's my face..."/>
-				<h1>Car enthusiast, NBA junkie, musician, and all-around swell guy</h1>
+				<h1>Car enthusiast, computer overlord, and all-around swell guy</h1>
 			</div>
 		</div>
 		
@@ -170,41 +171,58 @@
 			</div>
 		</div>
 		
-		<!-- Programming Section -->
 		<div id="programming" class="container">
 			<div class="content">
 				<h2>Programming</h2>
-				
-				<ul>
-					<li>
-						<img src="img/icons/github-220px.png">
-						<a href="https://github.com/brandonhang" target="blank"><img src="img/icons/github-logo.png"/></a>
-						<p>
-							Here, you'll find my GitHub repository containing a smattering of my past 
-							projects done at the University of Pittsburgh.  It may seem bare at the 
-							moment but as I continue to hone my craft, expect this repository to fill 
-							up.
-						</p>
-					</li>
-					<li>
-						<img src="img/icons/resume-220px.png">
-						<a href="misc/BHang_resume_Feb2016.pdf" target="_blank">Résumé</a>
-						<p>
-							Behold!  My résumé for all the world to see!  Contained within this
-							single sheet of paper is a succinct summary of my career highlights.
-							</br><i>Updated: February 2016</i>
-						</p>
-					</li>
-				</ul>
+				<section>
+					<div id="git-card">
+						<div>
+							<div class="tooltip">
+								<img class="git-status"/>
+								<img class="git-logo" src="img/icons/github-40px.png"/>
+								<span></span>
+							</div>
+						</div>
+						<a href="https://github.com/brandonhang" target="blank"></a>
+						<span></span>
+						<table>
+							<tr>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>
+									<a href="https://github.com/brandonhang?tab=repositories" target="blank">REPOS</a>
+								</td>
+								<td>
+									<a href="https://github.com/brandonhang/followers" target="blank">FOLLOWERS</a>
+								</td>
+							</tr>
+						</table>
+						<img id="git-pic"/>
+					</div>
+					<p>
+						You can find my GitHub page here containing my some of my projects both
+						past and present.  Also shown is the repository of my finished projects
+						completed at the University of Pittsburgh.  Click on the inner nodes to
+						view the different branches in this repo or click on a terminal node to
+						its source code on GitHub!
+					</p>
+					<p>
+						If you are so inclined, you can also take a look at my current résumé
+						by clicking <a href="misc/BHang_Resume.pdf" target="blank">here</a>.
+					</p>
+				</section>
+				<div id="cs-tree"></div>
 			</div>
 		</div>
 		
 		<!-- Interests Section -->
-		<div id="interests" class="container">
+<!--		<div id="interests" class="container">
 			<div class="content">
 				<h2>Interests</h2>
 				<ul>
-					<?php
+					<?php/*
 						$likes = array(
 							"Music",
 							"Media",
@@ -214,9 +232,54 @@
 						
 						foreach ($likes as $hobby) {		// Builds the interactive "buttons" for each interest
 							build_list($hobby);
-						}
+						}*/
 					?> 
 				</ul>
+			</div>
+		</div>-->
+		
+		<div id="int" class="container">
+			<div class="content">
+				<h2>Interests</h2>
+				
+			</div>
+		</div>
+		
+		<!-- Contact Form -->
+		<div id="contact" class="container">
+			<div class="content">
+				<h2>Contact</h2>
+				<form method="POST">
+					<section>
+						<label for="name">Name</label>
+						<input type="text" name="name" maxlength="30" placeholder="Your name"/>
+					</section>
+					<section>
+						<label for="email">Email</label>
+						<input type="email" name="email" maxlength="40" placeholder="your@email.com"/>
+					</section>
+					<label for="message">Message</label>
+					<textarea name="message" maxlength="600" placeholder="What would you like to tell me?"></textarea>
+					<h5>Anti-Skynet</h5>
+					<input class="button" type="submit" name="send" value="Send"/>
+					<div id="recaptcha"></div>
+				</form>
+				<img src="img/bkgrds/logo-big.png"/>
+			</div>
+			
+		</div>
+		
+		<!-- Footer -->
+		<div id="footer">
+			&copy; 2016 Brandon S. Hang
+			<a href="#">About this site</a>
+		</div>
+		
+		<!-- Contact Send Popup -->
+		<div id='message-sent' class='underlay-dim'>
+			<div>
+				<h3></h3>
+				<button class='button'>Okay</button>
 			</div>
 		</div>
 		
@@ -233,53 +296,22 @@
 			</div>
 		<?php }; ?>
 		
-		<!-- Contact Form -->
-		<div id="contact" class="container">
-			<div class="content">
-				<h2>Contact</h2>
-				<form action="index.php#contact" method="POST">
-					<h5>Name</h5>
-					<input type="text" name="name" maxlength="30" placeholder="Your name"/>
-					<h5>Email</h5>
-					<input type="email" name="email" maxlength="40" placeholder="your@email.com"/>
-					<h5>Message</h5>
-					<textarea name="message" maxlength="600" placeholder="What would you like to tell me?"></textarea>
-					<input class="button" type="submit" name="send" value="Send"/>
-				</form>
-				<img src="img/bkgrds/logo-big.png"/>
-			</div>
-			
-		</div>
-		
-		<!-- Contact Send Popup -->
-		<?php
-			if (isset($_POST["send"]) === TRUE) {			// Displays a message if the contact form is used
-				echo
-					"<div id='message-sent' class='underlay-dim'>
-						<div>
-							<h3>$message</h3>
-							<button class='button'>Hooray!</button>
-						</div>
-					</div>";
-			}
-		?>
-		
-		<!-- Footer -->
-		<div id="footer">
-			&copy; 2016 Brandon S. Hang
-			<a href="#">About this site</a>
-		</div>
-		
 		<!-- Scripts -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-		<script src="js/jquery.easing.1.3.js"></script>
+		<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+		<script src="js/recaptcha.js"></script>
 		<script src="js/mobile-menu.js"></script>
-		<script src="js/easing_nav_jump.js"></script>
+		<script src="js/cs_tree.js"></script>
 		<script src="js/hide_terms.js"></script>
 		<script src="js/toggle_interests.js"></script>
 		<script src="js/lightbox.js"></script>
 		<script src="js/about.js"></script>
-		<script src="js/hide_submit.js"></script>
+		<script src="js/github_api.js"></script>
+		<script src="js/send_msg.js"></script>
+		<script src="js/jquery.easing.1.3.js"></script>
+		<script src="js/easing_nav_jump.js"></script>
+		<script src='https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit'
+			async defer></script>
 	</body>
 </html>
 <!--
