@@ -3,8 +3,8 @@ $narrow-screen: "only screen and (max-width: 720px)";
 $bigger-screen: "only screen and (min-width: 721px)";
 $medium-screen: "only screen and (min-width: 721px) and (max-width: 999px)";
 $wide-screen: "only screen and (min-width: 1000px)";
-$big-tree: "only screen and (min-width: 1030px)";
-$small-tree: "only screen and (max-width: 1029px)";
+$big-tree: "only screen and (min-width: 1220px)";
+$small-tree: "only screen and (max-width: 1219px)";
 
 // Fonts
 $sorts-goudy: 'Sorts Mill Goudy', serif;
@@ -69,32 +69,39 @@ $box-shadow: 8px 8px 3px 0px $asteroid-grey;
 
 @mixin linear-gradient($direction, $gradient...) {
 	background: -o-linear-gradient($direction, $gradient...);
-	background: -moz-linear-gradient($direction, $gradient...);
 	background: linear-gradient($direction, $gradient...);
 	
 	@if $direction == left {
 		background: -webkit-linear-gradient(right, $gradient...);
+		background: -moz-linear-gradient(right, $gradient...);
 	}
 	@else if $direction == right {
 		background: -webkit-linear-gradient(left, $gradient...);
+		background: -moz-linear-gradient(left, $gradient...);
 	}
 	@else if $direction == top {
 		background: -webkit-linear-gradient(bottom, $gradient...);
+		background: -moz-linear-gradient(bottom, $gradient...);
 	}
 	@else if $direction == bottom {
 		background: -webkit-linear-gradient(top, $gradient...);
+		background: -moz-linear-gradient(top, $gradient...);
 	}
 	@else if $direction == top left or $direction == left top {
 		background: -webkit-linear-gradient(bottom right, $gradient...);
+		background: -moz-linear-gradient(bottom right, $gradient...);
 	}
 	@else if $direction == top right or $direction == right top {
 		background: -webkit-linear-gradient(bottom left, $gradient...);
+		background: -moz-linear-gradient(bottom left, $gradient...);
 	}
 	@else if $direction == bottom left or $direction == left bottom {
 		background: -webkit-linear-gradient(top right, $gradient...);
+		background: -moz-linear-gradient(top right, $gradient...);
 	}
 	@else {
 		background: -webkit-linear-gradient(top left, $gradient...);
+		background: -moz-linear-gradient(top left, $gradient...);
 	}
 }
 
@@ -297,6 +304,7 @@ p {
 			
 			a {
 				@include transition-bkgrd-color(0.25s);
+				
 				&:hover, &:active {
 					background-color: $world-rally-blue;
 				}
@@ -430,31 +438,48 @@ p {
 
 
 /* ~~~~~~~~ Programming section pt. 2 ~~~~~~~~ */
-#prog {
-	@include tile;
+#programming {
+	//@include tile;
+	background-image: url('../img/bkgrds/bkgrd-02.jpg');
+	@include center-bkgrd-image;
+	background-color: $dark-purple;
+	min-height: calc(100vh - 60px);
 	
 	.content {
 		@media #{$big-tree} {
 			width: 80%;
 		}
+		
+		h2 {
+			color: $brick-red;
+		}
 	}
 	
 	section {
 		@media #{$big-tree} {
-			width: 325px;
+			width: 352px;
 			position: absolute;
 		}
 		
 		p {
 			font-size: 16px;
+			color: white;
 			
 			@media #{$big-tree} {
-				margin: 3.2em 0 0 0;
+				margin: 2em 0.5em;
 			}
 			
 			@media #{$small-tree} {
 				margin: 2em auto 0 auto;
-				width: 80%;
+			}
+			
+			a {
+				color: $brick-red;
+				@include transition-color(0.25s);
+				
+				&:hover {
+					color: $old-gold;
+				}
 			}
 		}
 	}
@@ -465,12 +490,12 @@ p {
 	width: 350px;
 	height: 150px;
 	@include border-radius(4px);
-	box-shadow: $box-shadow;
-	border: $outline;
+	box-shadow: 8px 8px 3px 0px #383838;
+	border: 1px solid #838383;;
 	background-color: white;
 	
 	@media #{$big-tree} {
-		margin-top: 2.5em;
+		margin-top: 1em;
 	}
 	
 	@media #{$small-tree} {
@@ -482,6 +507,9 @@ p {
 		position: relative;
 		height: 50px;
 		@include linear-gradient(left, $pitt-blue, $world-rally-blue);
+		border-top-right-radius: 4px;
+		-webkit-border-top-right-radius: 4px;
+		-moz-border-top-right-radius: 4px;
 		
 		div.tooltip {
 			height: 50px;
@@ -585,6 +613,7 @@ p {
 					padding-top: 0.3em;
 					font-weight: bold;
 					font-size: 16px;
+					color: black;
 				}
 			}
 			
@@ -626,7 +655,7 @@ p {
 	}
 }
 
-#cs-tree {
+#cs-tree {	
 	@media #{$big-tree} {
 		text-align: right;
 		margin-top: 3em;
@@ -641,141 +670,20 @@ p {
 		
 		circle {
 			fill: white;
-			stroke: $asteroid-grey;
-			stroke-width: 2px;
+			stroke: #999999;
+			stroke-width: 3px;
 		}
 		
 		text {
 			font-size: 13px;
-			color: black;
+			fill: $ice-silver;
 		}
 	}
 
 	.link {
 		fill: none;
-		stroke: #EDEDED;//#CCCCCC;
+		stroke: #383838;
 		stroke-width: 2px;
-	}
-}
-
-
-/* ~~~~~~~~ Programming section ~~~~~~~~ */
-#programming {
-	background-image: url('../img/bkgrds/bkgrd-02.jpg');
-	@include center-bkgrd-image;
-	background-color: $dark-purple;
-	min-height: calc(100vh - 60px);
-	color: white;
-	
-	h2 {
-		color: white;
-	}
-	
-	ul {
-		display: inline-block;
-		width: 100%;
-		@include zero-space;
-		
-		@media #{$narrow-screen} {
-			display: block;
-		}
-	}
-	
-	li {
-		width: 50%;
-		list-style-type: none;
-		text-align: center;
-		
-		@media #{$wide-screen} {
-			float: left;
-		}
-		
-		@media #{$narrow-screen} {
-			display: block;
-			width: 100%;
-		}
-		
-		> img {
-			display: block;
-			height: 180px;
-			opacity: 0.8;
-			margin: 0 auto;
-			
-			@media #{$narrow-screen} {
-				display: none;
-			}
-		}
-		
-		a {
-			font-family: $sorts-goudy;
-			font-size: 88px;
-			color: $brick-red;
-			text-decoration: none;
-			@include zero-space;
-			@include transition-opacity(0.25s);
-			
-			@media #{$medium-screen} {
-				display: block;
-				margin: 0 auto;
-				padding-top: 0;
-				padding-bottom: 0.2em;
-				background-repeat: no-repeat;
-				font-size: 64px;
-			}
-			
-			@media #{$narrow-screen} {
-				display: inline;
-				margin: 0 auto;
-				padding-top: 0;
-				padding-bottom: 0.2em;
-				padding-left: 18px;
-				background-repeat: no-repeat;
-				font-size: 40px;
-			}
-			
-			&:hover {
-				opacity: 0.5;
-			}
-			
-			&:active {
-				@media #{$narrow-screen} {
-					opacity: 0.5;
-				}
-			}
-			
-			> img {
-				height: 0.75em;
-			}
-		}
-		
-		a[href*="github"] {
-			@media #{$medium-screen} {
-				width: 3em;
-				padding-left: 100px;
-				background-image: url('../img/icons/github-220px.png');
-				background-size: 88px;
-				background-position: left top;
-			}
-		}
-		
-		a[href$=".pdf"] {
-			@media #{$medium-screen} {
-				width: 3.5em;
-				padding-left: 88px;
-				background-image: url('../img/icons/resume-220px.png');
-				background-size: 75px;
-				background-position: left top;
-			}
-		}
-		
-		p {
-			margin-top: 0;
-			font-size: 16px;
-			
-			@media #{$narrow-screen} {
-				margin-bottom: 1.5em;
-			}
-		}
 	}
 }
 
@@ -873,7 +781,7 @@ p {
 	background-position: center bottom;
 	background-repeat: no-repeat;
 	background-size: 90%;
-	height: calc(100vh - 50px);
+	min-height: calc(100vh - 50px);
 	padding: 0;
 	
 	h2 {
@@ -888,13 +796,17 @@ p {
 		}
 	}
 	
-	div {
+	> div {
 		padding-top: 30px;
 		color: white;
 		
 		form {
-			display: inline-block;
-			width: 65%;
+			padding-bottom: 1.5em;
+			
+			@media #{$bigger-screen} {
+				display: inline-block;
+				width: 65%;
+			}
 			
 			@media #{$narrow-screen} {
 				display: block;
@@ -902,9 +814,24 @@ p {
 				margin: 0 auto;
 			}
 			
-			h5 {
+			section {
+				@media #{$bigger-screen} {
+					width: 48%;
+					
+					&:first-of-type {
+						float: left;
+					}
+					
+					&:last-of-type {
+						float: right;
+					}
+				}
+			}
+			
+			label {
 				font-size: 15px;
 				@include zero-space;
+				font-weight: bold;
 			}
 			
 			input, textarea {
@@ -934,20 +861,28 @@ p {
 				outline: none;
 			}
 			
+			h5 {
+				font-size: 15px;
+				@include zero-space;
+				margin-bottom: 0.33em;
+			}
+			
 			input[type=submit] {
+				float: right;
 				width: 5em;
 				background-color: #E34234;
 				color: white;
 				border: none;
-			}
-			
-			input[type=submit]:hover {
-				background-color: #CC0000;
-			}
-			
-			input[type=submit]:active {
-				@media #{$narrow-screen} {
+				margin: 0;
+				
+				&:hover {
 					background-color: #CC0000;
+				}
+				
+				&:active {
+					@media #{$narrow-screen} {
+						background-color: #CC0000;
+					}
 				}
 			}
 		}
@@ -964,9 +899,29 @@ p {
 	}
 }
 
+#recaptcha {
+	padding-bottom: 1em;
+	opacity: 0.9;
+	
+	@media #{$bigger-screen} {
+		-webkit-transform: scale(0.8);
+		-ms-transform: scale(0.8);
+		-moz-transform: scale(0.8);
+		-o-transform: scale(0.8);
+		transform: scale(0.8);
+		-webkit-transform-origin: 0 0;
+		-ms-transform-origin: 0 0;
+		-moz-transform-origin: 0 0;
+		-o-transform-origin: 0 0;
+		transform-origin: 0 0;
+	}
+}
+
 
 /* ~~~~~~~~ Message sent popup ~~~~~~~~ */
 #message-sent {
+	display: none;
+	
 	div {
 		max-width: 35vw;
 		max-height: 50vw;
