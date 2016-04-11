@@ -3,10 +3,6 @@
 		include "404.php";
 		die("Unauthorized access prohibited!  That means you!");
 	}
-	if (isset($_POST["avatar"])) {
-		include "404.php";
-		die("Unauthorized access prohibited!  That means you!");
-	}
 	
 	$file = fopen("../misc/github_cache.txt", "w");
 	
