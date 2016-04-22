@@ -439,71 +439,106 @@ p {
   background-color: #D2D8E1;
   background-image: url("../img/bkgrds/bkgrd-tile.png");
   background-repeat: repeat; }
-  #interests ul {
-    list-style-type: none;
-    width: 100%;
-    margin: 0 0 2em 0;
-    padding: 0; }
-    #interests ul li {
-      width: 100%; }
-      #interests ul li > a {
-        display: block;
-        height: 88px;
-        font-size: 25px;
-        text-decoration: none;
-        color: white;
-        background-color: #8C5DCA;
-        border-bottom: 5px solid #7c5ea3;
-        box-shadow: 8px 8px 3px 0px #838383; }
-        #interests ul li > a:hover .hobby-icon {
-          width: 88px; }
-      #interests ul li .hobby-icon {
-        height: 88px;
-        width: 0;
-        padding-right: 1em;
-        -webkit-transition: width 0.33s;
-        -o-transition: width 0.33s;
-        -moz-transition: width 0.33s;
-        transition: width 0.33s; }
-      #interests ul li .expand {
-        width: 88px;
-        padding: 0;
-        float: right;
-        -webkit-transition: all 0.25s;
-        -o-transition: all 0.25s;
-        -moz-transition: all 0.25s;
-        transition: all 0.25s; }
-
-.hobby-desc {
-  width: 95%;
-  margin: 1.5em auto;
-  display: none; }
-  .hobby-desc img {
-    float: left;
-    width: 200px;
-    margin: 0 1em 1em 0;
-    border: 5px solid white;
-    outline: 1px solid #A3A3A3;
-    box-shadow: 8px 8px 3px 0px #838383; }
-  .hobby-desc p {
-    font-size: 16px;
-    margin: 0; }
-  .hobby-desc div {
-    width: 100%;
-    margin-top: 1em;
-    text-align: center; }
-    .hobby-desc div a {
-      font-size: 18px;
-      color: #9A8A32;
+  #interests .int-desc {
+    font-size: 15px;
+    margin: auto 0 2.5em 0; }
+    #interests .int-desc a {
+      color: #0736F8;
       -webkit-transition: color 0.25s;
       -o-transition: color 0.25s;
       -moz-transition: color 0.25s;
       transition: color 0.25s; }
-      .hobby-desc div a:hover {
+      #interests .int-desc a:hover, #interests .int-desc a:active {
         color: #D4B92B; }
-      @media only screen and (max-width: 720px) {
-        .hobby-desc div a:active {
-          color: #D4B92B; } }
+  #interests h5 {
+    font-family: "Sorts Mill Goudy", serif;
+    text-align: left;
+    font-size: 32px;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em; }
+
+.slideshow {
+  margin: 0 auto; }
+  .slideshow div img {
+    margin: 0 auto;
+    cursor: pointer;
+    height: 50vh; }
+    .slideshow div img:focus {
+      outline: none; }
+  .slideshow div p {
+    font-size: 14px; }
+  .slideshow div:focus {
+    outline: none; }
+  @media only screen and (min-width: 1000px) {
+    .slideshow .slick-prev {
+      left: -72px; } }
+  @media only screen and (min-width: 721px) and (max-width: 999px) {
+    .slideshow .slick-prev {
+      left: -62px; } }
+  @media only screen and (max-width: 720px) {
+    .slideshow .slick-prev {
+      left: -52px; } }
+  @media only screen and (min-width: 1000px) {
+    .slideshow .slick-next {
+      right: -72px; } }
+  @media only screen and (min-width: 721px) and (max-width: 999px) {
+    .slideshow .slick-next {
+      right: -62px; } }
+  @media only screen and (max-width: 720px) {
+    .slideshow .slick-next {
+      right: -52px; } }
+  .slideshow .slick-arrow {
+    position: absolute;
+    top: 25vh;
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    opacity: 0.6;
+    z-index: 3000;
+    cursor: pointer; }
+    .slideshow .slick-arrow:hover, .slideshow .slick-arrow:active {
+      opacity: 1.0; }
+    @media only screen and (min-width: 721px) and (max-width: 999px) {
+      .slideshow .slick-arrow {
+        height: 56px;
+        width: 56px; } }
+    @media only screen and (max-width: 720px) {
+      .slideshow .slick-arrow {
+        height: 48px;
+        width: 48px; } }
+
+.thumbnails {
+  height: 100px;
+  margin: 0 auto; }
+  .thumbnails div {
+    margin: 0;
+    padding: 0; }
+    .thumbnails div img {
+      cursor: pointer;
+      margin-left: auto;
+      margin-right: auto;
+      height: 70px;
+      width: 70px; }
+    .thumbnails div:focus {
+      outline: none; }
+  .thumbnails .slick-slide {
+    -webkit-transition: all 0.25s;
+    -o-transition: all 0.25s;
+    -moz-transition: all 0.25s;
+    transition: all 0.25s; }
+    .thumbnails .slick-slide:not(.slick-current) {
+      -webkit-filter: grayscale(100%);
+      -o-filter: grayscale(100%);
+      -moz-filter: grayscale(100%);
+      filter: grayscale(100%);
+      opacity: 0.5; }
+      .thumbnails .slick-slide:not(.slick-current):hover {
+        opacity: 1.0; }
+
+.slick-slider {
+  width: 80%; }
 
 /* ~~~~~~~~ Contact form ~~~~~~~~ */
 #contact {
@@ -681,8 +716,8 @@ p {
   margin-right: 20px;
   font-size: 12px; }
 #site-info div {
-  max-width: 70vw;
-  max-height: 70vw;
+  max-width: 80vw;
+  max-height: 80vh;
   margin: 0 auto;
   padding: 0.5em;
   background-color: #014225;
@@ -698,7 +733,11 @@ p {
     color: white; }
   #site-info div p {
     font-size: 15px;
-    color: #CCCCCC; }
+    color: #CCCCCC;
+    text-align: left; }
+    @media only screen and (max-width: 720px) {
+      #site-info div p {
+        font-size: 13px; } }
 
 /* ~~~~~~~~ Cookie TOC ~~~~~~~~ */
 #cookie-terms {

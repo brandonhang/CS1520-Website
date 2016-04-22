@@ -46,7 +46,7 @@ $(document).ready(function() {
 				$('#contact input[type="text"], #contact input[type="email"], #contact textarea').val("");
 			},
 			error: function() {
-				$('#message-sent h3').text("Your message couldn't be delivered... maybe monkeys in the server room?"
+				$('#message-sent h3').text("Something's wrong with the G-diffuser!  Your message was unable to be delivered."
 						+ "  Please try again later.");
 				$('#message-sent').show();
 			}

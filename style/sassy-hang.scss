@@ -140,6 +140,17 @@ $box-shadow: 8px 8px 3px 0px $asteroid-grey;
 	transition: width $seconds;
 }
 
+@mixin transition-size($seconds) {
+	-webkit-transition: width $seconds;
+	-webkit-transition: height $seconds;
+	-o-transition: width $seconds;
+	-o-transition: height $seconds;
+	-moz-transition: width $seconds;
+	-moz-transition: height $seconds;
+	transition: width $seconds;
+	transition: height $seconds;
+}
+
 @mixin transform-transY-middle {
 	top: 50%;
 	-webkit-transform: translateY(-50%);
@@ -149,7 +160,7 @@ $box-shadow: 8px 8px 3px 0px $asteroid-grey;
 	transform: translateY(-50%);
 }
 
-@mixin transform-transY($num) {	
+@mixin transform-transY($num) {
 	-webkit-transform: translateY($num);
 	-o-transform: translateY($num);
 	-moz-transform: translateY($num);
@@ -293,7 +304,7 @@ p {
 			}
 		}
 		
-		li.show-menu {				
+		li.show-menu {
 			@media #{$narrow-screen} {
 				display: block;
 				background-color: $pitt-blue;
@@ -367,7 +378,7 @@ p {
 }
 
 .menu-open {
-	content: url('../img/icons/menu-close-50px.png');	
+	content: url('../img/icons/menu-close-50px.png');
 }
 
 
@@ -655,7 +666,7 @@ p {
 	}
 }
 
-#cs-tree {	
+#cs-tree {
 	@media #{$big-tree} {
 		text-align: right;
 		margin-top: 3em;
@@ -679,7 +690,7 @@ p {
 			fill: $ice-silver;
 		}
 	}
-
+	
 	.link {
 		fill: none;
 		stroke: #383838;
@@ -692,85 +703,140 @@ p {
 #interests {
 	@include tile;
 	
-	ul {
-		list-style-type: none;
-		width: 100%;
-		margin: 0 0 2em 0;
-		padding: 0;
+	.int-desc {
+		font-size: 15px;
+		margin: auto 0 2.5em 0;
 		
-		li {
-			width: 100%;
+		a {
+			color: $world-rally-blue;
+			@include transition-color(0.25s);
 			
-			> a {
-				display: block;
-				height: 88px;
-				font-size: 25px;
-				text-decoration: none;
-				color: white;
-				background-color: #8C5DCA;
-				border-bottom: 5px solid #7c5ea3;
-				box-shadow: $box-shadow;
-				
-				&:hover .hobby-icon {
-					width: 88px;
-				}
+			&:hover, &:active {
+				color: $old-gold;
 			}
+		}
+	}
+	
+	h5 {
+		font-family: $sorts-goudy;
+		text-align: left;
+		font-size: 32px;
+		margin-bottom: 0.5em;
+		margin-top: 0.5em;
+	}
+}
+
+.slideshow {
+	margin: 0 auto;
+	
+	div {
+		img {
+			margin: 0 auto;
+			cursor: pointer;
+			height: 50vh;
 			
-			.hobby-icon {
-				height: 88px;
-				width: 0;
-				padding-right: 1em;
-				@include transition-width(0.33s);
+			&:focus {
+				outline: none;
 			}
+		}
+		
+		p {
+			font-size: 14px;
+		}
+		
+		&:focus {
+			outline: none;
+		}
+	}
+	
+	.slick-prev {
+		@media #{$wide-screen} {
+			left: -72px;
+		}
+		
+		@media #{$medium-screen} {
+			left: -62px;
+		}
+		
+		@media #{$narrow-screen} {
+			left: -52px;
+		}
+	}
+	
+	.slick-next {
+		@media #{$wide-screen} {
+			right: -72px;
+		}
+		
+		@media #{$medium-screen} {
+			right: -62px;
+		}
+		
+		@media #{$narrow-screen} {
+			right: -52px;
+		}
+	}
+	
+	.slick-arrow {
+		position: absolute;
+		top: 25vh;
+		@include transform-transY(-50%);
+		opacity: 0.6;
+		z-index: 3000;
+		cursor: pointer;
+		
+		&:hover, &:active {
+			opacity: 1.0;
+		}
+		
+		@media #{$medium-screen} {
+			height: 56px;
+			width: 56px;
+		}
+		
+		@media #{$narrow-screen} {
+			height: 48px;
+			width: 48px;
+		}
+	}
+}
+
+.thumbnails {
+	height: 100px;
+	margin: 0 auto;
+	
+	div {
+		@include zero-space;
+		
+		img {
+			cursor: pointer;
+			margin-left: auto;
+			margin-right: auto;
+			height: 70px;
+			width: 70px;
+		}
+		
+		&:focus {
+			outline: none;
+		}
+	}
+	
+	.slick-slide {
+		@include transition-all(0.25s);
+		
+		&:not(.slick-current) {
+			@include grayscale(100%);
+			opacity: 0.5;
 			
-			.expand {
-				width: 88px;
-				padding: 0;
-				float: right;
-				@include transition-all(0.25s);
+			&:hover {
+				opacity: 1.0;
 			}
 		}
 	}
 }
 
-.hobby-desc {
-	width: 95%;
-	margin: 1.5em auto;
-	display: none;
-	
-	img {
-		float: left;
-		width: 200px;
-		margin: 0 1em 1em 0;
-		@include picture-border;
-	}
-	
-	p {
-		font-size: 16px;
-		margin: 0;
-	}
-	
-	div {
-		width: 100%;
-		margin-top: 1em;
-		text-align: center;
-		
-		a {
-			font-size: 18px;
-			color: #9A8A32;
-			@include transition-color(0.25s);
-			
-			&:hover {
-				color: $old-gold;
-			}
-			
-			&:active {
-				@media #{$narrow-screen} {
-					color: $old-gold;
-				}
-			}
-		}
-	}
+.slick-slider {
+	width: 80%;
 }
 
 
@@ -1004,8 +1070,8 @@ p {
 	}
 	
 	div {
-		max-width: 70vw;
-		max-height: 70vw;
+		max-width: 80vw;
+		max-height: 80vh;
 		margin: 0 auto;
 		padding: 0.5em;
 		background-color: $british-racing-green;
@@ -1020,6 +1086,11 @@ p {
 		p {
 			font-size: 15px;
 			color: #CCCCCC;
+			text-align: left;
+			
+			@media #{$narrow-screen} {
+				font-size: 13px;
+			}
 		}
 	}
 }
@@ -1070,7 +1141,7 @@ p {
 	div {
 		position: relative;
 		@include transform-transY-middle;
-	}	
+	}
 	
 	img {
 		max-width: 85vw;

@@ -8,51 +8,6 @@
 		setcookie("snickerdoodle", "Returning visitor", time() + 60);		// Adds another 10 seconds to the cookie expiration
 	}
 	
-	/*
-	 * This section attempts to add a message to a database.  If the message is valid and is
-	 * successfully sent, it will display a success message.  Otherwise, it will display an
-	 * error message.
-	 */
-	/*
-	if (isset($_POST["send"]) === TRUE) {				// Conditional if the send button was pressed
-		if (empty($_POST["name"]) === TRUE || empty($_POST["email"]) === TRUE || empty($_POST["message"]) === TRUE) {
-			$message = "Your message was not sent!  One or more fields were missing from your request.";
-		}											// Fails if any field is empty
-		else {
-			$db = new mysqli("localhost", "root", "");		// New database connection; the username and password
-															// are default for educational/compatiability purposes for now
-			if ($db->connect_error) {
-				$message = ":( Your message could not be processed because of monkeys in the server room.  
-					Please try again later.";							// Database connection error
-			}
-			else {
-				$db->query("CREATE DATABASE IF NOT EXISTS bsh41");			// The database is just my Pitt username
-				$db = new mysqli("localhost", "root", "", "bsh41");
-				
-				$table = "CREATE TABLE IF NOT EXISTS messages (
-					timestamp VARCHAR(19) PRIMARY KEY,
-					name TEXT,
-					email TEXT,
-					message TEXT
-				)";
-				$db->query($table);
-				
-				$clean_name = $db->real_escape_string($_POST["name"]);			// Inputs are not yet sanitized as that requires Javascript, per our discussion
-				$clean_email = $db->real_escape_string($_POST["email"]);
-				$clean_message = $db->real_escape_string($_POST["message"]);
-				
-				$timestamp = date("Y-m-d H:i:s", $_SERVER["REQUEST_TIME"]);
-				$timestamp = $db->real_escape_string($timestamp);
-				
-				$db->query("INSERT INTO messages (timestamp, name, email, message)
-					VALUES ('$timestamp', '$clean_name', '$clean_email', '$clean_message')");
-				
-				$message = "Your message has been sent!";
-			}
-			$db->close();			// Close database connection
-		}
-	}*/
-	
 	
 	/*
 	 * This function reads the contents of a text file and displays it to the screen exactly as
@@ -66,38 +21,9 @@
 		}
 		else {			// Default message if the file is missing
 			echo
-				"<p>I'd like to tell you something about myself, but evidently I need 
+				"<p>I'd like to tell you something about myself, but evidently I need
 				to fix this section first... Because it broke.</p>";
 		}
-	}
-	
-	
-	/*
-	 * This function builds a row of buttons in the interests sections.  It takes in a string as
-	 * a parameter and uses it to create an ID, load images, and display text.
-	 */
-	function build_list($category) {
-		echo
-			"<li id='$category' class='hobby-list-item'><a href='#'>
-				<img class='hobby-icon' src='img/icons/$category-icon.jpg'/>
-				<img src='img/icons/$category-txt.png'/>
-				<img class='expand' src='img/icons/expand-88px.png'/></a></li>";
-		
-		echo "<div class='hobby-desc'>";
-		echo "<a href='img/bkgrds/$category-big.jpg' class='lightbox-img'>
-			<img src='img/bkgrds/$category-desc.jpg'/></a>";
-		print_txt_file("misc/$category.txt");
-		
-		if (strcmp($category, "Music") === 0) {		// Adds links based on the category
-			echo "<div><a href='concert.php'>
-				Dynamically Generated Concert Program Notes</a></div>";
-		}
-		if (strcmp($category, "Media") === 0) {
-			echo "<div><a href='https://www.flickr.com/photos/dangitshang' target='_blank'>
-				Flickr Gallery</a></div>";
-		}
-		
-		echo "</div>";
 	}
 ?>
 
@@ -106,16 +32,17 @@
 	<head>
 		<meta charset="UTF-8"/>
 		<meta name="author" content="Brandon S. Hang"/>
-
+		
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Sorts+Mill+Goudy' rel='stylesheet' type='text/css'/>
 		<link type="image/x-icon" rel="shortcut icon" href="img/icons/icon.ico"/>
-		<link id="css" type="text/css" rel="stylesheet" href="style/sassy-hang.css"/>
+		<link type="text/css" rel="stylesheet" href="style/sassy-hang.css"/>
+		<link type="text/css" rel="stylesheet"  href="slick/slick.css"/>
 		
 		<title>Brandon S. Hang</title>
-
+		
 	</head>
 	<body>
-	
+		
 		<!-- Navigation Bar -->
 		<div class="nav-container">
 			<hr class="blue-menu"></hr>
@@ -140,7 +67,7 @@
 								"Programming",
 								"Interests",
 								"Contact Me",);
-							
+								
 							foreach ($icon_pics as $index => $icon) {		// Builds the top nav menu
 								echo
 									"<li style=\"background-image: url('$icon');\">
@@ -218,30 +145,44 @@
 		</div>
 		
 		<!-- Interests Section -->
-<!--		<div id="interests" class="container">
+		<div id="interests" class="container">
 			<div class="content">
 				<h2>Interests</h2>
-				<ul>
-					<?php/*
-						$likes = array(
-							"Music",
-							"Media",
-							"Cars",
-							"Sports"
-						);
-						
-						foreach ($likes as $hobby) {		// Builds the interactive "buttons" for each interest
-							build_list($hobby);
-						}*/
-					?> 
-				</ul>
-			</div>
-		</div>-->
-		
-		<div id="int" class="container">
-			<div class="content">
-				<h2>Interests</h2>
-				
+				<h5>Music</h5>
+				<p class="int-desc">
+					Playing music, my oldest and most beloved pastime, has taken me on many a journey between cities,
+					across state lines, and even international boundaries!  Like I said earlier, it all started in
+					4<sup>th</sup> grade when I was given my first instrument.  Performance-wise, my first love still is,
+					and will always be, jazz.  Influenced from a young age by my father, I grew up listening to the music
+					of Dave Brubeck and Miles Davis and quickly developed a taste for the genre.  As I grew older, it was
+					through performing jazz that I was able to experience many different places and cultures.  In recent
+					years, I also rediscovered the joy in performing classical piano.  <i>*Sniff*</i>, my old piano teacher
+					would be so proud!  After visiting Jamaica with the Pitt Jazz Ensemble, I began enjoying reggae as well.
+					There was just something about experiencing music at its origin that really touched my soul.  Recently,
+					on the whim of a friend to be wed, I took to singing as well.  Well, it took quite a bit of coaxing as I
+					had never sung before an audience in my life!  No, elementary school choir does <i>not</i> count!  In
+					the end, my first vocal performance was an entire concert in front of a packed wedding reception!  And
+					it was a hit!<br/><br/>
+					Check out these <a href='concert.php'>Dynamically Generated Concert Program Notes</a>!
+				</p>
+				<div class="music-thumbs thumbnails"></div>
+				<div class="music slideshow"></div>
+				<h5>Cars</h5>
+				<p class="int-desc">
+					Anyone who knows me knows that I am a real car nut, a diehard petrolhead, an automotive <i>fanatic</i>.
+					I don&#39t know exactly when the bug bit me, but I seemingly turned overnight.  For me, automobiles are
+					more than just a two ton steel appliance that shuttle you from point A to point B.  To me, automobiles
+					carry personalities that are often conveyed in their owners.  Some cars are temperamental, refusing to
+					go out if there&#39s even a single drop of rain.  Some are loud and rude and always angry at the world,
+					shouting at the top of their (mechanical) lungs.  Others have a bit more self-control and only get riled
+					up when pressed.  In any case, I enjoy cars from every era.  From the classic pony cars of yesteryear,
+					to the ludicrously-priced and ludicrously powerful European exotics, and even the Japanese street
+					legends of humble origins, I&#39m a fan of it all.<br/><br/>
+					You can see more of my automotive photography on my
+					<a href='https://www.flickr.com/photos/dangitshang' target='_blank'>Flickr</a>!
+				</p>
+				<div class="cars-thumbs thumbnails"></div>
+				<div class="cars slideshow"></div>
 			</div>
 		</div>
 		
@@ -303,47 +244,48 @@
 		<script src="js/mobile-menu.js"></script>
 		<script src="js/cs_tree.js"></script>
 		<script src="js/hide_terms.js"></script>
-		<script src="js/toggle_interests.js"></script>
 		<script src="js/lightbox.js"></script>
 		<script src="js/about.js"></script>
 		<script src="js/github_api.js"></script>
 		<script src="js/send_msg.js"></script>
 		<script src="js/jquery.easing.1.3.js"></script>
 		<script src="js/easing_nav_jump.js"></script>
-		<script src='https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit'
+		<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
 			async defer></script>
+		<script src="slick/slick.min.js"></script>
+		<script src="js/slick_init.js"></script>
 	</body>
 </html>
 <!--
-            `Nd      `sdo`    
-      ```.-+dMm:`      .Nh    
-     `oyysyMMNyys`      hN    
-          /Mm.          dd    
-         /Mm.      `-::/Md.   
+            `Nd      `sdo`
+      ```.-+dMm:`      .Nh
+     `oyysyMMNyys`      hN
+          /Mm.          dd
+         /Mm.      `-::/Md.
         /Mh`      -oso+yMmymy-
        +Ms             `NN-dMd
-      sd:-/ossso:      `NmMh: 
-h.   /hddyo+//:yMd    `hMN:   
-M. +md+`      /NN+  :yNMMMMy  
-M../`` :smMNmdN+  -NMMMMMMM:  
-N:  sNNMmo+MMh.   /dmsdMMM/   
-do  yMmsshMMh mMm.    hMNmmy. 
-sd   -+sMymMMyMd:   `sMM:..mh 
-.o   :dm:.MMMh:    -NMMMy. mN 
-   /dMN+smMN+      -mMM+  :Mm 
-  oMMMMd+hMM+        hN  /NN- 
-  `oo:   `-`         hMdNMd-  
-                     Nm//-    
-                    .Ms       
-                    +M-       
-                    dm        
-                   .M+        
-                   oN`        
-                   ms         
-                  .M.         
-                  om          
-                  hh          
-                  dy          
-                  ms          
+      sd:-/ossso:      `NmMh:
+h.   /hddyo+//:yMd    `hMN:
+M. +md+`      /NN+  :yNMMMMy
+M../`` :smMNmdN+  -NMMMMMMM:
+N:  sNNMmo+MMh.   /dmsdMMM/
+do  yMmsshMMh mMm.    hMNmmy.
+sd   -+sMymMMyMd:   `sMM:..mh
+.o   :dm:.MMMh:    -NMMMy. mN
+   /dMN+smMN+      -mMM+  :Mm
+  oMMMMd+hMM+        hN  /NN-
+  `oo:   `-`         hMdNMd-
+                     Nm//-
+                    .Ms
+                    +M-
+                    dm
+                   .M+
+                   oN`
+                   ms
+                  .M.
+                  om
+                  hh
+                  dy
+                  ms
                   yo
 -->
