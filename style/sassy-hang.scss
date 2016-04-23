@@ -244,17 +244,10 @@ p {
 				text-align: center;
 			}
 			
-			&:hover {
+			&:hover, &:active {
 				color: $old-gold;
 				@include grayscale(0%);
 				filter: none;
-			}
-			
-			&:active {
-				@media #{$narrow-screen} {
-					@include grayscale(0%);
-					filter: none;
-				}
 			}
 		}
 		
@@ -343,7 +336,7 @@ p {
 }
 
 .blue-menu {
-	position: absolute;
+	position: fixed;
 	height: 50px;
 	width: 100%;
 	background-color: $pitt-blue;
@@ -364,12 +357,6 @@ p {
 	
 	&:hover {
 		background-color: $world-rally-blue;
-	}
-	
-	&:active {
-		@media #{$narrow-screen} {
-			background-color: $world-rally-blue;
-		}
 	}
 	
 	@media #{$bigger-screen} {
@@ -488,7 +475,7 @@ p {
 				color: $brick-red;
 				@include transition-color(0.25s);
 				
-				&:hover {
+				&:hover, &:active {
 					color: $old-gold;
 				}
 			}
@@ -590,7 +577,7 @@ p {
 		font-size: 18px;
 		color: black;
 		
-		&:hover {
+		&:hover, &:active {
 			color: $old-gold;
 		}
 	}
@@ -637,7 +624,7 @@ p {
 						color: #A8A8A8;
 						@include transition-color(0.25s);
 						
-						&:hover {
+						&:hover, &:active {
 							color: $world-rally-blue;
 						}
 					}
@@ -828,7 +815,7 @@ p {
 			@include grayscale(100%);
 			opacity: 0.5;
 			
-			&:hover {
+			&:hover, &:active {
 				opacity: 1.0;
 			}
 		}
@@ -849,6 +836,10 @@ p {
 	background-size: 90%;
 	min-height: calc(100vh - 50px);
 	padding: 0;
+	
+	&.lights {
+		background-image: url('../img/bkgrds/pitt-skyline-lights.png');
+	}
 	
 	h2 {
 		color: $old-gold;
@@ -944,12 +935,6 @@ p {
 				&:hover {
 					background-color: #CC0000;
 				}
-				
-				&:active {
-					@media #{$narrow-screen} {
-						background-color: #CC0000;
-					}
-				}
 			}
 		}
 		
@@ -1010,7 +995,7 @@ p {
 		background-color: #E85F11;
 		color: white;
 		
-		&:hover {
+		&:hover, &:active {
 			background-color: #E89C11;
 		}
 		
@@ -1036,23 +1021,78 @@ p {
 	padding-left: 1em;
 	z-index: 1000;
 	
+	span {
+		float: left;
+	}
+	
 	a {
-		background-image: url('../img/icons/info-icon-48px.png');
-		background-position: left center;
-		background-repeat: no-repeat;
-		background-size: 1.2em;
-		color: white;
-		float: right;
-		padding-right: 1.5em;
-		padding-left: 1.5em;
-		@include transition-color(0.25s);
+		cursor: pointer;
 		
-		&:hover {
-			color: $pitt-blue;
+		&:first-of-type {
+			margin-left: 1em;
 		}
 		
-		&:active {
-			@media #{$narrow-screen} {
+		&:not(:last-of-type) {
+			display: block;
+			float: left;
+			width: 28px;
+			height: 28px;
+			
+			img {
+				vertical-align: middle;
+			}
+			
+			&:hover, &:active {
+				&:first-of-type {
+					img {
+						content: url('../img/icons/github-color-28px.png');
+					}
+				}
+				
+				&:nth-of-type(2) {
+					img {
+						content: url('../img/icons/linkedin-color-28px.png');
+					}
+				}
+				
+				&:nth-of-type(3) {
+					img {
+						content: url('../img/icons/flickr-color-28px.png');
+					}
+				}
+				
+				&:nth-of-type(4) {
+					img {
+						content: url('../img/icons/youtube-color-28px.png');
+					}
+				}
+				
+				&:nth-of-type(5) {
+					img {
+						content: url('../img/icons/bsod-color-28px.png');
+					}
+				}
+				
+				&:nth-of-type(6) {
+					img {
+						content: url('../img/icons/lightbulb-color-28px.png');
+					}
+				}
+			}
+		}
+		
+		&:last-of-type {
+			background-image: url('../img/icons/info-icon-48px.png');
+			background-position: left center;
+			background-repeat: no-repeat;
+			background-size: 1.2em;
+			color: white;
+			padding-right: 1.5em;
+			padding-left: 1.5em;
+			@include transition-color(0.25s);
+			float: right;
+			
+			&:hover, &:active {
 				color: $pitt-blue;
 			}
 		}
@@ -1117,14 +1157,8 @@ p {
 	background-color: #00A86B;
 	color: white;
 	
-	&:hover {
+	&:hover, &:active {
 		background-color: $british-racing-green;
-	}
-	
-	&:active {
-		@media #{$narrow-screen} {
-			background-color: $british-racing-green;
-		}
 	}
 }
 
