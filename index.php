@@ -110,7 +110,7 @@
 								<span></span>
 							</div>
 						</div>
-						<a href="https://github.com/brandonhang" target="blank"></a>
+						<a href="https://github.com/brandonhang"></a>
 						<span></span>
 						<table>
 							<tr>
@@ -119,10 +119,10 @@
 							</tr>
 							<tr>
 								<td>
-									<a href="https://github.com/brandonhang?tab=repositories" target="blank">REPOS</a>
+									<a href="https://github.com/brandonhang?tab=repositories">REPOS</a>
 								</td>
 								<td>
-									<a href="https://github.com/brandonhang/followers" target="blank">FOLLOWERS</a>
+									<a href="https://github.com/brandonhang/followers">FOLLOWERS</a>
 								</td>
 							</tr>
 						</table>
@@ -179,7 +179,7 @@
 					to the ludicrously-priced and ludicrously powerful European exotics, and even the Japanese street
 					legends of humble origins, I&#39m a fan of it all.<br/><br/>
 					You can see more of my automotive photography on my
-					<a href='https://www.flickr.com/photos/dangitshang' target='_blank'>Flickr</a>!
+					<a href="https://www.flickr.com/photos/dangitshang">Flickr</a>!
 				</p>
 				<div class="cars-thumbs thumbnails"></div>
 				<div class="cars slideshow"></div>
@@ -207,13 +207,20 @@
 				</form>
 				<img src="img/bkgrds/logo-big.png"/>
 			</div>
-			
 		</div>
 		
 		<!-- Footer -->
 		<div id="footer">
-			&copy; 2016 Brandon S. Hang
-			<a href="#">About this site</a>
+			<span>&copy; 2016 Brandon S. Hang</span>
+			<a href="https://github.com/brandonhang"><img src="img/icons/github-gray-28px.png"/></a>
+			<a href="https://www.linkedin.com/in/brandonhang"><img src="img/icons/linkedin-gray-28px.png"/></a>
+			<a href="https://www.flickr.com/photos/dangitshang"><img src="img/icons/flickr-gray-28px.png"/></a>
+			<a href="https://www.youtube.com/playlist?list=PLr-gFI33RZBw-uQb17DgehrGYP9CotwZ_">
+				<img src="img/icons/youtube-gray-28px.png"/>
+			</a>
+			<a href="http://www.pitt.edu/~bsh41/"><img src="img/icons/bsod-gray-28px.png"/></a>
+			<a id="lightbulb"><img src="img/icons/lightbulb-gray-28px.png"/></a>
+			<a>About this site</a>
 		</div>
 		
 		<!-- Contact Send Popup -->
@@ -254,6 +261,7 @@
 			async defer></script>
 		<script src="slick/slick.min.js"></script>
 		<script src="js/slick_init.js"></script>
+		<script src="js/light_up.js"></script>
 	</body>
 </html>
 <!--
