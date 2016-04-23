@@ -1,7 +1,5 @@
 $(document).ready(function() {
-	$(document).on('click', '#footer a', function(event) {
-		event.preventDefault();
-		
+	$(document).on('click', '#footer a:last-of-type', function(event) {
 		if ($('#site-info').length > 0) {
 			$('#site-info').show();
 		}
