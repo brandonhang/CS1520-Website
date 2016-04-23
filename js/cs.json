@@ -25,7 +25,7 @@
 		},
 		{
 			"name": "CS 0447",
-			"description": "Selected projects from CS 0447 - Computer Organization and Assembly Language",
+			"description": "Projects from CS 0447 - Computer Organization and Assembly Language",
 			"children": [
 				{
 					"name": "Assembly Auto Coder",
@@ -62,6 +62,11 @@
 					"name": "Custom malloc()",
 					"description": "A custom suite of memory de/allocation functions written in C",
 					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0449/Custom%20Malloc"
+				},
+				{
+					"name": "Dice Driver and Yahtzee",
+					"description": "A C program that simulates Yahtzee using a custom Linux driver",
+					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0449/Dice%20Driver%20and%20Yahtzee"
 				}
 			]
 		},
