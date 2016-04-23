@@ -1,5 +1,5 @@
 (function($) {
-	$('#lightbulb').on('click', function() {
+	$('#lightbulb').on('click', function() {			// Activate secret mode...
 		$('#contact').toggleClass('lights');
 	});
-})(jQuery);
+})(jQuery);				// I used an IIFE here to try things out

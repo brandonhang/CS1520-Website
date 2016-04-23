@@ -1,10 +1,10 @@
 $(document).ready(function() {
 	$.ajax({
-		url: 'https://api.github.com/users/brandonhang',
+		url: 'https://api.github.com/users/brandonhang',			// AJAX call to get GitHub profile info
 		type: 'GET',
 		dataType: 'json',
 		success: function(data) {
-			var timestamp = getTimestamp();
+			var timestamp = getTimestamp();						// Gets the current timestamp (UTC)
 			$('#git-pic').attr("src", data.avatar_url);
 			$('#git-card > a').text("@" + data.login);
 			$('#git-card > span').text(data.company);
@@ -12,7 +12,7 @@ $(document).ready(function() {
 			$('#git-card tr:first-of-type td:last-of-type').text(data.followers);
 			$('.git-status').attr("src", "img/icons/api-connected.png");
 			$('.tooltip span').text("The GitHub API is connected!");
-			$.ajax({
+			$.ajax({												// On success, makes another AJAX call to write information to a cache
 				url: 'php/github_cache.php',
 				type: 'POST',
 				dataType: 'text',
@@ -26,7 +26,7 @@ $(document).ready(function() {
 				}
 			});
 		},
-		error: function() {
+		error: function() {					// If the AJAX call was unsuccessful, reads cached information
 			$.ajax({
 				url: 'misc/github_cache.txt',
 				type: 'GET',
@@ -42,7 +42,7 @@ $(document).ready(function() {
 					$('.tooltip span').html("Couldn't connect to the API.<br>" +
 							"Using a cached version from<br>" + git[5] + ".");
 				},
-				error: function() {
+				error: function() {							// If a problem occurred reading the cache, information is set to default values
 					$('#git-pic').attr("src", "https://avatars1.githubusercontent.com/u/16514561?v=3");
 					$('#git-card > a').text("@brandonhang");
 					$('#git-card > span').text("University of Pittsburgh");
