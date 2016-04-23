@@ -1,20 +1,20 @@
 $(document).ready(function() {
-	$.ajax({
+	$.ajax({								// AJAX call to build the cars carousel
 		url: 'js/cars.json',
 		type: 'GET',
 		dataType: 'JSON',
 		success: function(data) {
-			$(data.cars).each(function(index, pic) {
+			$(data.cars).each(function(index, pic) {				// Car big images
 				$('.cars').append('<div class="slide"><img class="lightbox-img" src="' + pic + '" href="' + pic + '"/></div>');
 			});
-			$(data.thumbs).each(function(index, thumb) {
+			$(data.thumbs).each(function(index, thumb) {			// Car thumbnails
 				$('.cars-thumbs').append('<div><img src="' + thumb + '"/></div>');
 			});
-			$(data.desc).each(function(index, blurb) {
+			$(data.desc).each(function(index, blurb) {			// Slide descriptions
 				$('.cars .slide').eq(index).append('<div></div>');
 				$('.cars .slide:nth-of-type(' + (index + 1) + ') div').html(blurb);
 			});
-			$('.cars').slick({
+			$('.cars').slick({					// Initializes the main Slick carousel
 				infinite: true,
 				speed: 500,
 				fade: true,
@@ -26,7 +26,7 @@ $(document).ready(function() {
 				nextArrow: '<img class="slick-next" src="img/icons/nav_right_64px.png"/>',
 				prevArrow: '<img class="slick-prev" src="img/icons/nav_left_64px.png"/>'
 			});
-			$('.cars-thumbs').slick({
+			$('.cars-thumbs').slick({			// Initializes the thumbnail slider
 				infinite: true,
 				slidesToShow: 7,
 				slidesToScroll: 1,
@@ -57,22 +57,22 @@ $(document).ready(function() {
 			});
 		}
 	});
-	$.ajax({
+	$.ajax({								// AJAX call to build the music carousel
 		url: 'js/music.json',
 		type: 'GET',
 		dataType: 'JSON',
 		success: function(data) {
-			$(data.music).each(function(index, pic) {
+			$(data.music).each(function(index, pic) {				// Big music images
 				$('.music').append('<div class="slide"><img class="lightbox-img" src="' + pic + '" href="' + pic + '"/></div>');
 			});
-			$(data.thumbs).each(function(index, thumb) {
+			$(data.thumbs).each(function(index, thumb) {			// Music thumbnails
 				$('.music-thumbs').append('<div><img src="' + thumb + '"/></div>');
 			});
-			$(data.desc).each(function(index, blurb) {
+			$(data.desc).each(function(index, blurb) {			// Slide descriptions
 				$('.music .slide').eq(index).append('<div></div>');
 				$('.music .slide:nth-of-type(' + (index + 1) + ') div').html(blurb);
 			});
-			$('.music').slick({
+			$('.music').slick({					// Initializes the main music carousel
 				infinite: true,
 				speed: 500,
 				fade: true,
@@ -84,7 +84,7 @@ $(document).ready(function() {
 				nextArrow: '<img class="slick-next" src="img/icons/nav_right_64px.png"/>',
 				prevArrow: '<img class="slick-prev" src="img/icons/nav_left_64px.png"/>'
 			});
-			$('.music-thumbs').slick({
+			$('.music-thumbs').slick({				// Initializes the thumbnail slider
 				infinite: true,
 				slidesToShow: 7,
 				slidesToScroll: 1,

@@ -1,10 +1,10 @@
 <?php
-	if (!isset($_POST["recaptcha"])) {
+	if (!isset($_POST["recaptcha"])) {				// Discourages direct access to the file
 		die("Unauthorized access prohibited!  That means you!");
 		exit(1);
 	}
-	define('SUBARU', TRUE);
-	include "g-recaptcha.php";			// The g-recaptcha.php file is deliberately missing from the GitHub repository
+	define('SUBARU', TRUE);				// Allows the included private RSA key to be read without getting the 404 page
+	include "g-recaptcha.php";			// THIS WILL FAIL BECAUSE IT IS NOT IN THE REPO
 	$recaptcha = $_POST["recaptcha"];
 	
 	$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$g_key&response=$recaptcha");

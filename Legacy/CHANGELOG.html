@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="author" content="Brandon S. Hang"/>
+		<title>Part 2 Changes</title>
+		<link type="image/x-icon" rel="shortcut icon" href="img/icons/icon.ico"/>
+		<link type="text/css" rel="stylesheet" href="style/changelog.css"/>
+	</head>
+	<body>
+		<article>
+			<h3>Changes and Enhancements</h3>
+			<p>
+				<span class="tab"></span>I made many changes and enhancements in part 2 of my project
+				(more than I thought) I could come up with.  The biggest change is that I switched to
+				using SASS to precompile my CSS.  I wish I had learned of this sooner because being able
+				to nest styles, use variables, and include mixins (which are <i>super awesome</i>) is not
+				only convenient but just plain makes sense.  I also took advantage of media queries to
+				deliver content based on the width of the browser.
+			</p>
+			<p>
+				<span class="tab"></span>I revamped the Programming section to be more interactive,
+				informative, and less <i>blah</i>.  I created a GitHub user card that is inspired by
+				social media accounts and the Xbox 360 Gamertag.  It also uses the GitHub API v3 in order
+				to deliver up-to-date profile images and repo/follower stats.  I also used the D3 jQuery
+				plugin to build a horizontal tree of my past CS projects at Pitt.  I didn&#8217t really
+				modify the tree script as previous attempts to refactor it went horribly and the
+				documentation for this particular structure was either non-existent or very well hidden.
+				I resigned to simply changing the tree to a fixed size and modifying the colors of the
+				nodes/branches.  The tree uses a JSON object that I wrote to include all the relevant
+				branches, urls, and descriptions.
+			</p>
+			<p>
+				<span class="tab"></span>The next major section I enhanced was the Interests section.
+				I removed the &#8220Sports&#8221 and &#8220Media&#8221 sections as I no longer needed to
+				fluff up the section with extra content.  I used the Slick jQuery carousel plugin to generate
+				2 carousels for &#8220Music&#8221 and &#8220Cars&#8221.  Each subsection also uses JSON
+				objects I wrote to pull images, thumbnails, and descriptions for each slide.  Like the D3
+				plugin, I also found the documentation for Slick to be lacking.  However, I was able to
+				create carousels that were mostly in line with what I had in mind.  I originally thought
+				about using a carousel within a carousel but decided against it as it might have made for
+				an inferior mobile experience.
+			</p>
+			<p>
+				<span class="tab"></span>I updated the &#8220Contact&#8221 section to submit messages without
+				requiring a page refresh.  I also slightly changed the layout and included Google&#8217s
+				Recaptcha service.  However, for security reasons, I did not include the PHP file with my
+				private RSA key so messages will not send successfully.  You can try, but my website will yell
+				at you and accuse you of either being a Terminator or an Agent of the <span class="green">Matrix</span>.
+			</p>
+			<p>
+				<span class="tab"></span>Some other minor changes include enhancements of the navigation bar,
+				the site information popup, and the footer.  The navigation bar now fades in a blue background
+				once the user scrolls past a certain number of pixels.  The site information popup
+				was modified to fit on screens of small resolution sizes.  The footer now contains a
+				row of external links as buttons.  There might be 1 or 2 Easter eggs found here&#8230
+			</p>
+			<h3>Part 3 Thoughts</h3>
+			<p>
+				<span class="tab"></span>I honestly have <i>no idea</i> what I would do if there was a Part 3.
+				I already had a hard enough time coming up with ideas for Part 2.  I guess if I were to do
+				something, it would be adding some more interactive tooltips perhaps.  It would be
+				neat if hovering over certain keywords resulted in a tooltip appearing with some
+				extra images not found in the carousels.  I also wanted to embed a YouTube video
+				in one of my carousels but it unfortunately introduced trackers and ads to my site.
+				<b>AND THAT IS UNACCEPTABLE!</b>
+			</p>
+			<h3>What I Learned</h3>
+			<p>
+				<span class="tab"></span>It&#8217s hard to say what exactly I learned between Parts 1 and 2
+				as I sort of worked on both parts concurrently.  So instead, I&#8217ll simply try to
+				describe what I learned overall&#8230which happens to be everything.  I started this
+				project not knowing how to write a single line of HTML and now I can confidently say
+				that I built a website from scratch.  No Bootstrap necessary.
+			</p>
+			<h3>Project Dis/Likes</h3>
+			<p><span class="tab"></span>I am someone who enjoys building things in any format (Legos,
+				woodworking, Gundam models, etc.) so building a website was no different.  I also liked
+				the fact that this website is something I can (and plan to) put up on the Internet eventually,
+				perhaps by this summer even.
+			</p>
+			<p>
+				<span class="tab"></span>I didn&#8217t particularly enjoy the lack of structure with this
+				project.  It was far too open-ended for someone who was a rookie web developer.  In these
+				situations, I often feel that smaller steps put less pressure on newcomers as it allows
+				them to feel they are progressing towards something.  I know the exercises were meant to do
+				that but I didn&#8217t feel as if they tied in that well with building a website.
+			</p>
+			<p><span class="right">&#8213Brandon S. Hang</span></p>
+		</article>
+	</body>
+</html>

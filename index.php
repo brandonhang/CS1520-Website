@@ -98,6 +98,7 @@
 			</div>
 		</div>
 		
+		<!-- Programming Section -->
 		<div id="programming" class="container">
 			<div class="content">
 				<h2>Programming</h2>

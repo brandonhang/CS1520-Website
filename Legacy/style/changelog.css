@@ -1,0 +1,32 @@
+body {
+	font-family: 'Verdana', sans-serif;
+	width: 100%;
+	margin: 0;
+}
+
+article {
+	width: 75%;
+	display: block;
+	margin: 0 auto;
+}
+
+h3 {
+	font-size: 28px;
+}
+
+p {
+	font-size: 23px;
+}
+
+.tab {
+	padding-left: 3em;
+}
+
+.green {
+	color: #00B800;
+}
+
+.right {
+	display: block;
+	text-align: right;
+}
