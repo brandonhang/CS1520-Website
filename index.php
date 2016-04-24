@@ -245,6 +245,11 @@
 			</div>
 		<?php }; ?>
 		
+		<!-- ??? -->
+		<div id="n">
+			<img src="img/icons/menu-close-50px.png" title="Close"/>
+		</div>
+		
 		<!-- Scripts -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 		<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
@@ -263,6 +268,8 @@
 		<script src="slick/slick.min.js"></script>
 		<script src="js/slick_init.js"></script>
 		<script src="js/light_up.js"></script>
+		<script src="js/jquery.konami.js"></script>
+		<script src="js/n.js"></script>
 	</body>
 </html>
 <!--
