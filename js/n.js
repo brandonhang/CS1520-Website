@@ -2,10 +2,11 @@
 	$(window).konami();
 	$(window).on('konami', function() {			// Shows the game when the Konami code is entered
 		if ($('#n').is(':hidden')) {
-			$('#n').append('<iframe width="700" height="530"' +
+			$('#n').append('<embed width="700" height="530"' +
 					'type="application/x-shockwave-flash"' +
 					'src="misc/ngame.swf"' +
-					' style="border:0">'
+					'name="ngame" id="ngame"' +
+					'style="border:0"/>'
 			).delay(250).fadeIn("slow");
 		}
 	});
