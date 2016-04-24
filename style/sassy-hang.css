@@ -870,7 +870,7 @@ h2 {
     cursor: pointer; }
     #n img:hover {
       opacity: 0.7; }
-  #n iframe {
+  #n embed {
     position: relative;
     display: block;
     margin-left: auto;
