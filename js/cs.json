@@ -67,6 +67,11 @@
 					"name": "Dice Driver and Yahtzee",
 					"description": "A C program that simulates Yahtzee using a custom Linux driver",
 					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0449/Dice%20Driver%20and%20Yahtzee"
+				},
+				{
+					"name": "Custom UNIX Shell",
+					"description": "A custom UNIX shell that features several built-in commands",
+					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0449/Custom%20UNIX%20Shell"
 				}
 			]
 		},
@@ -78,6 +83,32 @@
 					"name": "Password Checker",
 					"description": "A Java program that checks an entered password against a generated list",
 					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs1501/Password%20Checker"
+				},
+				{
+					"name": "Car Buying Database",
+					"description": "A text-based app that tracks the lowest mileage/priced car from a database",
+					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs1501/Car%20Buying%20Database"
+				},
+				{
+					"name": "Airline Route Mgmt",
+					"description": "A Java program that manages airline route information via an undirected graph",
+					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs1501/Airline%20Route%20Management"
+				},
+				{
+					"name": "RSA Demonstration",
+					"description": "A duo of Java programs that generate a 1024-bit RSA keypair and create digital signatures",
+					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs1501/RSA%20Demonstration"
+				}
+			]
+		},
+		{
+			"name": "CS 1520",
+			"description": "Website project from CS 1520 - Programming Languages for Web Applications",
+			"children": [
+				{
+					"name": "Personal Website",
+					"description": "A personal website written using a number of web development languages",
+					"url": "https://github.com/brandonhang/CS1520-Website"
 				}
 			]
 		},
