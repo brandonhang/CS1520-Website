@@ -1,13 +1,13 @@
 $(document).ready(function() {
 	var i = 0;
 	var root;
-	var tree = d3.layout.tree().size([500, 600]);
+	var tree = d3.layout.tree().size([550, 600]);
 	var diagonal = d3.svg.diagonal().projection(function(d) {
 		return [d.y, d.x];
 	});
 	var canvas = d3.select("#cs-tree").append("svg:svg")
 		.attr("width", 628)
-		.attr("height", 480)
+		.attr("height", 550)
 		.append("svg:g").attr("transform", "translate(" + 92 + ", -5)");
 
 	d3.json("js/cs.json", function(projects) {
@@ -24,7 +24,7 @@ $(document).ready(function() {
 		
 		root.children.forEach(toggleAll);
 		toggle(root.children[2]);
-		toggle(root.children[4]);
+		toggle(root.children[5]);
 		update(root);
 	});
 
