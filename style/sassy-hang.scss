@@ -3,6 +3,7 @@ $narrow-screen: "only screen and (max-width: 720px)";
 $bigger-screen: "only screen and (min-width: 721px)";
 $medium-screen: "only screen and (min-width: 721px) and (max-width: 999px)";
 $wide-screen: "only screen and (min-width: 1000px)";
+$retina-portrait: "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)";
 $big-tree: "only screen and (min-width: 1220px)";
 $small-tree: "only screen and (max-width: 1219px)";
 
@@ -179,10 +180,19 @@ $box-shadow: 8px 8px 3px 0px $asteroid-grey;
 	transform-origin: 50% 50%;
 }
 
+@mixin translate($x, $y) {
+	-ms-transform: translate($x, $y) !important;
+	-webkit-transform: translate($x, $y) !important;
+	-moz-transform: translate($x, $y) !important;
+	-o-transform: translate($x, $y) !important;
+	transform: translate($x, $y) !important;
+}
+
 
 /* ~~~~~~~~ Global styling ~~~~~~~~ */
 body {
 	margin: 0;
+	overflow-x: hidden;
 	font-family: 'Montserrat', 'Verdana', sans-serif;
 }
 
@@ -200,16 +210,24 @@ p {
 	opacity: 0.9;
 	z-index: 9001;
 	
-	@media #{$narrow-screen} {
+	@media #{$narrow-screen}, #{$retina-portrait} {
 		background-color: $pitt-blue;
+	}
+	
+	@media #{$retina-portrait} {
+		height: 10%;
 	}
 	
 	> div {
 		width: 81%;
 		@include center-margin;
 		
-		@media #{$narrow-screen} {
+		@media #{$narrow-screen}, #{$retina-portrait} {
 			width: 100%;
+		}
+		
+		@media #{$retina-portrait} {
+			height: 10%;
 		}
 		
 		> a {
@@ -237,11 +255,17 @@ p {
 				background-size: 30px;
 			}
 			
-			@media #{$narrow-screen} {
+			@media #{$narrow-screen}, #{$retina-portrait} {
 				display: block;
 				padding-left: 0;
 				background-size: 0;
 				text-align: center;
+			}
+			
+			@media #{$retina-portrait} {
+				font-size: 350%;
+				line-height: 250%;
+				width: 100%;
 			}
 			
 			&:hover, &:active {
@@ -267,7 +291,7 @@ p {
 				background-size: 0;
 			}
 			
-			@media #{$narrow-screen} {
+			@media #{$narrow-screen}, #{$retina-portrait} {
 				display: none;
 				
 				&:active {
@@ -298,12 +322,21 @@ p {
 		}
 		
 		li.show-menu {
-			@media #{$narrow-screen} {
+			@media #{$narrow-screen}, #{$retina-portrait} {
 				display: block;
 				background-color: $pitt-blue;
 				background-size: 0;
+			}
+			
+			@media #{$narrow-screen} {
 				height: 50px;
 				line-height: 50px;
+			}
+			
+			@media #{$retina-portrait} {
+				width: 100%;
+				height: 800%;
+				line-height: 700%;
 			}
 			
 			a {
@@ -311,6 +344,11 @@ p {
 				
 				&:hover, &:active {
 					background-color: $world-rally-blue;
+				}
+				
+				@media #{$retina-portrait} {
+					font-size: 250%;
+					
 				}
 			}
 		}
@@ -325,11 +363,16 @@ p {
 		float: right;
 	}
 	
+	@media #{$retina-portrait} {
+		float: none;
+		height: 100%;
+	}
+	
 	ul {
 		padding-left: 0;
 		display: inline;
 		
-		@media #{$narrow-screen} {
+		@media #{$narrow-screen}, #{$retina-portrait} {
 			margin: 0;
 		}
 	}
@@ -343,12 +386,16 @@ p {
 	@include zero-space;
 	border: none;
 	display: none;
+	
+	@media #{$retina-portrait} {
+		height: 10%;
+	}
 }
 
 #menu-button {
 	position: fixed;
 	top: 0;
-	right: 0;
+	left: 0;
 	@include zero-space;
 	width: 50px;
 	height: 50px;
@@ -361,6 +408,12 @@ p {
 	
 	@media #{$bigger-screen} {
 		display: none;
+	}
+	
+	@media #{$retina-portrait} {
+		height: 10%;
+		width: auto;
+		display: inline !important;
 	}
 }
 
@@ -386,6 +439,10 @@ p {
 			width: 311px;
 			display: block;
 			@include center-margin;
+			
+			@media #{$retina-portrait} {
+				width: 50%;
+			}
 		}
 		
 		h1 {
@@ -394,6 +451,10 @@ p {
 			color: white;
 			text-align: center;
 			margin-top: 50px;
+			
+			@media #{$retina-portrait} {
+				font-size: 250%;
+			}
 		}
 	}
 }
@@ -422,7 +483,16 @@ p {
 			
 			@media #{$narrow-screen} {
 				width: calc(50% - 12px);
-				margin: 0 25% 2em 25%;
+				margin: 0 auto 2em auto;
+				float: none;
+				display: block;
+			}
+			
+			@media #{$retina-portrait} {
+				width: 65%;
+				margin: 0 auto 1em auto;
+				float: none;
+				display: block;
 			}
 		}
 		
@@ -471,6 +541,10 @@ p {
 				margin: 2em auto 0 auto;
 			}
 			
+			@media #{$retina-portrait} {
+				margin: 1em;
+			}
+			
 			a {
 				color: $brick-red;
 				@include transition-color(0.25s);
@@ -501,6 +575,11 @@ p {
 		margin-top: 4em;
 	}
 	
+	@media #{$retina-portrait} {
+		width: 60vw;
+		height: 30vw;
+	}
+	
 	> div {
 		position: relative;
 		height: 50px;
@@ -509,10 +588,18 @@ p {
 		-webkit-border-top-right-radius: 4px;
 		-moz-border-top-right-radius: 4px;
 		
+		@media #{$retina-portrait} {
+			height: 8.5vw;
+		}
+		
 		div.tooltip {
 			height: 50px;
 			margin: 0;
 			text-align: right;
+			
+			@media #{$retina-portrait} {
+				height: 8.5vw;
+			}
 			
 			img.git-status {
 				opacity: 0.15;
@@ -521,6 +608,10 @@ p {
 			
 			img.git-logo {
 				margin: 5px 5px 5px 0;
+				
+				@media #{$retina-portrait} {
+					margin: 3% 3% 3% 0;
+				}
 			}
 			
 			span {
@@ -543,6 +634,13 @@ p {
 				-moz-transition: visibility 0s 0.25s, opacity 0.25s;
 				transition: visibility 0s 0.25s, opacity 0.25s;
 				
+				@media #{$retina-portrait} {
+					top: -320%;
+					right: -80%;
+					font-size: 135%;
+					width: 25vw;
+				}
+				
 				&::after {
 					content: " ";
 					position: absolute;
@@ -552,6 +650,16 @@ p {
 					border-width: 5px;
 					border-style: solid;
 					border-color: transparent $ice-silver transparent transparent;
+					
+					@media #{$retina-portrait} {
+						top: 100%;
+						left: 25%;
+						right: auto;
+						margin-left: -0.7em;
+						border-width: 0.7em;
+						border-style: solid;
+						border-color: $ice-silver transparent transparent transparent;
+					}
 				}
 			}
 			
@@ -580,6 +688,13 @@ p {
 		&:hover, &:active {
 			color: $old-gold;
 		}
+		
+		@media #{$retina-portrait} {
+			font-size: 250%;
+			margin-left: 0;
+			margin-top: 0.2em;
+			text-align: center;
+		}
 	}
 	
 	> span {
@@ -591,6 +706,16 @@ p {
 		background-image: url('../img/icons/github-co-16px.png');
 		background-position: left center;
 		background-repeat: no-repeat;
+		
+		@media #{$retina-portrait} {
+			font-size: 180%;
+			background-position: calc(50% - 6.5em) center;
+			background-size: 4%;
+			margin-left: 0;
+			margin-top: 0.25em;
+			display: block;
+			text-align: center;
+		}
 	}
 	
 	table {
@@ -612,6 +737,10 @@ p {
 					font-weight: bold;
 					font-size: 16px;
 					color: black;
+					
+					@media #{$retina-portrait} {
+						font-size: 200%;
+					}
 				}
 			}
 			
@@ -626,6 +755,10 @@ p {
 						
 						&:hover, &:active {
 							color: $world-rally-blue;
+						}
+						
+						@media #{$retina-portrait} {
+							font-size: 200%;
 						}
 					}
 				}
@@ -650,6 +783,13 @@ p {
 		@include border-radius(100%);
 		border: 3px solid white;
 		box-shadow: 0 0 0 1pt $asteroid-grey;
+		
+		@media #{$retina-portrait} {
+			top: -5vw;
+			left: -8vw;
+			width: 20vw;
+			height: auto;
+		}
 	}
 }
 
@@ -663,25 +803,49 @@ p {
 		text-align: center;
 	}
 	
-	.node {
-		cursor: pointer;
-		
-		circle {
-			fill: white;
-			stroke: #999999;
-			stroke-width: 3px;
+	svg {
+		@media #{$retina-portrait} {
+			width: 100vw;
 		}
 		
-		text {
-			font-size: 13px;
-			fill: $ice-silver;
+		> g {
+			@media #{$retina-portrait} {
+				@include translate(calc(100vw / 5), -5%);
+			}
 		}
-	}
-	
-	.link {
-		fill: none;
-		stroke: #383838;
-		stroke-width: 2px;
+		
+		.node {
+			cursor: pointer;
+			
+			circle {
+				fill: white;
+				stroke: #999999;
+				stroke-width: 3px;
+				
+				@media #{$retina-portrait} {
+					stroke-width: 0.5%;
+				}
+			}
+			
+			text {
+				font-size: 13px;
+				fill: $ice-silver;
+				
+				@media #{$retina-portrait} {
+					font-size: 150%;
+				}
+			}
+		}
+		
+		.link {
+			fill: none;
+			stroke: #383838;
+			stroke-width: 2px;
+			
+			@media #{$retina-portrait} {
+				stroke-width: 0.75%;
+			}
+		}
 	}
 }
 
@@ -1212,8 +1376,8 @@ h2 {
 		width: 80%;
 	}
 	
-	@media #{$narrow-screen} {
-		width: 97%;
+	@media #{$narrow-screen}, #{$retina-portrait} {
+		width: 100%;
 	}
 }
 

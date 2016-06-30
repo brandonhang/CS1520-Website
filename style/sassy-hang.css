@@ -1,6 +1,7 @@
 /* ~~~~~~~~ Global styling ~~~~~~~~ */
 body {
   margin: 0;
+  overflow-x: hidden;
   font-family: 'Montserrat', 'Verdana', sans-serif; }
 
 p {
@@ -15,16 +16,22 @@ p {
   top: 0;
   opacity: 0.9;
   z-index: 9001; }
-  @media only screen and (max-width: 720px) {
+  @media only screen and (max-width: 720px), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .nav-container {
       background-color: #0C1155; } }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .nav-container {
+      height: 10%; } }
   .nav-container > div {
     width: 81%;
     margin-left: auto;
     margin-right: auto; }
-    @media only screen and (max-width: 720px) {
+    @media only screen and (max-width: 720px), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
       .nav-container > div {
         width: 100%; } }
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      .nav-container > div {
+        height: 10%; } }
     .nav-container > div > a {
       line-height: 50px;
       font-family: "Sorts Mill Goudy", serif;
@@ -53,12 +60,17 @@ p {
           font-size: 18px;
           padding-left: 35px;
           background-size: 30px; } }
-      @media only screen and (max-width: 720px) {
+      @media only screen and (max-width: 720px), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
         .nav-container > div > a {
           display: block;
           padding-left: 0;
           background-size: 0;
           text-align: center; } }
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .nav-container > div > a {
+          font-size: 350%;
+          line-height: 250%;
+          width: 100%; } }
       .nav-container > div > a:hover, .nav-container > div > a:active {
         color: #D4B92B;
         -webkit-filter: grayscale(0%);
@@ -82,7 +94,7 @@ p {
       @media only screen and (min-width: 721px) and (max-width: 999px) {
         .nav-container > div li {
           background-size: 0; } }
-      @media only screen and (max-width: 720px) {
+      @media only screen and (max-width: 720px), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
         .nav-container > div li {
           display: none; }
           .nav-container > div li:active {
@@ -103,13 +115,20 @@ p {
             font-size: 13px;
             padding-left: 7px;
             padding-right: 7px; } }
-    @media only screen and (max-width: 720px) {
+    @media only screen and (max-width: 720px), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
       .nav-container > div li.show-menu {
         display: block;
         background-color: #0C1155;
-        background-size: 0;
+        background-size: 0; } }
+    @media only screen and (max-width: 720px) {
+      .nav-container > div li.show-menu {
         height: 50px;
         line-height: 50px; } }
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      .nav-container > div li.show-menu {
+        width: 100%;
+        height: 800%;
+        line-height: 700%; } }
     .nav-container > div li.show-menu a {
       -webkit-transition: background-color 0.25s;
       -o-transition: background-color 0.25s;
@@ -117,6 +136,9 @@ p {
       transition: background-color 0.25s; }
       .nav-container > div li.show-menu a:hover, .nav-container > div li.show-menu a:active {
         background-color: #0736F8; }
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .nav-container > div li.show-menu a {
+          font-size: 250%; } }
 
 #links {
   position: relative;
@@ -124,10 +146,14 @@ p {
   @media only screen and (min-width: 721px) {
     #links {
       float: right; } }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    #links {
+      float: none;
+      height: 100%; } }
   #links ul {
     padding-left: 0;
     display: inline; }
-    @media only screen and (max-width: 720px) {
+    @media only screen and (max-width: 720px), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
       #links ul {
         margin: 0; } }
 
@@ -140,11 +166,14 @@ p {
   padding: 0;
   border: none;
   display: none; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .blue-menu {
+      height: 10%; } }
 
 #menu-button {
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   margin: 0;
   padding: 0;
   width: 50px;
@@ -159,6 +188,11 @@ p {
   @media only screen and (min-width: 721px) {
     #menu-button {
       display: none; } }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    #menu-button {
+      height: 10%;
+      width: auto;
+      display: inline !important; } }
 
 .menu-open {
   content: url("../img/icons/menu-close-50px.png"); }
@@ -186,12 +220,18 @@ p {
       display: block;
       margin-left: auto;
       margin-right: auto; }
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        #top div img {
+          width: 50%; } }
     #top div h1 {
       font-size: 24px;
       font-weight: bold;
       color: white;
       text-align: center;
       margin-top: 50px; }
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        #top div h1 {
+          font-size: 250%; } }
 
 /* ~~~~~~~~ About section ~~~~~~~~ */
 #about {
@@ -216,7 +256,15 @@ p {
     @media only screen and (max-width: 720px) {
       #about div img {
         width: calc(50% - 12px);
-        margin: 0 25% 2em 25%; } }
+        margin: 0 auto 2em auto;
+        float: none;
+        display: block; } }
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      #about div img {
+        width: 65%;
+        margin: 0 auto 1em auto;
+        float: none;
+        display: block; } }
   #about div::after {
     content: "";
     display: table;
@@ -248,6 +296,9 @@ p {
     @media only screen and (max-width: 1219px) {
       #programming section p {
         margin: 2em auto 0 auto; } }
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      #programming section p {
+        margin: 1em; } }
     #programming section p a {
       color: #B42929;
       -webkit-transition: color 0.25s;
@@ -276,6 +327,10 @@ p {
       margin-left: auto;
       margin-right: auto;
       margin-top: 4em; } }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    #git-card {
+      width: 60vw;
+      height: 30vw; } }
   #git-card > div {
     position: relative;
     height: 50px;
@@ -286,10 +341,16 @@ p {
     border-top-right-radius: 4px;
     -webkit-border-top-right-radius: 4px;
     -moz-border-top-right-radius: 4px; }
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      #git-card > div {
+        height: 8.5vw; } }
     #git-card > div div.tooltip {
       height: 50px;
       margin: 0;
       text-align: right; }
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        #git-card > div div.tooltip {
+          height: 8.5vw; } }
       #git-card > div div.tooltip img.git-status {
         opacity: 0.15;
         -webkit-transition: opacity 0.25s;
@@ -298,6 +359,9 @@ p {
         transition: opacity 0.25s; }
       #git-card > div div.tooltip img.git-logo {
         margin: 5px 5px 5px 0; }
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+          #git-card > div div.tooltip img.git-logo {
+            margin: 3% 3% 3% 0; } }
       #git-card > div div.tooltip span {
         position: relative;
         display: block;
@@ -320,6 +384,12 @@ p {
         -o-transition: visibility 0s 0.25s, opacity 0.25s;
         -moz-transition: visibility 0s 0.25s, opacity 0.25s;
         transition: visibility 0s 0.25s, opacity 0.25s; }
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+          #git-card > div div.tooltip span {
+            top: -320%;
+            right: -80%;
+            font-size: 135%;
+            width: 25vw; } }
         #git-card > div div.tooltip span::after {
           content: " ";
           position: absolute;
@@ -329,6 +399,15 @@ p {
           border-width: 5px;
           border-style: solid;
           border-color: transparent #D2D8E1 transparent transparent; }
+          @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            #git-card > div div.tooltip span::after {
+              top: 100%;
+              left: 25%;
+              right: auto;
+              margin-left: -0.7em;
+              border-width: 0.7em;
+              border-style: solid;
+              border-color: #D2D8E1 transparent transparent transparent; } }
       #git-card > div div.tooltip:hover img.git-status {
         opacity: 1.0; }
       #git-card > div div.tooltip:hover span {
@@ -348,6 +427,12 @@ p {
     color: black; }
     #git-card > a:hover, #git-card > a:active {
       color: #D4B92B; }
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      #git-card > a {
+        font-size: 250%;
+        margin-left: 0;
+        margin-top: 0.2em;
+        text-align: center; } }
   #git-card > span {
     margin-top: 3px;
     margin-left: 98px;
@@ -357,6 +442,15 @@ p {
     background-image: url("../img/icons/github-co-16px.png");
     background-position: left center;
     background-repeat: no-repeat; }
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      #git-card > span {
+        font-size: 180%;
+        background-position: calc(50% - 6.5em) center;
+        background-size: 4%;
+        margin-left: 0;
+        margin-top: 0.25em;
+        display: block;
+        text-align: center; } }
   #git-card table {
     position: absolute;
     width: 100%;
@@ -374,6 +468,9 @@ p {
         font-weight: bold;
         font-size: 16px;
         color: black; }
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+          #git-card table tr:first-of-type td {
+            font-size: 200%; } }
       #git-card table tr:last-of-type td a {
         text-decoration: none;
         padding-bottom: 0.3em;
@@ -385,6 +482,9 @@ p {
         transition: color 0.25s; }
         #git-card table tr:last-of-type td a:hover, #git-card table tr:last-of-type td a:active {
           color: #0736F8; }
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+          #git-card table tr:last-of-type td a {
+            font-size: 200%; } }
       #git-card table tr td:first-of-type {
         border-right: 1px solid #A3A3A3; }
   #git-card > img {
@@ -402,6 +502,12 @@ p {
     border-radius: 100%;
     border: 3px solid white;
     box-shadow: 0 0 0 1pt #838383; }
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      #git-card > img {
+        top: -5vw;
+        left: -8vw;
+        width: 20vw;
+        height: auto; } }
 
 @media only screen and (min-width: 1220px) {
   #cs-tree {
@@ -410,19 +516,38 @@ p {
 @media only screen and (max-width: 1219px) {
   #cs-tree {
     text-align: center; } }
-#cs-tree .node {
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  #cs-tree svg {
+    width: 100vw; } }
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  #cs-tree svg > g {
+    -ms-transform: translate(calc(100vw / 5), -5%) !important;
+    -webkit-transform: translate(calc(100vw / 5), -5%) !important;
+    -moz-transform: translate(calc(100vw / 5), -5%) !important;
+    -o-transform: translate(calc(100vw / 5), -5%) !important;
+    transform: translate(calc(100vw / 5), -5%) !important; } }
+#cs-tree svg .node {
   cursor: pointer; }
-  #cs-tree .node circle {
+  #cs-tree svg .node circle {
     fill: white;
     stroke: #999999;
     stroke-width: 3px; }
-  #cs-tree .node text {
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      #cs-tree svg .node circle {
+        stroke-width: 0.5%; } }
+  #cs-tree svg .node text {
     font-size: 13px;
     fill: #D2D8E1; }
-#cs-tree .link {
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      #cs-tree svg .node text {
+        font-size: 150%; } }
+#cs-tree svg .link {
   fill: none;
   stroke: #383838;
   stroke-width: 2px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    #cs-tree svg .link {
+      stroke-width: 0.75%; } }
 
 /* ~~~~~~~~ Interests section ~~~~~~~~ */
 #interests {
@@ -820,9 +945,9 @@ h2 {
   @media only screen and (min-width: 721px) and (max-width: 999px) {
     .content {
       width: 80%; } }
-  @media only screen and (max-width: 720px) {
+  @media only screen and (max-width: 720px), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .content {
-      width: 97%; } }
+      width: 100%; } }
 
 .button {
   -webkit-border-radius: 4px;
