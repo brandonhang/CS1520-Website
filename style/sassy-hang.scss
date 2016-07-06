@@ -3,6 +3,9 @@ $narrow-screen: "only screen and (max-width: 720px)";
 $bigger-screen: "only screen and (min-width: 721px)";
 $medium-screen: "only screen and (min-width: 721px) and (max-width: 999px)";
 $wide-screen: "only screen and (min-width: 1000px)";
+$mobile-portrait: "only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait)";
+$mobile-landscape: "only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape)";
+$ipad: "only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1)";
 $big-tree: "only screen and (min-width: 1220px)";
 $small-tree: "only screen and (max-width: 1219px)";
 
@@ -179,10 +182,19 @@ $box-shadow: 8px 8px 3px 0px $asteroid-grey;
 	transform-origin: 50% 50%;
 }
 
+@mixin translate($x, $y) {
+	-ms-transform: translate($x, $y) !important;
+	-webkit-transform: translate($x, $y) !important;
+	-moz-transform: translate($x, $y) !important;
+	-o-transform: translate($x, $y) !important;
+	transform: translate($x, $y) !important;
+}
+
 
 /* ~~~~~~~~ Global styling ~~~~~~~~ */
 body {
 	margin: 0;
+	overflow-x: hidden;
 	font-family: 'Montserrat', 'Verdana', sans-serif;
 }
 
@@ -200,16 +212,24 @@ p {
 	opacity: 0.9;
 	z-index: 9001;
 	
-	@media #{$narrow-screen} {
+	@media #{$narrow-screen}, #{$mobile-portrait}, #{$mobile-landscape} {
 		background-color: $pitt-blue;
+	}
+	
+	@media #{$mobile-portrait}, #{$mobile-landscape} {
+		height: 10%;
 	}
 	
 	> div {
 		width: 81%;
 		@include center-margin;
 		
-		@media #{$narrow-screen} {
+		@media #{$narrow-screen}, #{$mobile-portrait}, #{$mobile-landscape} {
 			width: 100%;
+		}
+		
+		@media #{$mobile-portrait}, #{$mobile-landscape} {
+			height: 10%;
 		}
 		
 		> a {
@@ -237,11 +257,17 @@ p {
 				background-size: 30px;
 			}
 			
-			@media #{$narrow-screen} {
+			@media #{$narrow-screen}, #{$mobile-portrait}, #{$mobile-landscape} {
 				display: block;
 				padding-left: 0;
 				background-size: 0;
 				text-align: center;
+			}
+			
+			@media #{$mobile-portrait}, #{$mobile-landscape} {
+				font-size: 4.5vh;
+				line-height: 10vh;
+				width: 100%;
 			}
 			
 			&:hover, &:active {
@@ -267,7 +293,7 @@ p {
 				background-size: 0;
 			}
 			
-			@media #{$narrow-screen} {
+			@media #{$narrow-screen}, #{$mobile-portrait}, #{$mobile-landscape} {
 				display: none;
 				
 				&:active {
@@ -298,12 +324,27 @@ p {
 		}
 		
 		li.show-menu {
-			@media #{$narrow-screen} {
+			@media #{$narrow-screen}, #{$mobile-portrait}, #{$mobile-landscape} {
 				display: block;
 				background-color: $pitt-blue;
 				background-size: 0;
+			}
+			
+			@media #{$narrow-screen} {
 				height: 50px;
 				line-height: 50px;
+			}
+			
+			@media #{$mobile-portrait} {
+				width: 100%;
+				height: 800%;
+				line-height: 700%;
+			}
+			
+			@media #{$mobile-landscape} {
+				line-height: 10vh;
+				height: 10vh;
+				width: 50%;
 			}
 			
 			a {
@@ -311,6 +352,14 @@ p {
 				
 				&:hover, &:active {
 					background-color: $world-rally-blue;
+				}
+				
+				@media #{$mobile-portrait} {
+					font-size: 250%;
+				}
+				
+				@media #{$mobile-landscape} {
+					font-size: 4.5vh;
 				}
 			}
 		}
@@ -325,11 +374,16 @@ p {
 		float: right;
 	}
 	
+	@media #{$mobile-portrait}, #{$mobile-landscape} {
+		float: none;
+		height: 100%;
+	}
+	
 	ul {
 		padding-left: 0;
 		display: inline;
 		
-		@media #{$narrow-screen} {
+		@media #{$narrow-screen}, #{$mobile-portrait}, #{$mobile-landscape} {
 			margin: 0;
 		}
 	}
@@ -343,12 +397,16 @@ p {
 	@include zero-space;
 	border: none;
 	display: none;
+	
+	@media #{$mobile-portrait}, #{$mobile-landscape} {
+		height: 10%;
+	}
 }
 
 #menu-button {
 	position: fixed;
 	top: 0;
-	right: 0;
+	left: 0;
 	@include zero-space;
 	width: 50px;
 	height: 50px;
@@ -362,6 +420,12 @@ p {
 	@media #{$bigger-screen} {
 		display: none;
 	}
+	
+	@media #{$mobile-portrait}, #{$mobile-landscape} {
+		height: 10%;
+		width: auto;
+		display: inline !important;
+	}
 }
 
 .menu-open {
@@ -374,6 +438,7 @@ p {
 	background-image: url('../img/bkgrds/bkgrd-01.jpg');
 	@include center-bkgrd-image;
 	background-color: $blue-gray;
+	min-height: 100vh;
 	height: 100vh;
 	padding: 0;
 	
@@ -386,6 +451,14 @@ p {
 			width: 311px;
 			display: block;
 			@include center-margin;
+			
+			@media #{$mobile-portrait} {
+				width: 50%;
+			}
+			
+			@media #{$mobile-landscape} {
+				width: 50vh;
+			}
 		}
 		
 		h1 {
@@ -394,6 +467,17 @@ p {
 			color: white;
 			text-align: center;
 			margin-top: 50px;
+			
+			@media #{$mobile-portrait} {
+				font-size: 300%;
+				margin-left: 0.25em;
+				margin-right: 0.25em;
+			}
+			
+			@media #{$mobile-landscape} {
+				font-size: 230%;
+				margin: 0.5em;
+			}
 		}
 	}
 }
@@ -422,8 +506,31 @@ p {
 			
 			@media #{$narrow-screen} {
 				width: calc(50% - 12px);
-				margin: 0 25% 2em 25%;
+				margin: 0 auto 2em auto;
+				float: none;
+				display: block;
 			}
+			
+			@media #{$mobile-portrait} {
+				width: 65%;
+				margin: 0 auto 1em auto;
+				float: none;
+				display: block;
+			}
+			
+			@media #{$mobile-landscape} {
+				float: left;
+				height: 75vh;
+				width: auto;
+				margin: 0 2em 0.5em 2em;
+			}
+		}
+		
+		p {
+			@media #{$mobile-portrait} {
+				font-size: 1.5em;
+			}
+			
 		}
 		
 		&::after {
@@ -471,6 +578,15 @@ p {
 				margin: 2em auto 0 auto;
 			}
 			
+			@media #{$mobile-portrait} {
+				margin: 1em;
+			}
+			
+			@media #{$mobile-landscape} {
+				font-size: 1.5em;
+				margin: 1em;
+			}
+			
 			a {
 				color: $brick-red;
 				@include transition-color(0.25s);
@@ -501,6 +617,11 @@ p {
 		margin-top: 4em;
 	}
 	
+	@media #{$mobile-portrait} {
+		width: 60vw;
+		height: 30vw;
+	}
+	
 	> div {
 		position: relative;
 		height: 50px;
@@ -509,10 +630,18 @@ p {
 		-webkit-border-top-right-radius: 4px;
 		-moz-border-top-right-radius: 4px;
 		
+		@media #{$mobile-portrait} {
+			height: 8.5vw;
+		}
+		
 		div.tooltip {
 			height: 50px;
 			margin: 0;
 			text-align: right;
+			
+			@media #{$mobile-portrait} {
+				height: 8.5vw;
+			}
 			
 			img.git-status {
 				opacity: 0.15;
@@ -521,6 +650,10 @@ p {
 			
 			img.git-logo {
 				margin: 5px 5px 5px 0;
+				
+				@media #{$mobile-portrait} {
+					margin: 3% 3% 3% 0;
+				}
 			}
 			
 			span {
@@ -543,6 +676,13 @@ p {
 				-moz-transition: visibility 0s 0.25s, opacity 0.25s;
 				transition: visibility 0s 0.25s, opacity 0.25s;
 				
+				@media #{$mobile-portrait} {
+					top: -320%;
+					right: -80%;
+					font-size: 135%;
+					width: 25vw;
+				}
+				
 				&::after {
 					content: " ";
 					position: absolute;
@@ -552,6 +692,16 @@ p {
 					border-width: 5px;
 					border-style: solid;
 					border-color: transparent $ice-silver transparent transparent;
+					
+					@media #{$mobile-portrait} {
+						top: 100%;
+						left: 25%;
+						right: auto;
+						margin-left: -0.7em;
+						border-width: 0.7em;
+						border-style: solid;
+						border-color: $ice-silver transparent transparent transparent;
+					}
 				}
 			}
 			
@@ -580,6 +730,13 @@ p {
 		&:hover, &:active {
 			color: $old-gold;
 		}
+		
+		@media #{$mobile-portrait} {
+			font-size: 250%;
+			margin-left: 0;
+			margin-top: 0.2em;
+			text-align: center;
+		}
 	}
 	
 	> span {
@@ -591,6 +748,16 @@ p {
 		background-image: url('../img/icons/github-co-16px.png');
 		background-position: left center;
 		background-repeat: no-repeat;
+		
+		@media #{$mobile-portrait} {
+			font-size: 180%;
+			background-position: calc(50% - 6.5em) center;
+			background-size: 4%;
+			margin-left: 0;
+			margin-top: 0.25em;
+			display: block;
+			text-align: center;
+		}
 	}
 	
 	table {
@@ -612,6 +779,10 @@ p {
 					font-weight: bold;
 					font-size: 16px;
 					color: black;
+					
+					@media #{$mobile-portrait} {
+						font-size: 200%;
+					}
 				}
 			}
 			
@@ -626,6 +797,10 @@ p {
 						
 						&:hover, &:active {
 							color: $world-rally-blue;
+						}
+						
+						@media #{$mobile-portrait} {
+							font-size: 200%;
 						}
 					}
 				}
@@ -650,6 +825,13 @@ p {
 		@include border-radius(100%);
 		border: 3px solid white;
 		box-shadow: 0 0 0 1pt $asteroid-grey;
+		
+		@media #{$mobile-portrait} {
+			top: -5vw;
+			left: -8vw;
+			width: 20vw;
+			height: auto;
+		}
 	}
 }
 
@@ -663,25 +845,49 @@ p {
 		text-align: center;
 	}
 	
-	.node {
-		cursor: pointer;
-		
-		circle {
-			fill: white;
-			stroke: #999999;
-			stroke-width: 3px;
+	svg {
+		@media #{$mobile-portrait} {
+			width: 100vw;
 		}
 		
-		text {
-			font-size: 13px;
-			fill: $ice-silver;
+		> g {
+			@media #{$mobile-portrait} {
+				@include translate(calc(100vw / 5), -5%);
+			}
 		}
-	}
-	
-	.link {
-		fill: none;
-		stroke: #383838;
-		stroke-width: 2px;
+		
+		.node {
+			cursor: pointer;
+			
+			circle {
+				fill: white;
+				stroke: #999999;
+				stroke-width: 3px;
+				
+				@media #{$mobile-portrait} {
+					stroke-width: 0.5%;
+				}
+			}
+			
+			text {
+				font-size: 13px;
+				fill: $ice-silver;
+				
+				@media #{$mobile-portrait} {
+					font-size: 150%;
+				}
+			}
+		}
+		
+		.link {
+			fill: none;
+			stroke: #383838;
+			stroke-width: 2px;
+			
+			@media #{$mobile-portrait} {
+				stroke-width: 0.75%;
+			}
+		}
 	}
 }
 
@@ -693,6 +899,15 @@ p {
 	.int-desc {
 		font-size: 15px;
 		margin: auto 0 2.5em 0;
+		
+		@media #{$mobile-portrait} {
+			margin: 1em;
+		}
+		
+		@media #{$mobile-landscape} {
+			font-size: 1.5em;
+			margin: 1em;
+		}
 	}
 	
 	h5 {
@@ -701,6 +916,15 @@ p {
 		font-size: 32px;
 		margin-bottom: 0.5em;
 		margin-top: 0.5em;
+		
+		@media #{$mobile-portrait} {
+			margin: 1em;
+		}
+		
+		@media #{$mobile-landscape} {
+			font-size: 2.5em;
+			margin: 1em;
+		}
 	}
 	
 	a {
@@ -722,6 +946,14 @@ p {
 			cursor: pointer;
 			height: 50vh;
 			
+			@media #{$mobile-portrait} {
+				height: 30vh;
+			}
+			
+			@media #{$mobile-landscape} {
+				height: 60vh;
+			}
+			
 			&:focus {
 				outline: none;
 			}
@@ -729,6 +961,18 @@ p {
 		
 		p {
 			font-size: 14px;
+			
+			@media #{$mobile-portrait} {
+				font-size: 200%;
+				margin-left: 0;
+				margin-right: 0;
+			}
+			
+			@media #{$mobile-landscape} {
+				font-size: 175%;
+				margin-left: 0;
+				margin-right: 0;
+			}
 		}
 		
 		&:focus {
@@ -785,6 +1029,14 @@ p {
 			height: 48px;
 			width: 48px;
 		}
+		
+		@media #{$mobile-portrait} {
+			top: 15vh;
+		}
+		
+		@media #{$mobile-landscape} {
+			top: 30vh;
+		}
 	}
 }
 
@@ -835,7 +1087,10 @@ p {
 	background-repeat: no-repeat;
 	background-size: 90%;
 	min-height: calc(100vh - 50px);
-	padding: 0;
+	
+	@media #{$mobile-landscape} {
+		padding: 0 0 8em 0;
+	}
 	
 	&.lights {
 		background-image: url('../img/bkgrds/pitt-skyline-lights.png');
@@ -847,6 +1102,14 @@ p {
 		@media #{$narrow-screen} {
 			height: 123px;
 			line-height: 123px;
+			background-image: url('../img/bkgrds/logo-small.png');
+			background-repeat: no-repeat;
+			background-position: 95% center;
+		}
+		
+		@media #{$mobile-portrait}, #{$mobile-landscape} {
+			height: 2em;
+			line-height: 2em;
 			background-image: url('../img/bkgrds/logo-small.png');
 			background-repeat: no-repeat;
 			background-position: 95% center;
@@ -865,7 +1128,7 @@ p {
 				width: 65%;
 			}
 			
-			@media #{$narrow-screen} {
+			@media #{$narrow-screen}, #{$mobile-portrait}, #{$mobile-landscape} {
 				display: block;
 				width: 95%;
 				margin: 0 auto;
@@ -883,12 +1146,25 @@ p {
 						float: right;
 					}
 				}
+				
+				@media #{$mobile-portrait}, #{$mobile-landscape} {
+					width: 100%;
+					float: none;
+				}
 			}
 			
 			label {
 				font-size: 15px;
 				@include zero-space;
 				font-weight: bold;
+				
+				@media #{$mobile-portrait} {
+					font-size: 300%;
+				}
+				
+				@media #{$mobile-landscape} {
+					font-size: 200%;
+				}
 			}
 			
 			input, textarea {
@@ -901,16 +1177,55 @@ p {
 				font-size: 15px;
 				opacity: 0.9;
 				outline: none;
+				
+				@media #{$mobile-portrait}, #{$mobile-landscape} {
+					padding: 0.1em;
+					margin-left: -0.05em;
+				}
 			}
 			
 			input {
 				padding: 3px;
+				
+				@media #{$ipad} and (orientation: portrait) {
+					font-size: 3em !important;
+				}
+				
+				@media #{$ipad} and (orientation: landscape) {
+					font-size: 2em !important;
+				}
+				
+				@media #{$mobile-portrait} {
+					font-size: 300%;
+				}
+				
+				@media #{$mobile-landscape} {
+					font-size: 200%;
+				}
 			}
 			
 			textarea {
 				height: 8em;
 				padding: 0 3px;
 				resize: none;
+				
+				@media #{$ipad} and (orientation: portrait) {
+					font-size: 3em !important;
+				}
+				
+				@media #{$ipad} and (orientation: landscape) {
+					font-size: 2em !important;
+				}
+				
+				@media #{$mobile-portrait}  {
+					font-size: 100%;
+					height: 10em;
+				}
+				
+				@media #{$mobile-landscape} {
+					font-size: 100%;
+					height: 10em;
+				}
 			}
 			
 			input[type=text]:focus, input[type=email]:focus, textarea:focus {
@@ -922,6 +1237,14 @@ p {
 				font-size: 15px;
 				@include zero-space;
 				margin-bottom: 0.33em;
+				
+				@media #{$mobile-portrait} {
+					font-size: 300%;
+				}
+				
+				@media #{$mobile-landscape} {
+					font-size: 200%;
+				}
 			}
 			
 			input[type=submit] {
@@ -932,7 +1255,17 @@ p {
 				border: none;
 				margin: 0;
 				
-				&:hover {
+				@media #{$mobile-portrait} {
+					width: 30%;
+					padding: 0.5em;
+				}
+				
+				@media #{$mobile-landscape} {
+					width: 30%;
+					padding: 1em;
+				}
+				
+				&:hover, &:active {
 					background-color: #CC0000;
 				}
 			}
@@ -943,7 +1276,7 @@ p {
 			margin-top: 2em;
 			width: 23%;
 			
-			@media #{$narrow-screen} {
+			@media #{$narrow-screen}, #{$mobile-portrait}, #{$mobile-landscape} {
 				width: 0;
 			}
 		}
@@ -965,6 +1298,24 @@ p {
 		-moz-transform-origin: 0 0;
 		-o-transform-origin: 0 0;
 		transform-origin: 0 0;
+	}
+	
+	@media #{$mobile-portrait}, #{$mobile-landscape} {
+		-webkit-transform: scale(1.4);
+		-ms-transform: scale(1.4);
+		-moz-transform: scale(1.4);
+		-o-transform: scale(1.4);
+		transform: scale(1.4);
+		-webkit-transform-origin: 0 0;
+		-ms-transform-origin: 0 0;
+		-moz-transform-origin: 0 0;
+		-o-transform-origin: 0 0;
+		transform-origin: 0 0;
+		overflow-x: hidden;
+		
+		label {
+			font-size: 125%;
+		}
 	}
 }
 
@@ -1021,6 +1372,12 @@ p {
 	padding-left: 1em;
 	z-index: 1000;
 	
+	@media #{$mobile-portrait}, #{$mobile-landscape} {
+		font-size: 165%;
+		height: 3em;
+		line-height: 3em;
+	}
+	
 	span {
 		float: left;
 	}
@@ -1038,8 +1395,18 @@ p {
 			width: 28px;
 			height: 28px;
 			
+			@media #{$mobile-portrait}, #{$mobile-landscape} {
+				width: 1.5em;
+				height: 1.5em;
+			}
+			
 			img {
 				vertical-align: middle;
+				
+				@media #{$mobile-portrait}, #{$mobile-landscape} {
+					width: 1.5em;
+					height: auto;
+				}
 			}
 			
 			&:hover, &:active {
@@ -1102,6 +1469,9 @@ p {
 
 /* ~~~~~~~~ Site info popup ~~~~~~~~ */
 #site-info {
+	height: 100%;
+	width: 100%;
+	
 	> p {
 		text-align: right;
 		color: white;
@@ -1131,6 +1501,14 @@ p {
 			@media #{$narrow-screen} {
 				font-size: 13px;
 			}
+			
+			@media #{$mobile-portrait} {
+				font-size: 100%;
+			}
+			
+			@media #{$mobile-portrait} {
+				font-size: 65%;
+			}
 		}
 	}
 }
@@ -1145,9 +1523,21 @@ p {
 	border-top: 5px solid $brick-red;
 	z-index: 9001;
 	
+	@media #{$mobile-portrait} {
+		border-top: 1em solid $brick-red;
+	}
+	
 	p {
 		font-size: 15px;
 		margin-bottom: 1em;
+		
+		@media #{$mobile-portrait} {
+			font-size: 200%;
+		}
+		
+		@media #{$mobile-landscape} {
+			font-size: 1.5em;
+		}
 	}
 }
 
@@ -1160,11 +1550,22 @@ p {
 	&:hover, &:active {
 		background-color: $british-racing-green;
 	}
+	
+	@media #{$mobile-portrait} {
+		font-size: 200%;
+	}
+	
+	@media #{$mobile-landscape} {
+		font-size: 1.5em;
+	}
 }
 
 
 /* ~~~~~~~~ Common elements ~~~~~~~~ */
 #lightbox {
+	height: 100%;
+	width: 100%;
+	
 	p {
 		text-align: right;
 		color: white;
@@ -1212,8 +1613,12 @@ h2 {
 		width: 80%;
 	}
 	
-	@media #{$narrow-screen} {
-		width: 97%;
+	@media #{$narrow-screen}, #{$mobile-portrait}, #{$mobile-landscape} {
+		width: 100%;
+		
+		h2 {
+			font-size: 500%;
+		}
 	}
 }
 
@@ -1238,7 +1643,7 @@ h2 {
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100vh;
+	min-height: 100vh;
 	background-color: rgba(0, 0, 0, 0.7);
 	text-align: center;
 	z-index: 9002;
