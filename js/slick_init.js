@@ -1,9 +1,11 @@
-$(document).ready(function() {
+$('.cars .play').one('click', function() {
 	$.ajax({								// AJAX call to build the cars carousel
 		url: 'js/cars.json',
 		type: 'GET',
 		dataType: 'JSON',
 		success: function(data) {
+			$('.cars.slideshow').empty();
+			$('.music-thumbs').show();
 			$(data.cars).each(function(index, pic) {				// Car big images
 				$('.cars').append('<div class="slide"><img class="lightbox-img" src="' + pic + '" href="' + pic + '"/></div>');
 			});
@@ -57,11 +59,14 @@ $(document).ready(function() {
 			});
 		}
 	});
+});
+$('.music .play').one('click', function() {
 	$.ajax({								// AJAX call to build the music carousel
 		url: 'js/music.json',
 		type: 'GET',
 		dataType: 'JSON',
 		success: function(data) {
+			$('.music.slideshow').empty();
 			$(data.music).each(function(index, pic) {				// Big music images
 				$('.music').append('<div class="slide"><img class="lightbox-img" src="' + pic + '" href="' + pic + '"/></div>');
 			});

@@ -937,10 +937,55 @@ p {
 	}
 }
 
+.music {
+	.act-container {
+		background-image: url('../img/bkgrds/slideshow-music.jpg');
+	}
+}
+
+.cars {
+	.act-container {
+		background-image: url('../img/bkgrds/slideshow-cars.jpg');
+	}
+}
+
 .slideshow {
 	margin: 0 auto;
 	
+	.act-container {
+		background-position: center center;
+		background-size: contain;
+		background-repeat: no-repeat;
+		text-align: center;
+		height: 50vh;
+		
+		@media #{$mobile-portrait} {
+			height: 30vh;
+		}
+		
+		@media #{$mobile-landscape} {
+			height: 60vh;
+		}
+		
+		.play {
+			cursor: pointer;
+			height: 15vh;
+			margin-top: 17.5vh;
+			
+			@media #{$mobile-portrait} {
+				height: 10vh;
+				margin-top: 10vh;
+			}
+			
+			@media #{$mobile-landscape} {
+				height: 20vh;
+				margin-top: 20vh;
+			}
+		}
+	}
+	
 	div {
+		
 		img {
 			margin: 0 auto;
 			cursor: pointer;
@@ -1041,6 +1086,7 @@ p {
 }
 
 .thumbnails {
+	display: none;
 	height: 100px;
 	margin: 0 auto;
 	

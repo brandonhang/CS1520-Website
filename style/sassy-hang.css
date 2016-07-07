@@ -617,8 +617,38 @@ p {
     #interests a:hover, #interests a:active {
       color: #D4B92B; }
 
+.music .act-container {
+  background-image: url("../img/bkgrds/slideshow-music.jpg"); }
+
+.cars .act-container {
+  background-image: url("../img/bkgrds/slideshow-cars.jpg"); }
+
 .slideshow {
   margin: 0 auto; }
+  .slideshow .act-container {
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-align: center;
+    height: 50vh; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      .slideshow .act-container {
+        height: 30vh; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+      .slideshow .act-container {
+        height: 60vh; } }
+    .slideshow .act-container .play {
+      cursor: pointer;
+      height: 15vh;
+      margin-top: 17.5vh; }
+      @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+        .slideshow .act-container .play {
+          height: 10vh;
+          margin-top: 10vh; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+        .slideshow .act-container .play {
+          height: 20vh;
+          margin-top: 20vh; } }
   .slideshow div img {
     margin: 0 auto;
     cursor: pointer;
@@ -692,6 +722,7 @@ p {
         top: 30vh; } }
 
 .thumbnails {
+  display: none;
   height: 100px;
   margin: 0 auto; }
   .thumbnails div {
