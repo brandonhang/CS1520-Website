@@ -93,7 +93,7 @@
 				<h2>About Me</h2>
 				<img src="img/bkgrds/about-pic.jpg" alt="Flying kick!"/>
 				<?php
-					print_txt_file("misc/About.txt");
+					print_txt_file("misc/about.txt");
 				?>
 			</div>
 		</div>
@@ -167,7 +167,11 @@
 					Check out these <a href='concert.php'>Dynamically Generated Concert Program Notes</a>!
 				</p>
 				<div class="music-thumbs thumbnails"></div>
-				<div class="music slideshow"></div>
+				<div class="music slideshow">
+					<div class="act-container">
+						<img class="play" src="img/icons/play.svg"/>
+					</div>
+				</div>
 				<h5>Cars</h5>
 				<p class="int-desc">
 					Anyone who knows me knows that I am a real car nut, a diehard petrolhead, an automotive <i>fanatic</i>.
@@ -183,7 +187,11 @@
 					<a href="https://www.flickr.com/photos/dangitshang">Flickr</a>!
 				</p>
 				<div class="cars-thumbs thumbnails"></div>
-				<div class="cars slideshow"></div>
+				<div class="cars slideshow">
+					<div class="act-container">
+						<img class="play" src="img/icons/play.svg"/>
+					</div>
+				</div>
 			</div>
 		</div>
 		
@@ -244,6 +252,14 @@
 				<button id="accept-button" class="button">I Understand</button>
 			</div>
 		<?php }; ?>
+		
+		<!-- Loader -->
+		<div class="underlay-dim" id="wankel">
+			<div>
+				<div class="wankel"></div>
+				<h5>Loading</h5>
+			</div>
+		</div>
 		
 		<!-- ??? -->
 		<div id="n">
