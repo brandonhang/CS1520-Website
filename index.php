@@ -93,7 +93,7 @@
 				<h2>About Me</h2>
 				<img src="img/bkgrds/about-pic.jpg" alt="Flying kick!"/>
 				<?php
-					print_txt_file("misc/About.txt");
+					print_txt_file("misc/about.txt");
 				?>
 			</div>
 		</div>
@@ -252,6 +252,14 @@
 				<button id="accept-button" class="button">I Understand</button>
 			</div>
 		<?php }; ?>
+		
+		<!-- Loader -->
+		<div class="underlay-dim" id="wankel">
+			<div>
+				<div class="wankel"></div>
+				<h5>Loading</h5>
+			</div>
+		</div>
 		
 		<!-- ??? -->
 		<div id="n">

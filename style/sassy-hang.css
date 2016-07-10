@@ -1069,9 +1069,9 @@ p {
       @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
         #site-info div p {
           font-size: 100%; } }
-      @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
         #site-info div p {
-          font-size: 65%; } }
+          font-size: 55%; } }
 
 /* ~~~~~~~~ Cookie TOC ~~~~~~~~ */
 #cookie-terms {
@@ -1224,5 +1224,68 @@ h2 {
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%); }
+
+#wankel {
+  display: none;
+  height: 100%;
+  width: 100%; }
+  #wankel > div {
+    text-align: center;
+    margin-top: calc(45vh - (15vw * (500 / 776))); }
+    @media only screen and (min-width: 721px) and (max-width: 999px) {
+      #wankel > div {
+        margin-top: calc(45vh - (20vw * (500 / 776))); } }
+    @media only screen and (max-width: 720px), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+      #wankel > div {
+        margin-top: calc(45vh - (30vw * (500 / 776))); } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      #wankel > div {
+        margin-top: calc(45vh - (40vw * (500 / 776))); } }
+  #wankel h5 {
+    color: white;
+    font-size: 30px;
+    margin: 1em auto 0 auto; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      #wankel h5 {
+        font-size: 400%; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+      #wankel h5 {
+        font-size: 200%; } }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+      #wankel h5 {
+        font-size: 300%; } }
+
+.wankel {
+  display: block;
+  margin: 0 auto;
+  width: 15vw;
+  height: calc(15vw * (500 / 388));
+  background: url("../img/icons/wankel-frames.png");
+  background-size: cover;
+  animation: play 0.4s steps(12) infinite; }
+@keyframes play {
+  100% {
+    background-position: calc(-12 * 15vw); } }
+  @media only screen and (min-width: 721px) and (max-width: 999px) {
+    .wankel {
+      width: 20vw;
+      height: calc(20vw * (500 / 388)); }
+    @keyframes play {
+      100% {
+        background-position: calc(-12 * 20vw); } } }
+  @media only screen and (max-width: 720px), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+    .wankel {
+      width: 30vw;
+      height: calc(30vw * (500 / 388)); }
+    @keyframes play {
+      100% {
+        background-position: calc(-12 * 30vw); } } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+    .wankel {
+      width: 40vw;
+      height: calc(40vw * (500 / 388)); }
+    @keyframes play {
+      100% {
+        background-position: calc(-12 * 40vw); } } }
 
 /*# sourceMappingURL=sassy-hang.css.map */

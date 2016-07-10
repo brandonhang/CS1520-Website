@@ -3,6 +3,9 @@ $('.cars .play').one('click', function() {
 		url: 'js/cars.json',
 		type: 'GET',
 		dataType: 'JSON',
+		beforeSend: function() {
+			$('#wankel').show();
+		},
 		success: function(data) {
 			$('.cars.slideshow').empty();
 			$('.music-thumbs').show();
@@ -57,6 +60,9 @@ $('.cars .play').one('click', function() {
 					}
 				]
 			});
+		},
+		complete: function() {
+			$('#wankel').hide();
 		}
 	});
 });
@@ -65,6 +71,9 @@ $('.music .play').one('click', function() {
 		url: 'js/music.json',
 		type: 'GET',
 		dataType: 'JSON',
+		beforeSend: function() {
+			$('#wankel').show();
+		},
 		success: function(data) {
 			$('.music.slideshow').empty();
 			$(data.music).each(function(index, pic) {				// Big music images
@@ -118,6 +127,9 @@ $('.music .play').one('click', function() {
 					}
 				]
 			});
+		},
+		complete: function() {
+			$('#wankel').hide();
 		}
 	});
 });

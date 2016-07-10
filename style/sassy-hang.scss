@@ -1552,8 +1552,8 @@ p {
 				font-size: 100%;
 			}
 			
-			@media #{$mobile-portrait} {
-				font-size: 65%;
+			@media #{$mobile-landscape} {
+				font-size: 55%;
 			}
 		}
 	}
@@ -1722,5 +1722,91 @@ h2 {
 		display: block;
 		@include center-margin;
 		@include transform-transY-middle;
+	}
+}
+
+#wankel {
+	display: none;
+	height: 100%;
+	width: 100%;
+	
+	> div {
+		text-align: center;
+		margin-top: calc(45vh - (15vw * (500 / 776)));
+		
+		@media #{$medium-screen} {
+			margin-top: calc(45vh - (20vw * (500 / 776)));
+		}
+		
+		@media #{$narrow-screen}, #{$mobile-landscape} {
+			margin-top: calc(45vh - (30vw * (500 / 776)));
+		}
+		
+		@media #{$mobile-portrait} {
+			margin-top: calc(45vh - (40vw * (500 / 776)));
+		}
+	}
+	
+	h5 {
+		color: white;
+		font-size: 30px;
+		margin: 1em auto 0 auto;
+		
+		@media #{$mobile-portrait} {
+			font-size: 400%;
+		}
+		
+		@media #{$mobile-landscape} {
+			font-size: 200%;
+		}
+		
+		@media #{$ipad} {
+			font-size: 300%;
+		}
+	}
+}
+
+.wankel {
+	display: block;
+	margin: 0 auto;
+	width: 15vw;
+	height: calc(15vw * (500 / 388));
+	background: url('../img/icons/wankel-frames.png');
+	background-size: cover;
+	animation: play 0.4s steps(12) infinite;
+	@keyframes play {
+		100% {
+			background-position: calc(-12 * 15vw);
+		}
+	}
+	
+	@media #{$medium-screen} {
+		width: 20vw;
+		height: calc(20vw * (500 / 388));
+		@keyframes play {
+			100% {
+				background-position: calc(-12 * 20vw);
+			}
+		}
+	}
+	
+	@media #{$narrow-screen}, #{$mobile-landscape} {
+		width: 30vw;
+		height: calc(30vw * (500 / 388));
+		@keyframes play {
+			100% {
+				background-position: calc(-12 * 30vw);
+			}
+		}
+	}
+	
+	@media #{$mobile-portrait} {
+		width: 40vw;
+		height: calc(40vw * (500 / 388));
+		@keyframes play {
+			100% {
+				background-position: calc(-12 * 40vw);
+			}
+		}
 	}
 }
