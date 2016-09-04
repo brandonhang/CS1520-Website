@@ -44,7 +44,8 @@
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Sorts+Mill+Goudy' rel='stylesheet' type='text/css'/>
 		<link type="image/x-icon" rel="shortcut icon" href="img/icons/icon.ico"/>
 		<link type="text/css" rel="stylesheet" href="style/sassy-hang.css"/>
-		<link type="text/css" rel="stylesheet"  href="slick/slick.css"/>
+		<link type="text/css" rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+		<link type="text/css" rel="stylesheet" href="https://cdn.rawgit.com/c3js/c3/master/c3.min.css"/>
 		
 		<title>Brandon S. Hang</title>
 		
@@ -157,6 +158,7 @@
 				</section>
 				<div id="projects">
 					<?php
+						$flipper = "<img class='flipper' src='img/icons/rotate.png'/>";
 						$jsonBourne = file_get_contents("js/cs.json");
 						$portfolio = json_decode($jsonBourne);
 						foreach($portfolio->children as $course) {
@@ -166,7 +168,7 @@
 								$id = str_replace(array(" ", "."), "-", $project->name);
 								$id = str_replace(array("(", ")"), "", $id);
 								
-								echo "<div id='p-$id' class='project'><img class='flipper' src='img/icons/rotate.png'/><div class='front'>";
+								echo "<div id='p-$id' class='project'>$flipper<div class='front'>";
 								echo "<img class='prj' title='$project->name' src='img/icons/projects/$project->name.png'/></div>";
 								echo "<div class='back'><h5>$project->name</h5>";
 								echo "<h6>Language: $project->language</h6>";
@@ -175,6 +177,23 @@
 							}
 							echo "</div>";
 						}
+						
+						$jsonBourne = file_get_contents("js/other_projects.json");
+						$portfolio = json_decode($jsonBourne);
+						echo "<div><h4>Other Projects</h4>";
+						
+						foreach($portfolio as $project) {
+							$id = str_replace(array(" ", "."), "-", $project->name);
+							$id = str_replace(array("(", ")"), "", $id);
+							
+							echo "<div id='p-$id' class='project'>$flipper<div class='front'>";
+							echo "<img class='prj' title='$project->name' src='img/icons/projects/$project->name.png'/></div>";
+							echo "<div class='back'><h5>$project->name</h5>";
+							echo "<h6>Language: $project->language</h6>";
+							echo "<h6><a href=$project->url>GitHub Link</a></h6>";
+							echo "<p>$project->description</p></div></div>";
+						}
+						echo "</div>";
 					?>
 				</div>
 			</div>
@@ -202,11 +221,7 @@
 					Check out these <a href='concert.php'>Dynamically Generated Concert Program Notes</a>!
 				</p>
 				<div class="music-thumbs thumbnails"></div>
-				<div class="music slideshow">
-					<div class="act-container">
-						<img class="play" src="img/icons/play.svg"/>
-					</div>
-				</div>
+				<div class="music slideshow"></div>
 				<h5>Cars</h5>
 				<p class="int-desc">
 					Anyone who knows me knows that I am a real car nut, a diehard petrolhead, an automotive <i>fanatic</i>.
@@ -221,11 +236,25 @@
 					You can see more of my automotive photography on my
 					<a href="https://www.flickr.com/photos/dangitshang">Flickr</a>!
 				</p>
-				<div class="cars-thumbs thumbnails"></div>
-				<div class="cars slideshow">
-					<div class="act-container">
-						<img class="play" src="img/icons/play.svg"/>
+				<div id="cars2">
+					<div class="car-thumbs thumbnails"></div>
+					<div class="car-img slideshow"></div>
+					<div class="car-title"></div>
+					<div class="car-specs">
+						<div class="car-asp"></div>
+						<div class="car-engine"></div>
+						<div class="car-graphs">
+							<div>
+								<div id="displ-chart"></div>
+								<h6>Displacement</h6>
+							</div>
+							<div>
+								<div id="power-chart"></div>
+								<h6>Power</h6>
+							</div>
+						</div>
 					</div>
+					<div class="car-desc"></div>
 				</div>
 			</div>
 		</div>
@@ -294,14 +323,14 @@
 		</div>
 		
 		<!-- Scripts -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-		<script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script type="text/javascript">
 			$(window).one('load', function() {
 				$('#wankel').fadeOut("slow");
 			});
 		</script>
 		<?php if ($detect) { ?>
-			<script>
+			<script type="text/javascript">
 			var previousScroll = 0;
 			
 			$(window).scroll(function() {
@@ -320,24 +349,26 @@
 			});
 			</script>
 		<?php } ?>
-		<script src="js/recaptcha.js"></script>
-		<script src="js/mobile-menu.js"></script>
-		<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
-		<script src="js/projects.js"></script>
-		<script src="js/hide_terms.js"></script>
-		<script src="js/lightbox.js"></script>
-		<script src="js/about.js"></script>
-		<script src="js/github_api.js"></script>
-		<script src="js/send_msg.js"></script>
-		<script src="js/jquery.easing.1.3.js"></script>
-		<script src="js/easing_nav_jump.js"></script>
-		<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+		<script type="text/javascript" src="js/recaptcha.js"></script>
+		<script type="text/javascript" src="js/mobile-menu.js"></script>
+		<script type="text/javascript" src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+		<script type="text/javascript" src="js/projects.js"></script>
+		<script type="text/javascript" src="js/hide_terms.js"></script>
+		<script type="text/javascript" src="js/lightbox.js"></script>
+		<script type="text/javascript" src="js/about.js"></script>
+		<script type="text/javascript" src="js/github_api.js"></script>
+		<script type="text/javascript" src="js/send_msg.js"></script>
+		<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+		<script type="text/javascript" src="js/easing_nav_jump.js"></script>
+		<script type="text/javascript" src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
 			async defer></script>
-		<script src="slick/slick.min.js"></script>
-		<script src="js/slick_init.js"></script>
-		<script src="js/light_up.js"></script>
-		<script src="js/jquery.konami.min.js"></script>
-		<script src="js/bonus.js"></script>
+		<script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+		<script type="text/javascript" src="https://cdn.rawgit.com/c3js/c3/master/c3.min.js"></script>
+		<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+		<script type="text/javascript" src="js/slick_init.js"></script>
+		<script type="text/javascript" src="js/light_up.js"></script>
+		<script type="text/javascript" src="js/jquery.konami.min.js"></script>
+		<script type="text/javascript" src="js/bonus.js"></script>
 	</body>
 </html>
 <!--
