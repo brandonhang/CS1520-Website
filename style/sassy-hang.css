@@ -312,13 +312,8 @@ p {
     color: #B42929; }
   #programming section p {
     font-size: 16px;
-    color: white; }
-    @media only screen and (min-width: 1220px) {
-      #programming section p {
-        margin: 2em 0.5em; } }
-    @media only screen and (max-width: 1219px) {
-      #programming section p {
-        margin: 2em auto 0 auto; } }
+    color: white;
+    margin: 2em 1em; }
     @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
       #programming section p {
         margin: 1em; } }
@@ -536,23 +531,33 @@ p {
         width: 20vw;
         height: auto; } }
 
-#projects h4, #projects h5, #projects h6, #projects p {
-  color: white;
-  margin: 0.3em; }
 #projects h4 {
   font-size: 22px;
-  margin-top: 3em; }
+  margin: 3em 0.3em 0.3em 0.3em;
+  color: white; }
 #projects h5 {
   font-size: 18px; }
 #projects h6 {
   font-size: 16px; }
 #projects p {
   font-size: 13.5px; }
+#projects h5, #projects h6, #projects p {
+  color: white;
+  margin: 0.3em; }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+    #projects h5, #projects h6, #projects p {
+      font-size: 200%; } }
+#projects > div {
+  margin: 0 1em; }
 #projects .project {
   width: 200px;
   height: 200px;
   display: inline-block;
   position: relative; }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+    #projects .project {
+      width: 400px;
+      height: 400px; } }
   #projects .project .front {
     cursor: pointer; }
   #projects .project .back {
@@ -568,6 +573,10 @@ p {
   #projects .project .prj {
     width: 200px;
     height: 200px; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      #projects .project .prj {
+        width: 400px;
+        height: 400px; } }
     #projects .project .prj:hover {
       opacity: 0.75;
       -webkit-transition: opacity 0.25s;
@@ -583,6 +592,10 @@ p {
     z-index: 9001;
     opacity: 0.5;
     cursor: pointer; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      #projects .project .flipper {
+        height: 50px;
+        width: 50px; } }
     #projects .project .flipper:hover + div .prj {
       opacity: 0.75;
       -webkit-transition: opacity 0.25s;
@@ -598,7 +611,7 @@ p {
   #interests .int-desc {
     font-size: 15px;
     margin: auto 0 2.5em 0; }
-    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait), only screen and (max-width: 720px) {
       #interests .int-desc {
         margin: 1em; } }
     @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
@@ -611,6 +624,9 @@ p {
     font-size: 32px;
     margin-bottom: 0.5em;
     margin-top: 0.5em; }
+    @media only screen and (max-width: 720px) {
+      #interests h5 {
+        margin: 0.5em; } }
     @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
       #interests h5 {
         margin: 1em; } }
