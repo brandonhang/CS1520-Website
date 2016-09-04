@@ -4,20 +4,23 @@
 	"children": [
 		{
 			"name": "CS 0445",
-			"description": "Selected projects from CS 0445 - Data Structures",
+			"description": "Data Structures",
 			"children": [
 				{
 					"name": "War Card Game",
+					"language": "Java",
 					"description": "A Java program that simulates the card game War",
 					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0445/War-Card-Game"
 				},
 				{
 					"name": "Fruit Market Simulator",
+					"language": "Java",
 					"description": "A fruit market stand simulator written in Java",
 					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0445/Fruit-Market-Simulator"
 				},
 				{
 					"name": "Auto-Word Search",
+					"language": "Java",
 					"description": "An auto-completing word search written in Java",
 					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0445/Word-Search"
 				}
@@ -25,15 +28,17 @@
 		},
 		{
 			"name": "CS 0447",
-			"description": "Projects from CS 0447 - Computer Organization and Assembly Language",
+			"description": "Computer Organization and Assembly Language",
 			"children": [
 				{
 					"name": "Assembly Auto Coder",
+					"language": "MIPS Assembly",
 					"description": "A program that automatically generates MIPS assembly code written in MIPS assembly",
 					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0447/MIPS-Code-Generator"
 				},
 				{
 					"name": "Single-Datapath CPU",
+					"language": "Logic Gates/Logisim",
 					"description": "A Logisim circuit file that emulates a single-datapath CPU",
 					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0447/Single-Datapath-CPU"
 				}
@@ -41,35 +46,41 @@
 		},
 		{
 			"name": "CS 0449",
-			"description": "Projects from CS 0449 - Introduction to Systems Software",
+			"description": "Introduction to Systems Software",
 			"children": [
 				{
 					"name": "Blackjack",
+					"language": "C",
 					"description": "A C program that simulates the card game Blackjack",
 					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0449/Blackjack%20Simulator"
 				},
 				{
 					"name": "ID3 v1.1 Tag Editor",
+					"language": "C",
 					"description": "A C program that reads and writes ID3 v1.1 music tags",
 					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0449/ID3%20v1.1%20Tag%20Editor"
 				},
 				{
 					"name": "Program String Parser",
+					"language": "C",
 					"description": "A C program that parses files for displayable strings",
 					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0449/Program%20Strings%20Parser"
 				},
 				{
 					"name": "Custom malloc()",
+					"language": "C",
 					"description": "A custom suite of memory de/allocation functions written in C",
 					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0449/Custom%20Malloc"
 				},
 				{
 					"name": "Dice Driver and Yahtzee",
+					"language": "C",
 					"description": "A C program that simulates Yahtzee using a custom Linux driver",
 					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0449/Dice%20Driver%20and%20Yahtzee"
 				},
 				{
 					"name": "Custom UNIX Shell",
+					"language": "C",
 					"description": "A custom UNIX shell that features several built-in commands",
 					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0449/Custom%20UNIX%20Shell"
 				}
@@ -77,25 +88,29 @@
 		},
 		{
 			"name": "CS 1501",
-			"description": "Selected projects from CS 1501 - Algorithm Implementation",
+			"description": "Algorithm Implementation",
 			"children": [
 				{
 					"name": "Password Checker",
+					"language": "Java",
 					"description": "A Java program that checks an entered password against a generated list",
 					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs1501/Password%20Checker"
 				},
 				{
 					"name": "Car Buying Database",
+					"language": "Java",
 					"description": "A text-based app that tracks the lowest mileage/priced car from a database",
 					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs1501/Car%20Buying%20Database"
 				},
 				{
 					"name": "Airline Route Mgmt",
+					"language": "Java",
 					"description": "A Java program that manages airline route information via an undirected graph",
 					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs1501/Airline%20Route%20Management"
 				},
 				{
 					"name": "RSA Demonstration",
+					"language": "Java",
 					"description": "A duo of Java programs that generate a 1024-bit RSA keypair and create digital signatures",
 					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs1501/RSA%20Demonstration"
 				}
@@ -103,10 +118,11 @@
 		},
 		{
 			"name": "CS 1520",
-			"description": "Website project from CS 1520 - Programming Languages for Web Applications",
+			"description": "Programming Languages for Web Applications",
 			"children": [
 				{
 					"name": "Personal Website",
+					"language": "PHP, Javascript/jQuery, CSS/SASS",
 					"description": "A personal website written using a number of web development languages",
 					"url": "https://github.com/brandonhang/CS1520-Website"
 				}
@@ -114,25 +130,29 @@
 		},
 		{
 			"name": "CS 1632",
-			"description": "Selected projects from CS 1632 - Software Quality Assurance",
+			"description": "Software Quality Assurance",
 			"children": [
 				{
 					"name": "JUnit Introduction",
+					"language": "Java",
 					"description": "Contains a Java text game built in according to guidelines and backed with JUnit tests",
 					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs1632/Deliverable%202"
 				},
 				{
 					"name": "Selenium Testing",
+					"language": "Java",
 					"description": "Contains JUnit tests for nasioc.com using BDD principles",
 					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs1632/Deliverable%203"
 				},
 				{
 					"name": "Property-Based Testing",
+					"language": "Java",
 					"description": "Holds JUnit property-based tests of a sorted array",
 					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs1632/Deliverable%204"
 				},
 				{
 					"name": "TDD Baccarat",
+					"language": "Java",
 					"description": "A strict Test-Driven Development of the card game baccarat",
 					"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs1632/Final%20Deliverable"
 				}

@@ -5,9 +5,17 @@
 	
 	if ($cookie_set === TRUE) {			// If the cookie is set, the site will not display the use of cookies TOC
 		$display_alert = FALSE;
-		setcookie("snickerdoodle", "Returning visitor", time() + 60);		// Adds another 10 seconds to the cookie expiration
+		setcookie("snickerdoodle", "Returning visitor", time() + 86400);
 	}
 	
+	require_once 'php/Mobile_Detect.php';
+	$detect = new Mobile_Detect;
+	if ($detect->isMobile()) {
+		$detect = TRUE;
+	}
+	else {
+		$detect = FALSE;
+	}
 	
 	/*
 	 * This function reads the contents of a text file and displays it to the screen exactly as
@@ -42,6 +50,13 @@
 		
 	</head>
 	<body>
+		<!-- Loader -->
+		<div class="underlay-dim" id="wankel">
+			<div>
+				<img class="rotor" src="img/icons/wankel-aa.gif"/>
+				<h5>Loading</h5>
+			</div>
+		</div>
 		
 		<!-- Navigation Bar -->
 		<div class="nav-container">
@@ -132,16 +147,36 @@
 					<p>
 						You can find my GitHub page here containing my some of my projects both
 						past and present.  Also shown is the repository of my finished projects
-						completed at the University of Pittsburgh.  Click on the inner nodes to
-						view the different branches in this repo or click on a terminal node to
-						its source code on GitHub!
+						completed at the University of Pittsburgh.  Click on the different cards
+						to read the project's description or see the source code on GitHub!
 					</p>
 					<p>
 						If you are so inclined, you can also take a look at my current résumé
 						by clicking <a href="misc/BHang_Resume.pdf" target="blank">here</a>.
 					</p>
 				</section>
-				<div id="cs-tree"></div>
+				<div id="projects">
+					<?php
+						$jsonBourne = file_get_contents("js/cs.json");
+						$portfolio = json_decode($jsonBourne);
+						foreach($portfolio->children as $course) {
+							echo "<div><h4>$course->name — $course->description</h4>";
+							
+							foreach($course->children as $project) {
+								$id = str_replace(array(" ", "."), "-", $project->name);
+								$id = str_replace(array("(", ")"), "", $id);
+								
+								echo "<div id='p-$id' class='project'><img class='flipper' src='img/icons/rotate.png'/><div class='front'>";
+								echo "<img class='prj' title='$project->name' src='img/icons/projects/$project->name.png'/></div>";
+								echo "<div class='back'><h5>$project->name</h5>";
+								echo "<h6>Language: $project->language</h6>";
+								echo "<h6><a href=$project->url>GitHub Link</a></h6>";
+								echo "<p>$project->description</p></div></div>";
+							}
+							echo "</div>";
+						}
+					?>
+				</div>
 			</div>
 		</div>
 		
@@ -253,14 +288,6 @@
 			</div>
 		<?php }; ?>
 		
-		<!-- Loader -->
-		<div class="underlay-dim" id="wankel">
-			<div>
-				<div class="wankel"></div>
-				<h5>Loading</h5>
-			</div>
-		</div>
-		
 		<!-- ??? -->
 		<div id="n">
 			<img src="img/icons/menu-close-50px.png" title="Close"/>
@@ -268,10 +295,35 @@
 		
 		<!-- Scripts -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-		<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+		<script>
+			$(window).one('load', function() {
+				$('#wankel').fadeOut("slow");
+			});
+		</script>
+		<?php if ($detect) { ?>
+			<script>
+			var previousScroll = 0;
+			
+			$(window).scroll(function() {
+				var currentScroll = $(this).scrollTop();
+				if (currentScroll > previousScroll) {
+					if ($('.nav-container').is(":visible")) {
+						$('.nav-container').stop().slideUp("fast");
+					}
+				}
+				else {
+					if ($('.nav-container').is(":hidden")) {
+						$('.nav-container').stop().slideDown("fast");
+					}
+				}
+				previousScroll = currentScroll;
+			});
+			</script>
+		<?php } ?>
 		<script src="js/recaptcha.js"></script>
 		<script src="js/mobile-menu.js"></script>
-		<script src="js/cs_tree.js"></script>
+		<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+		<script src="js/projects.js"></script>
 		<script src="js/hide_terms.js"></script>
 		<script src="js/lightbox.js"></script>
 		<script src="js/about.js"></script>
@@ -284,8 +336,8 @@
 		<script src="slick/slick.min.js"></script>
 		<script src="js/slick_init.js"></script>
 		<script src="js/light_up.js"></script>
-		<script src="js/jquery.konami.js"></script>
-		<script src="js/n.js"></script>
+		<script src="js/jquery.konami.min.js"></script>
+		<script src="js/bonus.js"></script>
 	</body>
 </html>
 <!--
