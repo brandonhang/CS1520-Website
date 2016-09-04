@@ -310,10 +310,6 @@ p {
       width: 80%; } }
   #programming .content h2 {
     color: #B42929; }
-  @media only screen and (min-width: 1220px) {
-    #programming section {
-      width: 352px;
-      position: absolute; } }
   #programming section p {
     font-size: 16px;
     color: white; }
@@ -349,14 +345,14 @@ p {
   border-radius: 4px;
   box-shadow: 8px 8px 3px 0px #383838;
   border: 1px solid #838383;
-  background-color: white; }
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto; }
   @media only screen and (min-width: 1220px) {
     #git-card {
       margin-top: 1em; } }
   @media only screen and (max-width: 1219px) {
     #git-card {
-      margin-left: auto;
-      margin-right: auto;
       margin-top: 4em; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
     #git-card {
@@ -540,45 +536,53 @@ p {
         width: 20vw;
         height: auto; } }
 
-@media only screen and (min-width: 1220px) {
-  #cs-tree {
-    text-align: right;
-    margin-top: 3em; } }
-@media only screen and (max-width: 1219px) {
-  #cs-tree {
-    text-align: center; } }
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
-  #cs-tree svg {
-    width: 100vw; } }
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
-  #cs-tree svg > g {
-    -ms-transform: translate(calc(100vw / 5), -5%) !important;
-    -webkit-transform: translate(calc(100vw / 5), -5%) !important;
-    -moz-transform: translate(calc(100vw / 5), -5%) !important;
-    -o-transform: translate(calc(100vw / 5), -5%) !important;
-    transform: translate(calc(100vw / 5), -5%) !important; } }
-#cs-tree svg .node {
-  cursor: pointer; }
-  #cs-tree svg .node circle {
-    fill: white;
-    stroke: #999999;
-    stroke-width: 3px; }
-    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
-      #cs-tree svg .node circle {
-        stroke-width: 0.5%; } }
-  #cs-tree svg .node text {
-    font-size: 13px;
-    fill: #D2D8E1; }
-    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
-      #cs-tree svg .node text {
-        font-size: 150%; } }
-#cs-tree svg .link {
-  fill: none;
-  stroke: #383838;
-  stroke-width: 2px; }
-  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
-    #cs-tree svg .link {
-      stroke-width: 0.75%; } }
+#projects h4, #projects h5, #projects h6, #projects p {
+  color: white;
+  margin: 0.3em; }
+#projects h4 {
+  font-size: 22px;
+  margin-top: 3em; }
+#projects h5 {
+  font-size: 18px; }
+#projects h6 {
+  font-size: 16px; }
+#projects p {
+  font-size: 13.5px; }
+#projects .project {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  position: relative; }
+  #projects .project .front {
+    cursor: pointer; }
+  #projects .project .back {
+    background-color: rgba(88, 88, 88, 0.5); }
+    #projects .project .back a {
+      color: #B42929; }
+  #projects .project .prj {
+    width: 200px;
+    height: 200px; }
+    #projects .project .prj:hover {
+      opacity: 0.75;
+      -webkit-transition: opacity 0.25s;
+      -o-transition: opacity 0.25s;
+      -moz-transition: opacity 0.25s;
+      transition: opacity 0.25s; }
+  #projects .project .flipper {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    bottom: 3px;
+    right: 3px;
+    z-index: 9001;
+    opacity: 0.5;
+    cursor: pointer; }
+    #projects .project .flipper:hover + div .prj {
+      opacity: 0.75;
+      -webkit-transition: opacity 0.25s;
+      -o-transition: opacity 0.25s;
+      -moz-transition: opacity 0.25s;
+      transition: opacity 0.25s; }
 
 /* ~~~~~~~~ Interests section ~~~~~~~~ */
 #interests {
@@ -649,6 +653,8 @@ p {
         .slideshow .act-container .play {
           height: 20vh;
           margin-top: 20vh; } }
+      .slideshow .act-container .play:hover {
+        opacity: 0.7; }
   .slideshow div img {
     margin: 0 auto;
     cursor: pointer;
@@ -891,11 +897,15 @@ p {
         @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
           #contact > div form input[type=submit] {
             width: 30%;
-            padding: 0.5em; } }
+            padding: 0.5em;
+            position: relative;
+            z-index: 9001; } }
         @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
           #contact > div form input[type=submit] {
             width: 30%;
-            padding: 1em; } }
+            padding: 1em;
+            position: relative;
+            z-index: 9001; } }
         #contact > div form input[type=submit]:hover, #contact > div form input[type=submit]:active {
           background-color: #CC0000; }
     #contact > div img {
@@ -939,7 +949,8 @@ p {
 
 /* ~~~~~~~~ Message sent popup ~~~~~~~~ */
 #message-sent {
-  display: none; }
+  display: none;
+  height: 100%; }
   #message-sent div {
     max-width: 35vw;
     max-height: 50vw;
@@ -953,10 +964,21 @@ p {
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%); }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape), only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+      #message-sent div {
+        max-width: 70vw; } }
   #message-sent h3 {
     font-size: 18px;
-    font-weight: none;
+    font-weight: normal;
     color: black; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      #message-sent h3 {
+        font-size: 300%;
+        margin: 0.5em; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape), only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+      #message-sent h3 {
+        font-size: 200%;
+        margin: 0.5em; } }
   #message-sent button {
     display: block;
     margin: 0 auto 1em auto;
@@ -967,6 +989,12 @@ p {
     @media only screen and (max-width: 720px) {
       #message-sent button:focus {
         background-color: #E89C11; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      #message-sent button {
+        font-size: 300%; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape), only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+      #message-sent button {
+        font-size: 200%; } }
 
 /* ~~~~~~~~ Footer ~~~~~~~~ */
 #footer {
@@ -1226,7 +1254,6 @@ h2 {
     transform: translateY(-50%); }
 
 #wankel {
-  display: none;
   height: 100%;
   width: 100%; }
   #wankel > div {
@@ -1254,38 +1281,30 @@ h2 {
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
       #wankel h5 {
         font-size: 300%; } }
+    #wankel h5::after, #wankel h5::before {
+      overflow: hidden;
+      display: inline-block;
+      vertical-align: bottom;
+      animation: ellipsis steps(4, end) 2s infinite;
+      content: "...";
+      width: 0; }
+@keyframes ellipsis {
+  to {
+    width: 1.25em; } }
+    #wankel h5::before {
+      color: transparent; }
 
-.wankel {
-  display: block;
-  margin: 0 auto;
+.rotor {
   width: 15vw;
-  height: calc(15vw * (500 / 388));
-  background: url("../img/icons/wankel-frames.png");
-  background-size: cover;
-  animation: play 0.4s steps(12) infinite; }
-@keyframes play {
-  100% {
-    background-position: calc(-12 * 15vw); } }
+  height: auto; }
   @media only screen and (min-width: 721px) and (max-width: 999px) {
-    .wankel {
-      width: 20vw;
-      height: calc(20vw * (500 / 388)); }
-    @keyframes play {
-      100% {
-        background-position: calc(-12 * 20vw); } } }
+    .rotor {
+      width: 20vw; } }
   @media only screen and (max-width: 720px), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
-    .wankel {
-      width: 30vw;
-      height: calc(30vw * (500 / 388)); }
-    @keyframes play {
-      100% {
-        background-position: calc(-12 * 30vw); } } }
+    .rotor {
+      width: 30vw; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
-    .wankel {
-      width: 40vw;
-      height: calc(40vw * (500 / 388)); }
-    @keyframes play {
-      100% {
-        background-position: calc(-12 * 40vw); } } }
+    .rotor {
+      width: 40vw; } }
 
 /*# sourceMappingURL=sassy-hang.css.map */
