@@ -147,9 +147,8 @@
 					<p>
 						You can find my GitHub page here containing my some of my projects both
 						past and present.  Also shown is the repository of my finished projects
-						completed at the University of Pittsburgh.  Click on the inner nodes to
-						view the different branches in this repo or click on a terminal node to
-						its source code on GitHub!
+						completed at the University of Pittsburgh.  Click on the different cards
+						to read the project's description or see the source code on GitHub!
 					</p>
 					<p>
 						If you are so inclined, you can also take a look at my current résumé
