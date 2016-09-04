@@ -541,6 +541,8 @@ p {
   font-size: 16px; }
 #projects p {
   font-size: 13.5px; }
+  #projects p span {
+    color: rgba(48, 48, 48, 0.5); }
 #projects h5, #projects h6, #projects p {
   color: white;
   margin: 0.3em; }
@@ -643,11 +645,60 @@ p {
     #interests a:hover, #interests a:active {
       color: #D4B92B; }
 
-.music .act-container {
-  background-image: url("../img/bkgrds/slideshow-music.jpg"); }
-
-.cars .act-container {
-  background-image: url("../img/bkgrds/slideshow-cars.jpg"); }
+#cars2 {
+  text-align: center; }
+  #cars2 h4, #cars2 h6 {
+    text-align: center; }
+  #cars2 h4 {
+    font-size: 28px;
+    margin: 1em auto 0.5em auto; }
+  #cars2 h6 {
+    font-family: 'Montserrat', 'Verdana', sans-serif;
+    font-size: 18px;
+    margin: 0 auto; }
+  #cars2 .car-title {
+    width: 100%;
+    position: relative; }
+    #cars2 .car-title > img {
+      position: absolute;
+      left: 0;
+      top: 0; }
+  #cars2 .car-specs {
+    text-align: center;
+    width: 100%; }
+    #cars2 .car-specs > div:not(:last-of-type) {
+      margin: 0 1em; }
+    #cars2 .car-specs .car-asp, #cars2 .car-specs .car-engine {
+      height: 120px;
+      width: auto;
+      display: inline-block;
+      text-align: center; }
+      #cars2 .car-specs .car-asp img, #cars2 .car-specs .car-engine img {
+        height: 120px;
+        width: auto; }
+    #cars2 .car-specs .car-graphs {
+      width: 410px;
+      display: inline; }
+      #cars2 .car-specs .car-graphs > div {
+        display: inline-block;
+        margin: 0 1em; }
+  #cars2 .car-desc {
+    width: 80%;
+    text-align: left;
+    margin: 0 auto; }
+    #cars2 .car-desc p {
+      font-size: 14px;
+      margin-top: 1.5em; }
+      @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+        #cars2 .car-desc p {
+          font-size: 75%;
+          margin-left: 0;
+          margin-right: 0; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+        #cars2 .car-desc p {
+          font-size: 140%;
+          margin-left: 0;
+          margin-right: 0; } }
 
 .slideshow {
   margin: 0 auto; }
