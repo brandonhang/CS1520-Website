@@ -213,17 +213,13 @@ p {
   background-size: cover;
   background-color: #33384C;
   min-height: 100vh;
-  height: 100vh;
-  padding: 0; }
+  padding: 0 0 1px 0; }
   #top div {
     position: relative;
-    top: 50%;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%); }
+    padding-top: 20vh; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      #top div {
+        padding-top: calc(50vh - 35vw); } }
     #top div img {
       width: 311px;
       display: block;
@@ -568,6 +564,9 @@ p {
         width: 400px;
         height: 400px;
         margin-bottom: 150px; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+      #projects .project {
+        margin-bottom: 75px; } }
     #projects .project .front {
       cursor: pointer; }
     #projects .project .back {
@@ -827,7 +826,8 @@ p {
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: 90%;
-  min-height: calc(100vh - 50px); }
+  min-height: calc(100vh - 50px);
+  padding: 0 0 1px 0; }
   @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
     #contact {
       padding: 0 0 8em 0; } }
@@ -1242,6 +1242,9 @@ h2 {
   height: auto;
   margin: 0;
   padding: 30px 0; }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+    .container h2 {
+      padding-top: 12%; } }
 
 .content {
   width: 70%;

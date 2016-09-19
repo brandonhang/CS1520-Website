@@ -166,17 +166,10 @@ p {
   background-size: cover;
   background-color: #33384C;
   min-height: 100vh;
-  height: 100vh;
-  padding: 0; }
+  padding: 0 0 1px 0; }
   #top div {
     position: relative;
-    top: 50%;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%); }
+    padding-top: 20vh; }
     #top div img {
       width: 311px;
       display: block;
@@ -639,7 +632,8 @@ p {
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: 90%;
-  min-height: calc(100vh - 50px); }
+  min-height: calc(100vh - 50px);
+  padding: 0; }
   #contact.lights {
     background-image: url("../img/bkgrds/pitt-skyline-lights.png"); }
   #contact h2 {

@@ -1,0 +1,148 @@
+[
+	{
+		"name": "Personal Website",
+		"language": "PHP, Javascript/jQuery, CSS/SASS, JSON",
+		"date": "Ongoing",
+		"description": "A personal website written using a number of web development languages (not updated on GitHub)",
+		"url": "https://github.com/brandonhang/CS1520-Website"
+	},
+	{
+		"name": "TDD Baccarat",
+		"language": "Java",
+		"date": "4/19/2016",
+		"description": "A strict Test-Driven Development of the card game baccarat",
+		"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs1632/Final%20Deliverable"
+	},
+	{
+		"name": "Dice Driver and Yahtzee",
+		"language": "C",
+		"date": "4/10/2016",
+		"description": "A C program that simulates Yahtzee using a custom Linux driver",
+		"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0449/Dice%20Driver%20and%20Yahtzee"
+	},
+	{
+		"name": "Triple Triad",
+		"language": "PHP, Javascript/jQuery, CSS/SASS, JSON",
+		"description": "A clone of the mini-game featured in Final Fantasy VIII<br/><span>&#8679 &#8679 &#8681 &#8681 &#8678 &#8680 &#8678 &#8680 &#9399 &#9398</span>",
+		"url": "https://github.com/brandonhang/Triple-Triad"
+	},
+	{
+		"name": "Airline Route Mgmt",
+		"language": "Java",
+		"date": "4/7/2016",
+		"description": "A Java program that manages airline route information via an undirected graph",
+		"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs1501/Airline%20Route%20Management"
+	},
+	{
+		"name": "Car Buying Database",
+		"language": "Java",
+		"date": "3/21/2016",
+		"description": "A text-based app that tracks the lowest mileage/priced car from a database",
+		"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs1501/Car%20Buying%20Database"
+	},
+	{
+		"name": "Custom UNIX Shell",
+		"language": "C",
+		"date": "4/24/2016",
+		"description": "A custom UNIX shell that features several built-in commands",
+		"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0449/Custom%20UNIX%20Shell"
+	},
+	{
+		"name": "RSA Demonstration",
+		"language": "Java",
+		"date": "4/24/2016",
+		"description": "A duo of Java programs that generate a 1024-bit RSA keypair and create digital signatures",
+		"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs1501/RSA%20Demonstration"
+	},
+	{
+		"name": "Custom malloc()",
+		"language": "C",
+		"date": "3/20/2016",
+		"description": "A custom suite of memory de/allocation functions written in C",
+		"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0449/Custom%20Malloc"
+	},
+	{
+		"name": "Password Checker",
+		"language": "Java",
+		"date": "2/12/2016",
+		"description": "A Java program that checks an entered password against a generated list",
+		"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs1501/Password%20Checker"
+	},
+	{
+		"name": "Selenium Testing",
+		"language": "Java",
+		"date": "3/3/2016",
+		"description": "Contains JUnit tests for nasioc.com using BDD principles",
+		"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs1632/Deliverable%203"
+	},
+	{
+		"name": "Blackjack",
+		"language": "C",
+		"date": "2/9/2016",
+		"description": "A C program that simulates the card game Blackjack",
+		"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0449/Blackjack%20Simulator"
+	},
+	{
+		"name": "Property-Based Testing",
+		"language": "Java",
+		"date": "3/24/2016",
+		"description": "Holds JUnit property-based tests of a sorted array",
+		"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs1632/Deliverable%204"
+	},
+	{
+		"name": "ID3 v1.1 Tag Editor",
+		"language": "C",
+		"date": "2/9/2016",
+		"description": "A C program that reads and writes ID3 v1.1 music tags",
+		"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0449/ID3%20v1.1%20Tag%20Editor"
+	},
+	{
+		"name": "JUnit Introduction",
+		"language": "Java",
+		"date": "2/16/2016",
+		"description": "Contains a Java text game built in according to guidelines and backed with JUnit tests",
+		"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs1632/Deliverable%202"
+	},
+	{
+		"name": "Program String Parser",
+		"language": "C",
+		"date": "2/28/2016",
+		"description": "A C program that parses files for displayable strings",
+		"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0449/Program%20Strings%20Parser"
+	},
+	{
+		"name": "Auto-Word Search",
+		"language": "Java",
+		"date": "10/21/2015",
+		"description": "An auto-completing word search written in Java",
+		"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0445/Word-Search"
+	},
+	{
+		"name": "War Card Game",
+		"language": "Java",
+		"date": "9/23/2015",
+		"description": "A Java program that simulates the card game War",
+		"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0445/War-Card-Game"
+	},
+	{
+		"name": "Fruit Market Simulator",
+		"language": "Java",
+		"date": "10/14/2015",
+		"description": "A fruit market stand simulator written in Java",
+		"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0445/Fruit-Market-Simulator"
+	},
+	{
+		"name": "Assembly Auto Coder",
+		"language": "MIPS Assembly",
+		"date": "11/1/2015",
+		"description": "A program that automatically generates MIPS assembly code written in MIPS assembly",
+		"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0447/MIPS-Code-Generator"
+	},
+	{
+		"name": "Single-Datapath CPU",
+		"language": "Logic Gates/Logisim",
+		"date": "12/10/2015",
+		"description": "A Logisim circuit file that emulates a single-datapath CPU",
+		"url": "https://github.com/brandonhang/Pitt-Projects/tree/master/cs0447/Single-Datapath-CPU"
+	}
+]

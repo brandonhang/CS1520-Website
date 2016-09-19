@@ -10,12 +10,6 @@
 	
 	require_once 'php/Mobile_Detect.php';
 	$detect = new Mobile_Detect;
-	if ($detect->isMobile()) {
-		$detect = TRUE;
-	}
-	else {
-		$detect = FALSE;
-	}
 	
 	/*
 	 * This function reads the contents of a text file and displays it to the screen exactly as
@@ -43,7 +37,11 @@
 		
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Sorts+Mill+Goudy' rel='stylesheet' type='text/css'/>
 		<link type="image/x-icon" rel="shortcut icon" href="img/icons/icon.ico"/>
-		<link type="text/css" rel="stylesheet" href="style/sassy-hang.css"/>
+		<?php if ($detect->isMobile() || $detect->isTablet()) { ?>
+			<link type="text/css" rel="stylesheet" href="style/index-not-desktop.css">	
+		<?php } else { ?>
+			<link type="text/css" rel="stylesheet" href="style/index-desktop.css">
+		<?php } ?>
 		<link type="text/css" rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
 		<link type="text/css" rel="stylesheet" href="https://cdn.rawgit.com/c3js/c3/master/c3.min.css"/>
 		
@@ -51,14 +49,6 @@
 		
 	</head>
 	<body>
-		<!-- Loader -->
-		<div class="underlay-dim" id="wankel">
-			<div>
-				<img class="rotor" src="img/icons/wankel-aa.gif"/>
-				<h5>Loading</h5>
-			</div>
-		</div>
-		
 		<!-- Navigation Bar -->
 		<div class="nav-container">
 			<hr class="blue-menu"></hr>
@@ -80,7 +70,7 @@
 								"#contact",);
 							$icon_text = array(
 								"About Me",
-								"Programming",
+								"Portfolio",
 								"Interests",
 								"Contact Me",);
 								
@@ -117,7 +107,7 @@
 		<!-- Programming Section -->
 		<div id="programming" class="container">
 			<div class="content">
-				<h2>Programming</h2>
+				<h2>Portfolio</h2>
 				<section>
 					<div id="git-card">
 						<div>
@@ -127,7 +117,9 @@
 								<span></span>
 							</div>
 						</div>
-						<a href="https://github.com/brandonhang"></a>
+						<a title="Opens an external link" target="_blank" href="https://github.com/brandonhang">
+							@brandonhang<img class="extern" src="img/icons/new_window_b.svg"/>
+						</a>
 						<span></span>
 						<table>
 							<tr>
@@ -136,64 +128,50 @@
 							</tr>
 							<tr>
 								<td>
-									<a href="https://github.com/brandonhang?tab=repositories">REPOS</a>
+									<a title="Opens an external link" target="_blank" href="https://github.com/brandonhang?tab=repositories">
+										REPOS<img class="extern" src="img/icons/new_window_b.svg"/>
+									</a>
 								</td>
 								<td>
-									<a href="https://github.com/brandonhang/followers">FOLLOWERS</a>
+									<a title="Opens an external link" target="_blank" href="https://github.com/brandonhang/followers">
+										FOLLOWERS<img class="extern" src="img/icons/new_window_b.svg"/>
+									</a>
 								</td>
 							</tr>
 						</table>
 						<img id="git-pic"/>
 					</div>
 					<p>
-						You can find my GitHub page here containing my some of my projects both
-						past and present.  Also shown is the repository of my finished projects
-						completed at the University of Pittsburgh.  Click on the different cards
-						to read the project's description or see the source code on GitHub!
+						Clicking on my name above (@brandonhang) will take you to my GitHub page
+						where you can find my past and present projects.  Alternatively, shown
+						below are a number of colorful squares, each representing a different
+						project I have done in the past.  Clicking on these squares will reveal
+						a short description of the project as well as a link to the source code
+						on my GitHub page.
 					</p>
 					<p>
 						If you are so inclined, you can also take a look at my current résumé
-						by clicking <a href="misc/BHang_Resume.pdf" target="blank">here</a>.
+						by clicking <a href="misc/BHang_Resume.pdf" target="_blank">here</a>.
 					</p>
 				</section>
 				<div id="projects">
 					<?php
 						$flipper = "<img class='flipper' src='img/icons/rotate.png'/>";
-						$jsonBourne = file_get_contents("js/cs.json");
+						$jsonBourne = file_get_contents("js/projects.json");
 						$portfolio = json_decode($jsonBourne);
-						foreach($portfolio->children as $course) {
-							echo "<div><h4>$course->name — $course->description</h4>";
-							
-							foreach($course->children as $project) {
-								$id = str_replace(array(" ", "."), "-", $project->name);
-								$id = str_replace(array("(", ")"), "", $id);
-								
-								echo "<div id='p-$id' class='project'>$flipper<div class='front'>";
-								echo "<img class='prj' title='$project->name' src='img/icons/projects/$project->name.png'/></div>";
-								echo "<div class='back'><h5>$project->name</h5>";
-								echo "<h6>Language: $project->language</h6>";
-								echo "<h6><a href=$project->url>GitHub Link</a></h6>";
-								echo "<p>$project->description</p></div></div>";
-							}
-							echo "</div>";
-						}
-						
-						$jsonBourne = file_get_contents("js/other_projects.json");
-						$portfolio = json_decode($jsonBourne);
-						echo "<div><h4>Other Projects</h4>";
 						
 						foreach($portfolio as $project) {
 							$id = str_replace(array(" ", "."), "-", $project->name);
 							$id = str_replace(array("(", ")"), "", $id);
 							
 							echo "<div id='p-$id' class='project'>$flipper<div class='front'>";
-							echo "<img class='prj' title='$project->name' src='img/icons/projects/$project->name.png'/></div>";
+							echo "<img class='prj' title='$project->name' src='img/icons/projects/$project->name.png'/>";
+							echo "<h5 class='prj-title'>$project->name</h5></div>";
 							echo "<div class='back'><h5>$project->name</h5>";
 							echo "<h6>Language: $project->language</h6>";
-							echo "<h6><a href=$project->url>GitHub Link</a></h6>";
+							echo "<h6><a title='Opens an external link' target='_blank' href='$project->url'>GitHub Link<img class='extern' src='img/icons/new_window_w.svg'/></a></h6>";
 							echo "<p>$project->description</p></div></div>";
 						}
-						echo "</div>";
 					?>
 				</div>
 			</div>
@@ -234,7 +212,7 @@
 					to the ludicrously-priced and ludicrously powerful European exotics, and even the Japanese street
 					legends of humble origins, I&#39m a fan of it all.<br/><br/>
 					You can see more of my automotive photography on my
-					<a href="https://www.flickr.com/photos/dangitshang">Flickr</a>!
+					<a title="Opens an external link" target="_blank" href="https://www.flickr.com/photos/dangitshang">Flickr!<img class="extern" src="img/icons/new_window_b.svg"/></a>
 				</p>
 				<div id="cars2">
 					<div class="car-thumbs thumbnails"></div>
@@ -285,14 +263,14 @@
 		<!-- Footer -->
 		<div id="footer">
 			<span>&copy; 2016 Brandon S. Hang</span>
-			<a href="https://github.com/brandonhang"><img src="img/icons/github-gray-28px.png"/></a>
-			<a href="https://www.linkedin.com/in/brandonhang"><img src="img/icons/linkedin-gray-28px.png"/></a>
-			<a href="https://www.flickr.com/photos/dangitshang"><img src="img/icons/flickr-gray-28px.png"/></a>
-			<a href="https://www.youtube.com/playlist?list=PLr-gFI33RZBw-uQb17DgehrGYP9CotwZ_">
+			<a title="GitHub.com/BrandonHang" target="_blank" href="https://github.com/brandonhang"><img src="img/icons/github-gray-28px.png"/></a>
+			<a title="LinkedIn.com/in/BrandonHang" target="_blank" href="https://www.linkedin.com/in/brandonhang"><img src="img/icons/linkedin-gray-28px.png"/></a>
+			<a title="Flickr.com/DangItsHang" target="_blank" href="https://www.flickr.com/photos/dangitshang"><img src="img/icons/flickr-gray-28px.png"/></a>
+			<a title="YouTube.com/DangItsHang" target="_blank" href="https://www.youtube.com/playlist?list=PLr-gFI33RZBw-uQb17DgehrGYP9CotwZ_">
 				<img src="img/icons/youtube-gray-28px.png"/>
 			</a>
-			<a href="http://www.pitt.edu/~bsh41/"><img src="img/icons/bsod-gray-28px.png"/></a>
-			<a id="lightbulb"><img src="img/icons/lightbulb-gray-28px.png"/></a>
+			<a title="Pitt.edu/~bsh41" target="_blank" href="http://www.pitt.edu/~bsh41/"><img src="img/icons/bsod-gray-28px.png"/></a>
+			<a title="???" id="lightbulb" onclick="lightEmUp()"><img src="img/icons/lightbulb-gray-28px.png"/></a>
 			<a>About this site</a>
 		</div>
 		
@@ -324,31 +302,6 @@
 		
 		<!-- Scripts -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-		<script type="text/javascript">
-			$(window).one('load', function() {
-				$('#wankel').fadeOut("slow");
-			});
-		</script>
-		<?php if ($detect) { ?>
-			<script type="text/javascript">
-			var previousScroll = 0;
-			
-			$(window).scroll(function() {
-				var currentScroll = $(this).scrollTop();
-				if (currentScroll > previousScroll) {
-					if ($('.nav-container').is(":visible")) {
-						$('.nav-container').stop().slideUp("fast");
-					}
-				}
-				else {
-					if ($('.nav-container').is(":hidden")) {
-						$('.nav-container').stop().slideDown("fast");
-					}
-				}
-				previousScroll = currentScroll;
-			});
-			</script>
-		<?php } ?>
 		<script type="text/javascript" src="js/recaptcha.js"></script>
 		<script type="text/javascript" src="js/mobile-menu.js"></script>
 		<script type="text/javascript" src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>

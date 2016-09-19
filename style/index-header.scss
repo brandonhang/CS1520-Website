@@ -1,0 +1,198 @@
+// Media Queries
+$narrow-screen: "only screen and (max-width: 720px)";
+$bigger-screen: "only screen and (min-width: 721px)";
+$medium-screen: "only screen and (min-width: 721px) and (max-width: 999px)";
+$wide-screen: "only screen and (min-width: 1000px)";
+$mobile-portrait: "only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait)";
+$mobile-landscape: "only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape)";
+$ipad: "only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1)";
+$big-tree: "only screen and (min-width: 1220px)";
+$small-tree: "only screen and (max-width: 1219px)";
+
+// Fonts
+$sorts-goudy: 'Sorts Mill Goudy', serif;
+
+// Colors
+$pitt-blue: #0C1155;
+$old-gold: #D4B92B;
+$world-rally-blue: #0736F8;
+$blue-gray: #33384C;
+$ice-silver: #D2D8E1;
+$dark-purple: #2E2635;
+$brick-red: #B42929;
+$british-racing-green: #014225;
+$asteroid-grey: #838383;
+
+// Misc
+$outline: 1px solid #A3A3A3;
+$box-shadow: 8px 8px 3px 0px $asteroid-grey;
+
+// Mixins
+@mixin zero-space {
+	margin: 0;
+	padding: 0;
+}
+
+@mixin center-margin {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@mixin picture-border {
+	border: 5px solid white;
+	outline: $outline;
+	box-shadow: $box-shadow;
+}
+
+@mixin center-bkgrd-image {
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+
+@mixin tile {
+	background-color: $ice-silver;
+	background-image: url('../img/bkgrds/bkgrd-tile.png');
+	background-repeat: repeat;
+}
+
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin grayscale($percent) {
+	-webkit-filter: grayscale($percent);
+	-o-filter: grayscale($percent);
+	-moz-filter: grayscale($percent);
+	filter: grayscale($percent);
+}
+
+@mixin linear-gradient($direction, $gradient...) {
+	background: -o-linear-gradient($direction, $gradient...);
+	background: linear-gradient($direction, $gradient...);
+	
+	@if $direction == left {
+		background: -webkit-linear-gradient(right, $gradient...);
+		background: -moz-linear-gradient(right, $gradient...);
+	}
+	@else if $direction == right {
+		background: -webkit-linear-gradient(left, $gradient...);
+		background: -moz-linear-gradient(left, $gradient...);
+	}
+	@else if $direction == top {
+		background: -webkit-linear-gradient(bottom, $gradient...);
+		background: -moz-linear-gradient(bottom, $gradient...);
+	}
+	@else if $direction == bottom {
+		background: -webkit-linear-gradient(top, $gradient...);
+		background: -moz-linear-gradient(top, $gradient...);
+	}
+	@else if $direction == top left or $direction == left top {
+		background: -webkit-linear-gradient(bottom right, $gradient...);
+		background: -moz-linear-gradient(bottom right, $gradient...);
+	}
+	@else if $direction == top right or $direction == right top {
+		background: -webkit-linear-gradient(bottom left, $gradient...);
+		background: -moz-linear-gradient(bottom left, $gradient...);
+	}
+	@else if $direction == bottom left or $direction == left bottom {
+		background: -webkit-linear-gradient(top right, $gradient...);
+		background: -moz-linear-gradient(top right, $gradient...);
+	}
+	@else {
+		background: -webkit-linear-gradient(top left, $gradient...);
+		background: -moz-linear-gradient(top left, $gradient...);
+	}
+}
+
+@mixin transition-all($seconds) {
+	-webkit-transition: all $seconds;
+	-o-transition: all $seconds;
+	-moz-transition: all $seconds;
+	transition: all $seconds;
+}
+
+@mixin transition-color($seconds) {
+	-webkit-transition: color $seconds;
+	-o-transition: color $seconds;
+	-moz-transition: color $seconds;
+	transition: color $seconds;
+}
+
+@mixin transition-bkgrd-color($seconds) {
+	-webkit-transition: background-color $seconds;
+	-o-transition: background-color $seconds;
+	-moz-transition: background-color $seconds;
+	transition: background-color $seconds;
+}
+
+@mixin transition-opacity($seconds) {
+	-webkit-transition: opacity $seconds;
+	-o-transition: opacity $seconds;
+	-moz-transition: opacity $seconds;
+	transition: opacity $seconds;
+}
+
+@mixin transition-width($seconds) {
+	-webkit-transition: width $seconds;
+	-o-transition: width $seconds;
+	-moz-transition: width $seconds;
+	transition: width $seconds;
+}
+
+@mixin transition-size($seconds) {
+	-webkit-transition: width $seconds;
+	-webkit-transition: height $seconds;
+	-o-transition: width $seconds;
+	-o-transition: height $seconds;
+	-moz-transition: width $seconds;
+	-moz-transition: height $seconds;
+	transition: width $seconds;
+	transition: height $seconds;
+}
+
+@mixin transform-transY-middle {
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+@mixin transform-transY($num) {
+	-webkit-transform: translateY($num);
+	-o-transform: translateY($num);
+	-moz-transform: translateY($num);
+	-ms-transform: translateY($num);
+	transform: translateY($num);
+}
+
+@mixin rotate-180 {
+	-webkit-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	transform: rotate(180deg);
+	-webkit-transform-origin: 50% 50%;
+	-o-transform-origin: 50% 50%;
+	-moz-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+}
+
+@mixin translate($x, $y) {
+	-ms-transform: translate($x, $y) !important;
+	-webkit-transform: translate($x, $y) !important;
+	-moz-transform: translate($x, $y) !important;
+	-o-transform: translate($x, $y) !important;
+	transform: translate($x, $y) !important;
+}
+
+@mixin transition-visibility($sec) {
+	-webkit-transition: visibility 0s $sec, opacity $sec;
+	-o-transition: visibility 0s $sec, opacity $sec;
+	-moz-transition: visibility 0s $sec, opacity $sec;
+	transition: visibility 0s $sec, opacity $sec;
+}

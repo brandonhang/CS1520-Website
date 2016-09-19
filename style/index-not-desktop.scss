@@ -1,195 +1,4 @@
-// Media Queries
-$narrow-screen: "only screen and (max-width: 720px)";
-$bigger-screen: "only screen and (min-width: 721px)";
-$medium-screen: "only screen and (min-width: 721px) and (max-width: 999px)";
-$wide-screen: "only screen and (min-width: 1000px)";
-$mobile-portrait: "only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait)";
-$mobile-landscape: "only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape)";
-$ipad: "only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1)";
-$big-tree: "only screen and (min-width: 1220px)";
-$small-tree: "only screen and (max-width: 1219px)";
-
-// Fonts
-$sorts-goudy: 'Sorts Mill Goudy', serif;
-
-// Colors
-$pitt-blue: #0C1155;
-$old-gold: #D4B92B;
-$world-rally-blue: #0736F8;
-$blue-gray: #33384C;
-$ice-silver: #D2D8E1;
-$dark-purple: #2E2635;
-$brick-red: #B42929;
-$british-racing-green: #014225;
-$asteroid-grey: #838383;
-
-// Misc
-$outline: 1px solid #A3A3A3;
-$box-shadow: 8px 8px 3px 0px $asteroid-grey;
-
-// Mixins
-@mixin zero-space {
-	margin: 0;
-	padding: 0;
-}
-
-@mixin center-margin {
-	margin-left: auto;
-	margin-right: auto;
-}
-
-@mixin picture-border {
-	border: 5px solid white;
-	outline: $outline;
-	box-shadow: $box-shadow;
-}
-
-@mixin center-bkgrd-image {
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
-}
-
-@mixin tile {
-	background-color: $ice-silver;
-	background-image: url('../img/bkgrds/bkgrd-tile.png');
-	background-repeat: repeat;
-}
-
-@mixin border-radius($radius) {
-	-webkit-border-radius: $radius;
-	-moz-border-radius: $radius;
-	-ms-border-radius: $radius;
-	border-radius: $radius;
-}
-
-@mixin grayscale($percent) {
-	-webkit-filter: grayscale($percent);
-	-o-filter: grayscale($percent);
-	-moz-filter: grayscale($percent);
-	filter: grayscale($percent);
-}
-
-@mixin linear-gradient($direction, $gradient...) {
-	background: -o-linear-gradient($direction, $gradient...);
-	background: linear-gradient($direction, $gradient...);
-	
-	@if $direction == left {
-		background: -webkit-linear-gradient(right, $gradient...);
-		background: -moz-linear-gradient(right, $gradient...);
-	}
-	@else if $direction == right {
-		background: -webkit-linear-gradient(left, $gradient...);
-		background: -moz-linear-gradient(left, $gradient...);
-	}
-	@else if $direction == top {
-		background: -webkit-linear-gradient(bottom, $gradient...);
-		background: -moz-linear-gradient(bottom, $gradient...);
-	}
-	@else if $direction == bottom {
-		background: -webkit-linear-gradient(top, $gradient...);
-		background: -moz-linear-gradient(top, $gradient...);
-	}
-	@else if $direction == top left or $direction == left top {
-		background: -webkit-linear-gradient(bottom right, $gradient...);
-		background: -moz-linear-gradient(bottom right, $gradient...);
-	}
-	@else if $direction == top right or $direction == right top {
-		background: -webkit-linear-gradient(bottom left, $gradient...);
-		background: -moz-linear-gradient(bottom left, $gradient...);
-	}
-	@else if $direction == bottom left or $direction == left bottom {
-		background: -webkit-linear-gradient(top right, $gradient...);
-		background: -moz-linear-gradient(top right, $gradient...);
-	}
-	@else {
-		background: -webkit-linear-gradient(top left, $gradient...);
-		background: -moz-linear-gradient(top left, $gradient...);
-	}
-}
-
-@mixin transition-all($seconds) {
-	-webkit-transition: all $seconds;
-	-o-transition: all $seconds;
-	-moz-transition: all $seconds;
-	transition: all $seconds;
-}
-
-@mixin transition-color($seconds) {
-	-webkit-transition: color $seconds;
-	-o-transition: color $seconds;
-	-moz-transition: color $seconds;
-	transition: color $seconds;
-}
-
-@mixin transition-bkgrd-color($seconds) {
-	-webkit-transition: background-color $seconds;
-	-o-transition: background-color $seconds;
-	-moz-transition: background-color $seconds;
-	transition: background-color $seconds;
-}
-
-@mixin transition-opacity($seconds) {
-	-webkit-transition: opacity $seconds;
-	-o-transition: opacity $seconds;
-	-moz-transition: opacity $seconds;
-	transition: opacity $seconds;
-}
-
-@mixin transition-width($seconds) {
-	-webkit-transition: width $seconds;
-	-o-transition: width $seconds;
-	-moz-transition: width $seconds;
-	transition: width $seconds;
-}
-
-@mixin transition-size($seconds) {
-	-webkit-transition: width $seconds;
-	-webkit-transition: height $seconds;
-	-o-transition: width $seconds;
-	-o-transition: height $seconds;
-	-moz-transition: width $seconds;
-	-moz-transition: height $seconds;
-	transition: width $seconds;
-	transition: height $seconds;
-}
-
-@mixin transform-transY-middle {
-	top: 50%;
-	-webkit-transform: translateY(-50%);
-	-o-transform: translateY(-50%);
-	-moz-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	transform: translateY(-50%);
-}
-
-@mixin transform-transY($num) {
-	-webkit-transform: translateY($num);
-	-o-transform: translateY($num);
-	-moz-transform: translateY($num);
-	-ms-transform: translateY($num);
-	transform: translateY($num);
-}
-
-@mixin rotate-180 {
-	-webkit-transform: rotate(180deg);
-	-o-transform: rotate(180deg);
-	-moz-transform: rotate(180deg);
-	transform: rotate(180deg);
-	-webkit-transform-origin: 50% 50%;
-	-o-transform-origin: 50% 50%;
-	-moz-transform-origin: 50% 50%;
-	transform-origin: 50% 50%;
-}
-
-@mixin translate($x, $y) {
-	-ms-transform: translate($x, $y) !important;
-	-webkit-transform: translate($x, $y) !important;
-	-moz-transform: translate($x, $y) !important;
-	-o-transform: translate($x, $y) !important;
-	transform: translate($x, $y) !important;
-}
-
+@import "index-header";
 
 /* ~~~~~~~~ Global styling ~~~~~~~~ */
 body {
@@ -435,17 +244,19 @@ p {
 
 /* ~~~~~~~~ Intro panel ~~~~~~~~ */
 #top {
-	background-image: url('../img/bkgrds/bkgrd-01.jpg');
+	background-image: url('../img/bkgrds/bkgrd-04.jpg');
 	@include center-bkgrd-image;
 	background-color: $blue-gray;
 	min-height: 100vh;
-	height: 100vh;
-	padding: 0;
+	padding: 0 0 1px 0;
 	
 	div {
 		position: relative;
-		top: 50%;
-		@include transform-transY-middle;
+		padding-top: 20vh;
+		
+		@media #{$mobile-portrait} {
+			padding-top: calc(50vh - 35vw);
+		}
 		
 		img {
 			width: 311px;
@@ -545,7 +356,7 @@ p {
 /* ~~~~~~~~ Programming section pt. 2 ~~~~~~~~ */
 #programming {
 	//@include tile;
-	background-image: url('../img/bkgrds/bkgrd-02.jpg');
+	background-image: url('../img/bkgrds/bkgrd-03.jpg');
 	@include center-bkgrd-image;
 	background-color: $dark-purple;
 	min-height: calc(100vh - 60px);
@@ -556,27 +367,15 @@ p {
 		}
 		
 		h2 {
-			color: $brick-red;
+			color: $old-gold;
 		}
 	}
 	
 	section {
-		@media #{$big-tree} {
-			width: 352px;
-			position: absolute;
-		}
-		
 		p {
 			font-size: 16px;
 			color: white;
-			
-			@media #{$big-tree} {
-				margin: 2em 0.5em;
-			}
-			
-			@media #{$small-tree} {
-				margin: 2em auto 0 auto;
-			}
+			margin: 2em 1em;
 			
 			@media #{$mobile-portrait} {
 				margin: 1em;
@@ -588,11 +387,11 @@ p {
 			}
 			
 			a {
-				color: $brick-red;
+				color: $old-gold;
 				@include transition-color(0.25s);
 				
 				&:hover, &:active {
-					color: $old-gold;
+					color: $brick-red;
 				}
 			}
 		}
@@ -607,13 +406,13 @@ p {
 	box-shadow: 8px 8px 3px 0px #383838;
 	border: 1px solid #838383;;
 	background-color: white;
+	@include center-margin;
 	
 	@media #{$big-tree} {
 		margin-top: 1em;
 	}
 	
 	@media #{$small-tree} {
-		@include center-margin;
 		margin-top: 4em;
 	}
 	
@@ -833,59 +632,121 @@ p {
 			height: auto;
 		}
 	}
+	
+	table .extern {
+		opacity: 0.5;
+	}
 }
 
-#cs-tree {
-	@media #{$big-tree} {
-		text-align: right;
-		margin-top: 3em;
+#projects {
+	line-height: 0;
+	width: 95%;
+	text-align: center;
+	
+	h4 {
+		font-size: 22px;
+		margin: 3em 0.3em 0.3em 0.3em;
+		color: white;
 	}
 	
-	@media #{$small-tree} {
+	h5 {
+		font-size: 18px;
+	}
+	
+	h6 {
+		font-size: 16px;
+	}
+	
+	p {
+		font-size: 13.5px;
+		
+		span {
+			color: transparent;
+		}
+	}
+	
+	h5, h6, p {
+		color: white;
+		margin: 0.3em;
+		
+		@media #{$mobile-portrait} {
+			font-size: 200%;
+		}
+	}
+	
+	.prj-title {
 		text-align: center;
 	}
 	
-	svg {
+	.project {
+		width: 200px;
+		height: 200px;
+		display: inline-block;
+		line-height: normal;
+		text-align: left;
+		
 		@media #{$mobile-portrait} {
-			width: 100vw;
+			width: 400px;
+			height: 400px;
+			margin-bottom: 150px;
 		}
 		
-		> g {
-			@media #{$mobile-portrait} {
-				@include translate(calc(100vw / 5), -5%);
+		@media #{$mobile-landscape} {
+			margin-bottom: 75px;
+		}
+		
+		.front {
+			cursor: pointer;
+		}
+		
+		.back {
+			background-color: rgba(88, 88, 88, 0.5);
+			
+			a {
+				color: $old-gold;
+				
+				&:hover {
+					color: $brick-red;
+					@include transition-color(0.25s);
+				}
 			}
 		}
 		
-		.node {
+		.prj {
+			width: 200px;
+			height: 200px;
+			
+			@media #{$mobile-portrait} {
+				width: 400px;
+				height: 400px;
+			}
+			
+			&:hover {
+				opacity: 0.75;
+				@include transition-opacity(0.25s);
+			}
+		}
+		
+		.flipper {
+			position: absolute;
+			height: 25px;
+			width: 25px;
+			bottom: 3px;
+			right: 3px;
+			z-index: 9001;
+			opacity: 0.5;
 			cursor: pointer;
 			
-			circle {
-				fill: white;
-				stroke: #999999;
-				stroke-width: 3px;
-				
-				@media #{$mobile-portrait} {
-					stroke-width: 0.5%;
-				}
-			}
-			
-			text {
-				font-size: 13px;
-				fill: $ice-silver;
-				
-				@media #{$mobile-portrait} {
-					font-size: 150%;
-				}
-			}
-		}
-		
-		.link {
-			fill: none;
-			stroke: #383838;
-			stroke-width: 2px;
-			
 			@media #{$mobile-portrait} {
-				stroke-width: 0.75%;
+				height: 50px;
+				width: 50px;
+			}
+			
+			&:hover {
+				+ div .prj {
+					opacity: 0.75;
+					@include transition-opacity(0.25s);
+				}
 			}
 		}
 	}
@@ -900,7 +761,7 @@ p {
 		font-size: 15px;
 		margin: auto 0 2.5em 0;
 		
-		@media #{$mobile-portrait} {
+		@media #{$mobile-portrait}, #{$narrow-screen} {
 			margin: 1em;
 		}
 		
@@ -916,6 +777,10 @@ p {
 		font-size: 32px;
 		margin-bottom: 0.5em;
 		margin-top: 0.5em;
+		
+		@media #{$narrow-screen} {
+			margin: 0.5em;
+		}
 		
 		@media #{$mobile-portrait} {
 			margin: 1em;
@@ -937,59 +802,102 @@ p {
 	}
 }
 
-.music {
-	.act-container {
-		background-image: url('../img/bkgrds/slideshow-music.jpg');
+#cars2 {
+	text-align: center;
+	
+	h4, h6 {
+		text-align: center;
 	}
-}
-
-.cars {
-	.act-container {
-		background-image: url('../img/bkgrds/slideshow-cars.jpg');
+	
+	h4 {
+		font-size: 28px;
+		margin: 1em auto 0.5em auto;
+	}
+	
+	h6 {
+		font-family: 'Montserrat', 'Verdana', sans-serif;
+		font-size: 18px;
+		margin: 0 auto;
+	}
+	
+	.car-title {
+		width: 100%;
+		position: relative;
+		
+		> img {
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	}
+	
+	.car-specs {
+		text-align: center;
+		width: 100%;
+		
+		> div:not(:last-of-type) {
+			margin: 0 1em;
+		}
+		
+		.car-asp, .car-engine {
+			height: 120px;
+			width: auto;
+			display: inline-block;
+			text-align: center;
+			
+			img {
+				height: 120px;
+				width: auto;
+			}
+		}
+		
+		.car-graphs {
+			width: 410px;
+			display: inline;
+			
+			> div {
+				display: inline-block;
+				margin: 0 1em;
+			}
+		}
+	}
+	
+	.car-desc {
+		width: 80%;
+		text-align: left;
+		margin: 0 auto;
+		
+		p {
+			font-size: 14px;
+			margin-top: 1.5em;
+			
+			@media #{$mobile-portrait} {
+				font-size: 75%;
+				margin-left: 0;
+				margin-right: 0;
+			}
+			
+			@media #{$mobile-landscape} {
+				font-size: 140%;
+				margin-left: 0;
+				margin-right: 0;
+			}
+		}
 	}
 }
 
 .slideshow {
 	margin: 0 auto;
 	
-	.act-container {
-		background-position: center center;
-		background-size: contain;
-		background-repeat: no-repeat;
-		text-align: center;
-		height: 50vh;
-		
-		@media #{$mobile-portrait} {
-			height: 30vh;
-		}
-		
-		@media #{$mobile-landscape} {
-			height: 60vh;
-		}
-		
-		.play {
-			cursor: pointer;
-			height: 15vh;
-			margin-top: 17.5vh;
-			
-			@media #{$mobile-portrait} {
-				height: 10vh;
-				margin-top: 10vh;
-			}
-			
-			@media #{$mobile-landscape} {
-				height: 20vh;
-				margin-top: 20vh;
-			}
-			
+	.slick-current {
+		img {
 			&:hover {
-				opacity: 0.7;
+				opacity: 0.8 !important;
 			}
 		}
 	}
 	
-	div {
-		
+	div {	
 		img {
 			margin: 0 auto;
 			cursor: pointer;
@@ -1006,6 +914,12 @@ p {
 			&:focus {
 				outline: none;
 			}
+		}
+		
+		.extern {
+			height: 1em;
+			margin: 0 0 0 0.25em;
+			display: inline;
 		}
 		
 		p {
@@ -1137,6 +1051,7 @@ p {
 	background-repeat: no-repeat;
 	background-size: 90%;
 	min-height: calc(100vh - 50px);
+	padding: 0 0 1px 0;
 	
 	@media #{$mobile-landscape} {
 		padding: 0 0 8em 0;
@@ -1308,11 +1223,15 @@ p {
 				@media #{$mobile-portrait} {
 					width: 30%;
 					padding: 0.5em;
+					position: relative;
+					z-index: 9001;
 				}
 				
 				@media #{$mobile-landscape} {
 					width: 30%;
 					padding: 1em;
+					position: relative;
+					z-index: 9001;
 				}
 				
 				&:hover, &:active {
@@ -1373,6 +1292,7 @@ p {
 /* ~~~~~~~~ Message sent popup ~~~~~~~~ */
 #message-sent {
 	display: none;
+	height: 100%;
 	
 	div {
 		max-width: 35vw;
@@ -1382,12 +1302,26 @@ p {
 		background-color: white;
 		position: relative;
 		@include transform-transY-middle;
+		
+		@media #{$mobile-portrait}, #{$mobile-landscape}, #{$ipad} {
+			max-width: 70vw;
+		}
 	}
 	
 	h3 {
 		font-size: 18px;
-		font-weight: none;
+		font-weight: normal;
 		color: black;
+		
+		@media #{$mobile-portrait} {
+			font-size: 300%;
+			margin: 0.5em;
+		}
+		
+		@media #{$mobile-landscape}, #{$ipad} {
+			font-size: 200%;
+			margin: 0.5em;
+		}
 	}
 	
 	button {
@@ -1404,6 +1338,14 @@ p {
 			@media #{$narrow-screen} {
 				background-color: #E89C11;
 			}
+		}
+		
+		@media #{$mobile-portrait} {
+			font-size: 300%;
+		}
+		
+		@media #{$mobile-landscape}, #{$ipad} {
+			font-size: 200%;
 		}
 	}
 }
@@ -1653,6 +1595,12 @@ h2 {
 	height: auto;
 	margin: 0;
 	padding: 30px 0;
+	
+	@media #{$mobile-portrait} {
+		h2 {
+			padding-top: 12%;
+		}
+	}
 }
 
 .content {
@@ -1787,47 +1735,31 @@ h2 {
 	}
 }
 
-.wankel {
-	display: block;
-	margin: 0 auto;
+.rotor {
 	width: 15vw;
-	height: calc(15vw * (500 / 388));
-	background: url('http://i.imgur.com/gek6J12.png');
-	background-size: cover;
-	animation: play 0.4s steps(12) infinite;
-	@keyframes play {
-		100% {
-			background-position: calc(-12 * 15vw);
-		}
-	}
+	height: auto;
 	
 	@media #{$medium-screen} {
 		width: 20vw;
-		height: calc(20vw * (500 / 388));
-		@keyframes play {
-			100% {
-				background-position: calc(-12 * 20vw);
-			}
-		}
 	}
 	
 	@media #{$narrow-screen}, #{$mobile-landscape} {
 		width: 30vw;
-		height: calc(30vw * (500 / 388));
-		@keyframes play {
-			100% {
-				background-position: calc(-12 * 30vw);
-			}
-		}
 	}
 	
 	@media #{$mobile-portrait} {
 		width: 40vw;
-		height: calc(40vw * (500 / 388));
-		@keyframes play {
-			100% {
-				background-position: calc(-12 * 40vw);
-			}
-		}
 	}
+}
+
+.extern {
+	height: 1em;
+	margin: 0 0 0 0.25em;
+}
+
+.extern-flickr {
+	background-image: url('../img/icons/new_window_b.svg');
+	background-position: 95% 0%;
+	background-repeat: no-repeat;
+	background-size: 35px 35px;
 }
