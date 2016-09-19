@@ -1,0 +1,1381 @@
+/* ~~~~~~~~ Global styling ~~~~~~~~ */
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: 'Montserrat', 'Verdana', sans-serif; }
+
+p {
+  font-size: 18px;
+  margin: 1em 1em; }
+
+.nav-container {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 50px;
+  top: 0;
+  opacity: 0.9;
+  z-index: 9001; }
+  @media only screen and (max-width: 720px), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+    .nav-container {
+      background-color: #0C1155; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+    .nav-container {
+      height: 10%; } }
+  .nav-container > div {
+    width: 81%;
+    margin-left: auto;
+    margin-right: auto; }
+    @media only screen and (max-width: 720px), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+      .nav-container > div {
+        width: 100%; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+      .nav-container > div {
+        height: 10%; } }
+    .nav-container > div > a {
+      line-height: 50px;
+      font-family: "Sorts Mill Goudy", serif;
+      font-size: 23px;
+      color: white;
+      text-decoration: none;
+      padding-left: 45px;
+      background-image: url("../img/icons/logo-sm2.png");
+      background-position: left center;
+      background-repeat: no-repeat;
+      background-size: 40px;
+      -webkit-filter: grayscale(100%);
+      -o-filter: grayscale(100%);
+      -moz-filter: grayscale(100%);
+      filter: grayscale(100%);
+      filter: gray;
+      -webkit-transition: all 0.25s;
+      -o-transition: all 0.25s;
+      -moz-transition: all 0.25s;
+      transition: all 0.25s; }
+      @media only screen and (min-width: 721px) {
+        .nav-container > div > a {
+          float: left; } }
+      @media only screen and (min-width: 721px) and (max-width: 999px) {
+        .nav-container > div > a {
+          font-size: 18px;
+          padding-left: 35px;
+          background-size: 30px; } }
+      @media only screen and (max-width: 720px), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+        .nav-container > div > a {
+          display: block;
+          padding-left: 0;
+          background-size: 0;
+          text-align: center; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+        .nav-container > div > a {
+          font-size: 4.5vh;
+          line-height: 10vh;
+          width: 100%; } }
+      .nav-container > div > a:hover, .nav-container > div > a:active {
+        color: #D4B92B;
+        -webkit-filter: grayscale(0%);
+        -o-filter: grayscale(0%);
+        -moz-filter: grayscale(0%);
+        filter: grayscale(0%);
+        filter: none; }
+    .nav-container > div li {
+      height: 50px;
+      line-height: 50px;
+      list-style-type: none;
+      background-position: left center;
+      background-repeat: no-repeat;
+      -webkit-transition: background-color 0.25s;
+      -o-transition: background-color 0.25s;
+      -moz-transition: background-color 0.25s;
+      transition: background-color 0.25s; }
+      @media only screen and (min-width: 721px) {
+        .nav-container > div li {
+          float: left; } }
+      @media only screen and (min-width: 721px) and (max-width: 999px) {
+        .nav-container > div li {
+          background-size: 0; } }
+      @media only screen and (max-width: 720px), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+        .nav-container > div li {
+          display: none; }
+          .nav-container > div li:active {
+            background-color: #0736F8; } }
+      .nav-container > div li:hover {
+        background-color: #0736F8; }
+      .nav-container > div li a {
+        display: block;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 16px;
+        padding-left: 32px;
+        padding-right: 5px; }
+        @media only screen and (min-width: 721px) and (max-width: 999px) {
+          .nav-container > div li a {
+            font-size: 13px;
+            padding-left: 7px;
+            padding-right: 7px; } }
+    @media only screen and (max-width: 720px), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+      .nav-container > div li.show-menu {
+        display: block;
+        background-color: #0C1155;
+        background-size: 0; } }
+    @media only screen and (max-width: 720px) {
+      .nav-container > div li.show-menu {
+        height: 50px;
+        line-height: 50px; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      .nav-container > div li.show-menu {
+        width: 100%;
+        height: 800%;
+        line-height: 700%; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+      .nav-container > div li.show-menu {
+        line-height: 10vh;
+        height: 10vh;
+        width: 50%; } }
+    .nav-container > div li.show-menu a {
+      -webkit-transition: background-color 0.25s;
+      -o-transition: background-color 0.25s;
+      -moz-transition: background-color 0.25s;
+      transition: background-color 0.25s; }
+      .nav-container > div li.show-menu a:hover, .nav-container > div li.show-menu a:active {
+        background-color: #0736F8; }
+      @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+        .nav-container > div li.show-menu a {
+          font-size: 250%; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+        .nav-container > div li.show-menu a {
+          font-size: 4.5vh; } }
+
+#links {
+  position: relative;
+  width: auto; }
+  @media only screen and (min-width: 721px) {
+    #links {
+      float: right; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+    #links {
+      float: none;
+      height: 100%; } }
+  #links ul {
+    padding-left: 0;
+    display: inline; }
+    @media only screen and (max-width: 720px), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+      #links ul {
+        margin: 0; } }
+
+.blue-menu {
+  position: fixed;
+  height: 50px;
+  width: 100%;
+  background-color: #0C1155;
+  margin: 0;
+  padding: 0;
+  border: none;
+  display: none; }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+    .blue-menu {
+      height: 10%; } }
+
+#menu-button {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  -webkit-transition: background-color 0.25s;
+  -o-transition: background-color 0.25s;
+  -moz-transition: background-color 0.25s;
+  transition: background-color 0.25s; }
+  #menu-button:hover {
+    background-color: #0736F8; }
+  @media only screen and (min-width: 721px) {
+    #menu-button {
+      display: none; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+    #menu-button {
+      height: 10%;
+      width: auto;
+      display: inline !important; } }
+
+.menu-open {
+  content: url("../img/icons/menu-close-50px.png"); }
+
+/* ~~~~~~~~ Intro panel ~~~~~~~~ */
+#top {
+  background-image: url("../img/bkgrds/bkgrd-04.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-color: #33384C;
+  min-height: 100vh;
+  height: 100vh;
+  padding: 0; }
+  #top div {
+    position: relative;
+    top: 50%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); }
+    #top div img {
+      width: 311px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto; }
+      @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+        #top div img {
+          width: 50%; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+        #top div img {
+          width: 50vh; } }
+    #top div h1 {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      text-align: center;
+      margin-top: 50px; }
+      @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+        #top div h1 {
+          font-size: 300%;
+          margin-left: 0.25em;
+          margin-right: 0.25em; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+        #top div h1 {
+          font-size: 230%;
+          margin: 0.5em; } }
+
+/* ~~~~~~~~ About section ~~~~~~~~ */
+#about {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: #D2D8E1;
+  background-image: url("../img/bkgrds/bkgrd-tile.png");
+  background-repeat: repeat; }
+  #about div img {
+    border: 5px solid white;
+    outline: 1px solid #A3A3A3;
+    box-shadow: 8px 8px 3px 0px #838383;
+    float: left;
+    margin: 10px 50px 25px 10px; }
+    @media only screen and (min-width: 1000px) {
+      #about div img {
+        max-width: 400px; } }
+    @media only screen and (min-width: 721px) and (max-width: 999px) {
+      #about div img {
+        width: 30vw;
+        margin: 0 2em 1em 0; } }
+    @media only screen and (max-width: 720px) {
+      #about div img {
+        width: calc(50% - 12px);
+        margin: 0 auto 2em auto;
+        float: none;
+        display: block; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      #about div img {
+        width: 65%;
+        margin: 0 auto 1em auto;
+        float: none;
+        display: block; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+      #about div img {
+        float: left;
+        height: 75vh;
+        width: auto;
+        margin: 0 2em 0.5em 2em; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+    #about div p {
+      font-size: 1.5em; } }
+  #about div::after {
+    content: "";
+    display: table;
+    clear: both; }
+
+/* ~~~~~~~~ Programming section pt. 2 ~~~~~~~~ */
+#programming {
+  background-image: url("../img/bkgrds/bkgrd-03.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-color: #2E2635;
+  min-height: calc(100vh - 60px); }
+  @media only screen and (min-width: 1220px) {
+    #programming .content {
+      width: 80%; } }
+  #programming .content h2 {
+    color: #D4B92B; }
+  #programming section p {
+    font-size: 16px;
+    color: white;
+    margin: 2em 1em; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      #programming section p {
+        margin: 1em; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+      #programming section p {
+        font-size: 1.5em;
+        margin: 1em; } }
+    #programming section p a {
+      color: #D4B92B;
+      -webkit-transition: color 0.25s;
+      -o-transition: color 0.25s;
+      -moz-transition: color 0.25s;
+      transition: color 0.25s; }
+      #programming section p a:hover, #programming section p a:active {
+        color: #B42929; }
+
+#git-card {
+  position: relative;
+  width: 350px;
+  height: 150px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  box-shadow: 8px 8px 3px 0px #383838;
+  border: 1px solid #838383;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto; }
+  @media only screen and (min-width: 1220px) {
+    #git-card {
+      margin-top: 1em; } }
+  @media only screen and (max-width: 1219px) {
+    #git-card {
+      margin-top: 4em; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+    #git-card {
+      width: 60vw;
+      height: 30vw; } }
+  #git-card > div {
+    position: relative;
+    height: 50px;
+    background: -o-linear-gradient(left, #0C1155, #0736F8);
+    background: linear-gradient(left, #0C1155, #0736F8);
+    background: -webkit-linear-gradient(right, #0C1155, #0736F8);
+    background: -moz-linear-gradient(right, #0C1155, #0736F8);
+    border-top-right-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+    -moz-border-top-right-radius: 4px; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      #git-card > div {
+        height: 8.5vw; } }
+    #git-card > div div.tooltip {
+      height: 50px;
+      margin: 0;
+      text-align: right; }
+      @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+        #git-card > div div.tooltip {
+          height: 8.5vw; } }
+      #git-card > div div.tooltip img.git-status {
+        opacity: 0.15;
+        -webkit-transition: opacity 0.25s;
+        -o-transition: opacity 0.25s;
+        -moz-transition: opacity 0.25s;
+        transition: opacity 0.25s; }
+      #git-card > div div.tooltip img.git-logo {
+        margin: 5px 5px 5px 0; }
+        @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+          #git-card > div div.tooltip img.git-logo {
+            margin: 3% 3% 3% 0; } }
+      #git-card > div div.tooltip span {
+        position: relative;
+        display: block;
+        top: -68px;
+        right: -310px;
+        width: 195px;
+        height: auto;
+        opacity: 0;
+        visibility: hidden;
+        padding: 0.2em;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        border-radius: 4px;
+        background-color: #D2D8E1;
+        color: black;
+        text-align: center;
+        font-size: 12px;
+        -webkit-transition: visibility 0s 0.25s, opacity 0.25s;
+        -o-transition: visibility 0s 0.25s, opacity 0.25s;
+        -moz-transition: visibility 0s 0.25s, opacity 0.25s;
+        transition: visibility 0s 0.25s, opacity 0.25s; }
+        @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+          #git-card > div div.tooltip span {
+            top: -320%;
+            right: -80%;
+            font-size: 135%;
+            width: 25vw; } }
+        #git-card > div div.tooltip span::after {
+          content: " ";
+          position: absolute;
+          top: 50%;
+          right: 100%;
+          margin-top: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: transparent #D2D8E1 transparent transparent; }
+          @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+            #git-card > div div.tooltip span::after {
+              top: 100%;
+              left: 25%;
+              right: auto;
+              margin-left: -0.7em;
+              border-width: 0.7em;
+              border-style: solid;
+              border-color: #D2D8E1 transparent transparent transparent; } }
+      #git-card > div div.tooltip:hover img.git-status {
+        opacity: 1.0; }
+      #git-card > div div.tooltip:hover span {
+        visibility: visible;
+        opacity: 1.0;
+        transition-delay: 0s; }
+  #git-card > a {
+    text-decoration: none;
+    display: block;
+    -webkit-transition: color 0.25s;
+    -o-transition: color 0.25s;
+    -moz-transition: color 0.25s;
+    transition: color 0.25s;
+    margin-top: 8px;
+    margin-left: 117px;
+    font-size: 18px;
+    color: black; }
+    #git-card > a:hover, #git-card > a:active {
+      color: #D4B92B; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      #git-card > a {
+        font-size: 250%;
+        margin-left: 0;
+        margin-top: 0.2em;
+        text-align: center; } }
+  #git-card > span {
+    margin-top: 3px;
+    margin-left: 98px;
+    font-size: 13px;
+    color: #838383;
+    padding-left: 20px;
+    background-image: url("../img/icons/github-co-16px.png");
+    background-position: left center;
+    background-repeat: no-repeat; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      #git-card > span {
+        font-size: 180%;
+        background-position: calc(50% - 6.5em) center;
+        background-size: 4%;
+        margin-left: 0;
+        margin-top: 0.25em;
+        display: block;
+        text-align: center; } }
+  #git-card table {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    border-top: 1px solid #A3A3A3;
+    border-collapse: collapse;
+    table-layout: fixed; }
+    #git-card table tr {
+      width: 50%;
+      text-align: center; }
+      #git-card table tr:first-of-type td {
+        padding-top: 0.3em;
+        font-weight: bold;
+        font-size: 16px;
+        color: black; }
+        @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+          #git-card table tr:first-of-type td {
+            font-size: 200%; } }
+      #git-card table tr:last-of-type td a {
+        text-decoration: none;
+        padding-bottom: 0.3em;
+        font-size: 13px;
+        color: #A8A8A8;
+        -webkit-transition: color 0.25s;
+        -o-transition: color 0.25s;
+        -moz-transition: color 0.25s;
+        transition: color 0.25s; }
+        #git-card table tr:last-of-type td a:hover, #git-card table tr:last-of-type td a:active {
+          color: #0736F8; }
+        @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+          #git-card table tr:last-of-type td a {
+            font-size: 200%; } }
+      #git-card table tr td:first-of-type {
+        border-right: 1px solid #A3A3A3; }
+  #git-card > img {
+    position: absolute;
+    display: block;
+    width: 123px;
+    height: 123px;
+    top: -34px;
+    left: -23px;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    border-radius: 100%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 1pt #838383; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      #git-card > img {
+        top: -5vw;
+        left: -8vw;
+        width: 20vw;
+        height: auto; } }
+  #git-card table .extern {
+    opacity: 0.5; }
+
+#projects {
+  line-height: 0;
+  width: 95%;
+  text-align: center; }
+  #projects h4 {
+    font-size: 22px;
+    margin: 3em 0.3em 0.3em 0.3em;
+    color: white; }
+  #projects h5 {
+    font-size: 18px; }
+  #projects h6 {
+    font-size: 16px; }
+  #projects p {
+    font-size: 13.5px; }
+    #projects p span {
+      color: transparent; }
+  #projects h5, #projects h6, #projects p {
+    color: white;
+    margin: 0.3em; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      #projects h5, #projects h6, #projects p {
+        font-size: 200%; } }
+  #projects .prj-title {
+    text-align: center; }
+  #projects .project {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    line-height: normal;
+    text-align: left; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      #projects .project {
+        width: 400px;
+        height: 400px;
+        margin-bottom: 150px; } }
+    #projects .project .front {
+      cursor: pointer; }
+    #projects .project .back {
+      background-color: rgba(88, 88, 88, 0.5); }
+      #projects .project .back a {
+        color: #D4B92B; }
+        #projects .project .back a:hover {
+          color: #B42929;
+          -webkit-transition: color 0.25s;
+          -o-transition: color 0.25s;
+          -moz-transition: color 0.25s;
+          transition: color 0.25s; }
+    #projects .project .prj {
+      width: 200px;
+      height: 200px; }
+      @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+        #projects .project .prj {
+          width: 400px;
+          height: 400px; } }
+      #projects .project .prj:hover {
+        opacity: 0.75;
+        -webkit-transition: opacity 0.25s;
+        -o-transition: opacity 0.25s;
+        -moz-transition: opacity 0.25s;
+        transition: opacity 0.25s; }
+    #projects .project .flipper {
+      position: absolute;
+      height: 25px;
+      width: 25px;
+      bottom: 3px;
+      right: 3px;
+      z-index: 9001;
+      opacity: 0.5;
+      cursor: pointer; }
+      @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+        #projects .project .flipper {
+          height: 50px;
+          width: 50px; } }
+      #projects .project .flipper:hover + div .prj {
+        opacity: 0.75;
+        -webkit-transition: opacity 0.25s;
+        -o-transition: opacity 0.25s;
+        -moz-transition: opacity 0.25s;
+        transition: opacity 0.25s; }
+
+/* ~~~~~~~~ Interests section ~~~~~~~~ */
+#interests {
+  background-color: #D2D8E1;
+  background-image: url("../img/bkgrds/bkgrd-tile.png");
+  background-repeat: repeat; }
+  #interests .int-desc {
+    font-size: 15px;
+    margin: auto 0 2.5em 0; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait), only screen and (max-width: 720px) {
+      #interests .int-desc {
+        margin: 1em; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+      #interests .int-desc {
+        font-size: 1.5em;
+        margin: 1em; } }
+  #interests h5 {
+    font-family: "Sorts Mill Goudy", serif;
+    text-align: left;
+    font-size: 32px;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em; }
+    @media only screen and (max-width: 720px) {
+      #interests h5 {
+        margin: 0.5em; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      #interests h5 {
+        margin: 1em; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+      #interests h5 {
+        font-size: 2.5em;
+        margin: 1em; } }
+  #interests a {
+    color: #0736F8;
+    -webkit-transition: color 0.25s;
+    -o-transition: color 0.25s;
+    -moz-transition: color 0.25s;
+    transition: color 0.25s; }
+    #interests a:hover, #interests a:active {
+      color: #D4B92B; }
+
+#cars2 {
+  text-align: center; }
+  #cars2 h4, #cars2 h6 {
+    text-align: center; }
+  #cars2 h4 {
+    font-size: 28px;
+    margin: 1em auto 0.5em auto; }
+  #cars2 h6 {
+    font-family: 'Montserrat', 'Verdana', sans-serif;
+    font-size: 18px;
+    margin: 0 auto; }
+  #cars2 .car-title {
+    width: 100%;
+    position: relative; }
+    #cars2 .car-title > img {
+      position: absolute;
+      left: 0;
+      top: 0; }
+  #cars2 .car-specs {
+    text-align: center;
+    width: 100%; }
+    #cars2 .car-specs > div:not(:last-of-type) {
+      margin: 0 1em; }
+    #cars2 .car-specs .car-asp, #cars2 .car-specs .car-engine {
+      height: 120px;
+      width: auto;
+      display: inline-block;
+      text-align: center; }
+      #cars2 .car-specs .car-asp img, #cars2 .car-specs .car-engine img {
+        height: 120px;
+        width: auto; }
+    #cars2 .car-specs .car-graphs {
+      width: 410px;
+      display: inline; }
+      #cars2 .car-specs .car-graphs > div {
+        display: inline-block;
+        margin: 0 1em; }
+  #cars2 .car-desc {
+    width: 80%;
+    text-align: left;
+    margin: 0 auto; }
+    #cars2 .car-desc p {
+      font-size: 14px;
+      margin-top: 1.5em; }
+      @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+        #cars2 .car-desc p {
+          font-size: 75%;
+          margin-left: 0;
+          margin-right: 0; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+        #cars2 .car-desc p {
+          font-size: 140%;
+          margin-left: 0;
+          margin-right: 0; } }
+
+.slideshow {
+  margin: 0 auto; }
+  .slideshow .slick-current img:hover {
+    opacity: 0.8 !important; }
+  .slideshow div img {
+    margin: 0 auto;
+    cursor: pointer;
+    height: 50vh; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      .slideshow div img {
+        height: 30vh; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+      .slideshow div img {
+        height: 60vh; } }
+    .slideshow div img:focus {
+      outline: none; }
+  .slideshow div .extern {
+    height: 1em;
+    margin: 0 0 0 0.25em;
+    display: inline; }
+  .slideshow div p {
+    font-size: 14px; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      .slideshow div p {
+        font-size: 200%;
+        margin-left: 0;
+        margin-right: 0; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+      .slideshow div p {
+        font-size: 175%;
+        margin-left: 0;
+        margin-right: 0; } }
+  .slideshow div:focus {
+    outline: none; }
+  @media only screen and (min-width: 1000px) {
+    .slideshow .slick-prev {
+      left: -72px; } }
+  @media only screen and (min-width: 721px) and (max-width: 999px) {
+    .slideshow .slick-prev {
+      left: -62px; } }
+  @media only screen and (max-width: 720px) {
+    .slideshow .slick-prev {
+      left: -52px; } }
+  @media only screen and (min-width: 1000px) {
+    .slideshow .slick-next {
+      right: -72px; } }
+  @media only screen and (min-width: 721px) and (max-width: 999px) {
+    .slideshow .slick-next {
+      right: -62px; } }
+  @media only screen and (max-width: 720px) {
+    .slideshow .slick-next {
+      right: -52px; } }
+  .slideshow .slick-arrow {
+    position: absolute;
+    top: 25vh;
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    opacity: 0.6;
+    z-index: 3000;
+    cursor: pointer; }
+    .slideshow .slick-arrow:hover, .slideshow .slick-arrow:active {
+      opacity: 1.0; }
+    @media only screen and (min-width: 721px) and (max-width: 999px) {
+      .slideshow .slick-arrow {
+        height: 56px;
+        width: 56px; } }
+    @media only screen and (max-width: 720px) {
+      .slideshow .slick-arrow {
+        height: 48px;
+        width: 48px; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      .slideshow .slick-arrow {
+        top: 15vh; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+      .slideshow .slick-arrow {
+        top: 30vh; } }
+
+.thumbnails {
+  display: none;
+  height: 100px;
+  margin: 0 auto; }
+  .thumbnails div {
+    margin: 0;
+    padding: 0; }
+    .thumbnails div img {
+      cursor: pointer;
+      margin-left: auto;
+      margin-right: auto;
+      height: 70px;
+      width: 70px; }
+    .thumbnails div:focus {
+      outline: none; }
+  .thumbnails .slick-slide {
+    -webkit-transition: all 0.25s;
+    -o-transition: all 0.25s;
+    -moz-transition: all 0.25s;
+    transition: all 0.25s; }
+    .thumbnails .slick-slide:not(.slick-current) {
+      -webkit-filter: grayscale(100%);
+      -o-filter: grayscale(100%);
+      -moz-filter: grayscale(100%);
+      filter: grayscale(100%);
+      opacity: 0.5; }
+      .thumbnails .slick-slide:not(.slick-current):hover, .thumbnails .slick-slide:not(.slick-current):active {
+        opacity: 1.0; }
+
+.slick-slider {
+  width: 80%; }
+
+/* ~~~~~~~~ Contact form ~~~~~~~~ */
+#contact {
+  background-color: black;
+  background-image: url("../img/bkgrds/pitt-skyline.png");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 90%;
+  min-height: calc(100vh - 50px); }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+    #contact {
+      padding: 0 0 8em 0; } }
+  #contact.lights {
+    background-image: url("../img/bkgrds/pitt-skyline-lights.png"); }
+  #contact h2 {
+    color: #D4B92B; }
+    @media only screen and (max-width: 720px) {
+      #contact h2 {
+        height: 123px;
+        line-height: 123px;
+        background-image: url("../img/bkgrds/logo-small.png");
+        background-repeat: no-repeat;
+        background-position: 95% center; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+      #contact h2 {
+        height: 2em;
+        line-height: 2em;
+        background-image: url("../img/bkgrds/logo-small.png");
+        background-repeat: no-repeat;
+        background-position: 95% center; } }
+  #contact > div {
+    padding-top: 30px;
+    color: white; }
+    #contact > div form {
+      padding-bottom: 1.5em; }
+      @media only screen and (min-width: 721px) {
+        #contact > div form {
+          display: inline-block;
+          width: 65%; } }
+      @media only screen and (max-width: 720px), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+        #contact > div form {
+          display: block;
+          width: 95%;
+          margin: 0 auto; } }
+      @media only screen and (min-width: 721px) {
+        #contact > div form section {
+          width: 48%; }
+          #contact > div form section:first-of-type {
+            float: left; }
+          #contact > div form section:last-of-type {
+            float: right; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+        #contact > div form section {
+          width: 100%;
+          float: none; } }
+      #contact > div form label {
+        font-size: 15px;
+        margin: 0;
+        padding: 0;
+        font-weight: bold; }
+        @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+          #contact > div form label {
+            font-size: 300%; } }
+        @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+          #contact > div form label {
+            font-size: 200%; } }
+      #contact > div form input, #contact > div form textarea {
+        display: block;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        border-radius: 4px;
+        border: 1px solid #707070;
+        width: 100%;
+        margin: 0.33em auto 1em 0;
+        font-family: 'Montserrat', 'Verdana', sans-serif;
+        font-size: 15px;
+        opacity: 0.9;
+        outline: none; }
+        @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+          #contact > div form input, #contact > div form textarea {
+            padding: 0.1em;
+            margin-left: -0.05em; } }
+      #contact > div form input {
+        padding: 3px; }
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) and (orientation: portrait) {
+          #contact > div form input {
+            font-size: 3em !important; } }
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) and (orientation: landscape) {
+          #contact > div form input {
+            font-size: 2em !important; } }
+        @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+          #contact > div form input {
+            font-size: 300%; } }
+        @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+          #contact > div form input {
+            font-size: 200%; } }
+      #contact > div form textarea {
+        height: 8em;
+        padding: 0 3px;
+        resize: none; }
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) and (orientation: portrait) {
+          #contact > div form textarea {
+            font-size: 3em !important; } }
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) and (orientation: landscape) {
+          #contact > div form textarea {
+            font-size: 2em !important; } }
+        @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+          #contact > div form textarea {
+            font-size: 100%;
+            height: 10em; } }
+        @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+          #contact > div form textarea {
+            font-size: 100%;
+            height: 10em; } }
+      #contact > div form input[type=text]:focus, #contact > div form input[type=email]:focus, #contact > div form textarea:focus {
+        background-color: #DDDDDD;
+        outline: none; }
+      #contact > div form h5 {
+        font-size: 15px;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 0.33em; }
+        @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+          #contact > div form h5 {
+            font-size: 300%; } }
+        @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+          #contact > div form h5 {
+            font-size: 200%; } }
+      #contact > div form input[type=submit] {
+        float: right;
+        width: 5em;
+        background-color: #E34234;
+        color: white;
+        border: none;
+        margin: 0; }
+        @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+          #contact > div form input[type=submit] {
+            width: 30%;
+            padding: 0.5em;
+            position: relative;
+            z-index: 9001; } }
+        @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+          #contact > div form input[type=submit] {
+            width: 30%;
+            padding: 1em;
+            position: relative;
+            z-index: 9001; } }
+        #contact > div form input[type=submit]:hover, #contact > div form input[type=submit]:active {
+          background-color: #CC0000; }
+    #contact > div img {
+      float: right;
+      margin-top: 2em;
+      width: 23%; }
+      @media only screen and (max-width: 720px), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+        #contact > div img {
+          width: 0; } }
+
+#recaptcha {
+  padding-bottom: 1em;
+  opacity: 0.9; }
+  @media only screen and (min-width: 721px) {
+    #recaptcha {
+      -webkit-transform: scale(0.8);
+      -ms-transform: scale(0.8);
+      -moz-transform: scale(0.8);
+      -o-transform: scale(0.8);
+      transform: scale(0.8);
+      -webkit-transform-origin: 0 0;
+      -ms-transform-origin: 0 0;
+      -moz-transform-origin: 0 0;
+      -o-transform-origin: 0 0;
+      transform-origin: 0 0; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+    #recaptcha {
+      -webkit-transform: scale(1.4);
+      -ms-transform: scale(1.4);
+      -moz-transform: scale(1.4);
+      -o-transform: scale(1.4);
+      transform: scale(1.4);
+      -webkit-transform-origin: 0 0;
+      -ms-transform-origin: 0 0;
+      -moz-transform-origin: 0 0;
+      -o-transform-origin: 0 0;
+      transform-origin: 0 0;
+      overflow-x: hidden; }
+      #recaptcha label {
+        font-size: 125%; } }
+
+/* ~~~~~~~~ Message sent popup ~~~~~~~~ */
+#message-sent {
+  display: none;
+  height: 100%; }
+  #message-sent div {
+    max-width: 35vw;
+    max-height: 50vw;
+    margin: 0 auto;
+    padding: 0.5em;
+    background-color: white;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape), only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+      #message-sent div {
+        max-width: 70vw; } }
+  #message-sent h3 {
+    font-size: 18px;
+    font-weight: normal;
+    color: black; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      #message-sent h3 {
+        font-size: 300%;
+        margin: 0.5em; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape), only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+      #message-sent h3 {
+        font-size: 200%;
+        margin: 0.5em; } }
+  #message-sent button {
+    display: block;
+    margin: 0 auto 1em auto;
+    background-color: #E85F11;
+    color: white; }
+    #message-sent button:hover, #message-sent button:active {
+      background-color: #E89C11; }
+    @media only screen and (max-width: 720px) {
+      #message-sent button:focus {
+        background-color: #E89C11; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      #message-sent button {
+        font-size: 300%; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape), only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+      #message-sent button {
+        font-size: 200%; } }
+
+/* ~~~~~~~~ Footer ~~~~~~~~ */
+#footer {
+  bottom: 0;
+  height: 50px;
+  line-height: 50px;
+  background-color: #67613C;
+  font-size: 15px;
+  color: white;
+  font-weight: normal;
+  margin: 0;
+  padding-left: 1em;
+  z-index: 1000; }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+    #footer {
+      font-size: 165%;
+      height: 3em;
+      line-height: 3em; } }
+  #footer span {
+    float: left; }
+  #footer a {
+    cursor: pointer; }
+    #footer a:first-of-type {
+      margin-left: 1em; }
+    #footer a:not(:last-of-type) {
+      display: block;
+      float: left;
+      width: 28px;
+      height: 28px; }
+      @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+        #footer a:not(:last-of-type) {
+          width: 1.5em;
+          height: 1.5em; } }
+      #footer a:not(:last-of-type) img {
+        vertical-align: middle; }
+        @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+          #footer a:not(:last-of-type) img {
+            width: 1.5em;
+            height: auto; } }
+      #footer a:not(:last-of-type):hover:first-of-type img, #footer a:not(:last-of-type):active:first-of-type img {
+        content: url("../img/icons/github-color-28px.png"); }
+      #footer a:not(:last-of-type):hover:nth-of-type(2) img, #footer a:not(:last-of-type):active:nth-of-type(2) img {
+        content: url("../img/icons/linkedin-color-28px.png"); }
+      #footer a:not(:last-of-type):hover:nth-of-type(3) img, #footer a:not(:last-of-type):active:nth-of-type(3) img {
+        content: url("../img/icons/flickr-color-28px.png"); }
+      #footer a:not(:last-of-type):hover:nth-of-type(4) img, #footer a:not(:last-of-type):active:nth-of-type(4) img {
+        content: url("../img/icons/youtube-color-28px.png"); }
+      #footer a:not(:last-of-type):hover:nth-of-type(5) img, #footer a:not(:last-of-type):active:nth-of-type(5) img {
+        content: url("../img/icons/bsod-color-28px.png"); }
+      #footer a:not(:last-of-type):hover:nth-of-type(6) img, #footer a:not(:last-of-type):active:nth-of-type(6) img {
+        content: url("../img/icons/lightbulb-color-28px.png"); }
+    #footer a:last-of-type {
+      background-image: url("../img/icons/info-icon-48px.png");
+      background-position: left center;
+      background-repeat: no-repeat;
+      background-size: 1.2em;
+      color: white;
+      padding-right: 1.5em;
+      padding-left: 1.5em;
+      -webkit-transition: color 0.25s;
+      -o-transition: color 0.25s;
+      -moz-transition: color 0.25s;
+      transition: color 0.25s;
+      float: right; }
+      #footer a:last-of-type:hover, #footer a:last-of-type:active {
+        color: #0C1155; }
+
+/* ~~~~~~~~ Site info popup ~~~~~~~~ */
+#site-info {
+  height: 100%;
+  width: 100%; }
+  #site-info > p {
+    text-align: right;
+    color: white;
+    margin-right: 20px;
+    font-size: 12px; }
+  #site-info div {
+    max-width: 80vw;
+    max-height: 80vh;
+    margin: 0 auto;
+    padding: 0.5em;
+    background-color: #014225;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); }
+    #site-info div h1 {
+      font-size: 25px;
+      color: white; }
+    #site-info div p {
+      font-size: 15px;
+      color: #CCCCCC;
+      text-align: left; }
+      @media only screen and (max-width: 720px) {
+        #site-info div p {
+          font-size: 13px; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+        #site-info div p {
+          font-size: 100%; } }
+      @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+        #site-info div p {
+          font-size: 55%; } }
+
+/* ~~~~~~~~ Cookie TOC ~~~~~~~~ */
+#cookie-terms {
+  position: fixed;
+  bottom: 0;
+  padding-bottom: 1em;
+  background-color: white;
+  border-top: 5px solid #B42929;
+  z-index: 9001; }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+    #cookie-terms {
+      border-top: 1em solid #B42929; } }
+  #cookie-terms p {
+    font-size: 15px;
+    margin-bottom: 1em; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      #cookie-terms p {
+        font-size: 200%; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+      #cookie-terms p {
+        font-size: 1.5em; } }
+
+#accept-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #00A86B;
+  color: white; }
+  #accept-button:hover, #accept-button:active {
+    background-color: #014225; }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+    #accept-button {
+      font-size: 200%; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+    #accept-button {
+      font-size: 1.5em; } }
+
+/* ~~~~~~~~ Common elements ~~~~~~~~ */
+#lightbox {
+  height: 100%;
+  width: 100%; }
+  #lightbox p {
+    text-align: right;
+    color: white;
+    margin-right: 20px;
+    font-size: 12px; }
+  #lightbox div {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); }
+  #lightbox img {
+    max-width: 85vw;
+    max-height: 85vh; }
+
+#mobile-menu {
+  display: none; }
+
+.rotated {
+  -webkit-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  transform-origin: 50% 50%; }
+
+h2 {
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center; }
+
+.container {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 30px 0; }
+
+.content {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto; }
+  @media only screen and (min-width: 721px) and (max-width: 999px) {
+    .content {
+      width: 80%; } }
+  @media only screen and (max-width: 720px), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+    .content {
+      width: 100%; }
+      .content h2 {
+        font-size: 500%; } }
+
+.button {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  border: none;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  -webkit-transition: background-color 0.25s;
+  -o-transition: background-color 0.25s;
+  -moz-transition: background-color 0.25s;
+  transition: background-color 0.25s; }
+  .button:focus {
+    outline: 0; }
+
+.underlay-dim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  z-index: 9002; }
+
+#n {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 314159265; }
+  #n img {
+    position: fixed;
+    top: 0;
+    right: 0;
+    cursor: pointer; }
+    #n img:hover {
+      opacity: 0.7; }
+  #n embed {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); }
+
+#wankel {
+  height: 100%;
+  width: 100%; }
+  #wankel > div {
+    text-align: center;
+    margin-top: calc(45vh - (15vw * (500 / 776))); }
+    @media only screen and (min-width: 721px) and (max-width: 999px) {
+      #wankel > div {
+        margin-top: calc(45vh - (20vw * (500 / 776))); } }
+    @media only screen and (max-width: 720px), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+      #wankel > div {
+        margin-top: calc(45vh - (30vw * (500 / 776))); } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      #wankel > div {
+        margin-top: calc(45vh - (40vw * (500 / 776))); } }
+  #wankel h5 {
+    color: white;
+    font-size: 30px;
+    margin: 1em auto 0 auto; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+      #wankel h5 {
+        font-size: 400%; } }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+      #wankel h5 {
+        font-size: 200%; } }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+      #wankel h5 {
+        font-size: 300%; } }
+    #wankel h5::after, #wankel h5::before {
+      overflow: hidden;
+      display: inline-block;
+      vertical-align: bottom;
+      animation: ellipsis steps(4, end) 2s infinite;
+      content: "...";
+      width: 0; }
+@keyframes ellipsis {
+  to {
+    width: 1.25em; } }
+    #wankel h5::before {
+      color: transparent; }
+
+.rotor {
+  width: 15vw;
+  height: auto; }
+  @media only screen and (min-width: 721px) and (max-width: 999px) {
+    .rotor {
+      width: 20vw; } }
+  @media only screen and (max-width: 720px), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: landscape) {
+    .rotor {
+      width: 30vw; } }
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (orientation: portrait) {
+    .rotor {
+      width: 40vw; } }
+
+.extern {
+  height: 1em;
+  margin: 0 0 0 0.25em; }
+
+.extern-flickr {
+  background-image: url("../img/icons/new_window_b.svg");
+  background-position: 95% 0%;
+  background-repeat: no-repeat;
+  background-size: 35px 35px; }
+
+/*# sourceMappingURL=index-not-desktop.css.map */
