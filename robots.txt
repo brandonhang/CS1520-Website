@@ -1,0 +1,14 @@
+User-agent: *
+Disallow: /cards/
+Disallow: /img/
+Disallow: /js/
+Disallow: /misc/
+Disallow: /php/
+Disallow: /PHPMailer-master/
+Disallow: /slick/
+Disallow: /style/
+Disallow: /tt2.php
+Disallow: /error_log
+Disallow: /concert.php
+Disallow: /404.php
+Disallow: /500.php
